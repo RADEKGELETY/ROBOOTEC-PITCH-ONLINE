@@ -997,7 +997,7 @@ const initialHash = location.hash;
 let allowHashSync = false;
 function setHash(i){
   if(!allowHashSync) return;
-  if(sections[i]) history.replaceState(null,'','#slide-'+(i+1));
+  if(sections[i]) history.replaceState(null,'',location.pathname+location.search+'#slide-'+(i+1));
 }
 function goTo(i, updateHash=true){
   i=Math.max(0,Math.min(sections.length-1,i));
@@ -1036,14 +1036,31 @@ window.addEventListener('keydown',(e)=>{
 const metaEl = document.getElementById('meta');
 const hintText = document.getElementById('hinttext');
 const langBtns = Array.from(document.querySelectorAll('#lang button'));
+const LANG_KEY = 'roobotecLang';
+const validLang = lang => lang === 'en' || lang === 'cz';
+const storedLang = () => { try { return localStorage.getItem(LANG_KEY); } catch(e) { return null; } };
+const rememberLang = lang => { try { localStorage.setItem(LANG_KEY, lang); } catch(e) {} };
+function initialLang(){
+  const param = new URLSearchParams(location.search).get('lang');
+  const stored = storedLang();
+  return validLang(param) ? param : (validLang(stored) ? stored : 'en');
+}
+const homeMark = document.querySelector('.brandbar .mark');
+function updateHomeLink(lang){
+  if(homeMark) homeMark.href = './index.html?lang=' + lang;
+}
 function setLang(lang){
+  lang = validLang(lang) ? lang : 'en';
   nodes.forEach(n=>{ n.el.innerHTML = n[lang] != null ? n[lang] : n.en; });
   metaEl.innerHTML = M.meta[lang] || M.meta.en;
   hintText.innerHTML = M.hint[lang] || M.hint.en;
   document.documentElement.lang = (lang==='cz') ? 'cs' : lang;
+  rememberLang(lang);
+  updateHomeLink(lang);
   langBtns.forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
 }
 langBtns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+setLang(initialLang());
 
 window.addEventListener('load',()=>{
   const m = initialHash.match(/^#slide-(\d+)$/);

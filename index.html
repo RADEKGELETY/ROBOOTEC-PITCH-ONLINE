@@ -27,7 +27,7 @@
   }
 
   .brandbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 40px}
-  .brandbar .mark{font-weight:600;letter-spacing:-.02em;font-size:1rem;display:flex;align-items:center;gap:9px}
+  .brandbar .mark{font-weight:600;letter-spacing:-.02em;font-size:1rem;display:flex;align-items:center;gap:9px;cursor:pointer}
   .dot-mark{width:9px;height:9px;border-radius:50%;background:var(--gold)}
   .nav-logo{height:24px;width:auto;display:block}
   .nav-logo-icon{height:22px;width:auto;display:block}
@@ -117,16 +117,51 @@
   };
   const $=id=>document.getElementById(id);
   const langBtns=Array.from(document.querySelectorAll('#lang button'));
+  const LANG_KEY='roobotecLang';
+  const validLang=l=>l==='en'||l==='cz';
+  const storedLang=()=>{try{return localStorage.getItem(LANG_KEY);}catch(e){return null;}};
+  const rememberLang=l=>{try{localStorage.setItem(LANG_KEY,l);}catch(e){}};
+  function initialLang(){
+    const param=new URLSearchParams(location.search).get('lang');
+    const stored=storedLang();
+    return validLang(param)?param:(validLang(stored)?stored:'en');
+  }
+  const deckLinks=[
+    {el:document.querySelector('.cta a[href*="roobotec-ai-pitch"]'), path:'./roobotec-ai-pitch.html'},
+    {el:document.querySelector('.cta a[href*="roobotec-ai-qa"]'), path:'./roobotec-ai-qa.html'},
+    {el:document.querySelector('.cta a[href*="roobotec-ai-poc"]'), path:'./roobotec-ai-poc.html'}
+  ];
+  const brandMark=document.querySelector('.brandbar .mark');
+  function updateDeckLinks(l){
+    deckLinks.forEach(link=>{if(link.el) link.el.href=link.path+'?lang='+l;});
+  }
+  function updateHomeLink(l){
+    if(!brandMark) return;
+    brandMark.dataset.href='./index.html?lang='+l;
+    brandMark.setAttribute('role','link');
+    brandMark.setAttribute('tabindex','0');
+  }
   function setLang(l){
+    l=validLang(l)?l:'en';
     $('meta').innerHTML=T.meta[l]; $('tagline').innerHTML=T.tagline[l];
     $('claim').innerHTML=T.claim[l]; $('btnPitch').textContent=T.btnPitch[l];
     $('btnQa').textContent=T.btnQa[l];
     $('btnPoc').textContent=T.btnPoc[l];
     $('foot').textContent=T.foot[l];
     document.documentElement.lang = l==='cz'?'cs':'en';
+    rememberLang(l);
+    updateDeckLinks(l);
+    updateHomeLink(l);
     langBtns.forEach(b=>b.classList.toggle('active', b.dataset.lang===l));
   }
   langBtns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+  if(brandMark){
+    brandMark.addEventListener('click',()=>{location.href=brandMark.dataset.href||'./index.html';});
+    brandMark.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();location.href=brandMark.dataset.href||'./index.html';}
+    });
+  }
+  setLang(initialLang());
 </script>
 </body>
 </html>

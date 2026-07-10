@@ -133,7 +133,8 @@
   }
   .brandbar .mark{
     font-weight:600;letter-spacing:-.02em;font-size:1rem;
-    display:flex;align-items:center;gap:9px;
+    display:flex;align-items:center;gap:9px;pointer-events:auto;
+    text-decoration:none;color:var(--ink);cursor:pointer;
   }
   .dot-mark{width:9px;height:9px;border-radius:50%;background:var(--gold)}
   .nav-logo{height:24px;width:auto;display:block}
@@ -1110,18 +1111,47 @@
   const i18nEls = Array.from(document.querySelectorAll('[data-i18n]'));
   i18nEls.forEach(el => { el._en = el.innerHTML; });   // capture English source (default)
   const langBtns = Array.from(document.querySelectorAll('#lang button'));
+  const LANG_KEY = 'roobotecLang';
+  const validLang = lang => lang === 'en' || lang === 'cz';
+  const storedLang = () => { try { return localStorage.getItem(LANG_KEY); } catch(e) { return null; } };
+  const rememberLang = lang => { try { localStorage.setItem(LANG_KEY, lang); } catch(e) {} };
+  function initialLang(){
+    const param = new URLSearchParams(location.search).get('lang');
+    const stored = storedLang();
+    return validLang(param) ? param : (validLang(stored) ? stored : 'en');
+  }
+  const homeMark = document.querySelector('.brandbar .mark');
+  function updateHomeLink(lang){
+    if(!homeMark) return;
+    const href = './index.html?lang=' + lang;
+    if(homeMark.tagName === 'A') homeMark.href = href;
+    else {
+      homeMark.dataset.href = href;
+      homeMark.setAttribute('role', 'link');
+      homeMark.setAttribute('tabindex', '0');
+    }
+  }
 
   function setLang(lang){
+    lang = validLang(lang) ? lang : 'en';
     const dict = i18n[lang];
     i18nEls.forEach(el=>{
       const key = el.getAttribute('data-i18n');
       el.innerHTML = (dict && dict[key] != null) ? dict[key] : el._en;
     });
     document.documentElement.lang = (lang === 'cz') ? 'cs' : lang;
+    rememberLang(lang);
+    updateHomeLink(lang);
     langBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   }
   langBtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
-  /* English is default — no swap needed on load */
+  if(homeMark && homeMark.tagName !== 'A'){
+    homeMark.addEventListener('click', () => { location.href = homeMark.dataset.href || './index.html'; });
+    homeMark.addEventListener('keydown', e => {
+      if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); location.href = homeMark.dataset.href || './index.html'; }
+    });
+  }
+  setLang(initialLang());
 
   /* build dot nav */
   sections.forEach((s,i)=>{
@@ -1138,7 +1168,7 @@
   let allowHashSync = false;
   function setHash(i){
     if(!allowHashSync) return;
-    if(sections[i]?.id) history.replaceState(null,'','#'+sections[i].id);
+    if(sections[i]?.id) history.replaceState(null,'',location.pathname+location.search+'#'+sections[i].id);
   }
   function goTo(i, updateHash=true){
     i=Math.max(0,Math.min(sections.length-1,i));
