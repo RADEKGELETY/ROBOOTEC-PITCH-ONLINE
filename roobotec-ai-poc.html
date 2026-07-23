@@ -176,12 +176,23 @@
   .stat-hero .sc{border:1px solid var(--gray-line);border-radius:14px;padding:16px 12px;text-align:center}
   .stat-hero .sv{font-family:var(--font-mono);font-size:clamp(1.42rem,2.55vw,2.05rem);font-weight:700;letter-spacing:0;color:var(--gold)}
   .stat-hero .sl{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);text-transform:uppercase;letter-spacing:0;margin-top:5px;line-height:1.25}
+  .web-results-card{max-width:1120px;margin:20px auto 0;border:1px solid var(--gray-line);border-radius:18px;padding:22px 26px;background:linear-gradient(180deg,#fff,#fbfcff);text-align:left;box-shadow:0 28px 70px -54px rgba(76,99,255,.36)}
+  .web-results-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:20px}
+  .web-results-title{font-weight:800;font-size:1.02rem}
+  .demo-badge{font-family:var(--font-mono);font-size:.64rem;color:#a2aabd;border:1px solid var(--gray-line);border-radius:5px;padding:4px 8px;text-transform:uppercase;font-weight:600}
+  .web-results-chart{display:block;width:100%;height:auto;max-height:300px}
+  .chart-grid-line{stroke:#e8ebf0;stroke-width:1}
+  .spy-line{stroke:#aeb6c5;stroke-width:3;stroke-dasharray:7 7;fill:none}
+  .blue-line,.purple-line,.green-line{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+  .blue-line{stroke:#4c63ff}.purple-line{stroke:#b12aca}.green-line{stroke:#4aaf84}
+  .blue-fill{fill:url(#pocBlueArea);opacity:.72}.purple-fill{fill:url(#pocPurpleArea);opacity:.68}.green-fill{fill:url(#pocGreenArea);opacity:.7}
+  .metric-up{color:#4aaf84}.metric-down{color:#ef4444}.metric-blue{color:#4c63ff}.metric-purple{color:#b12aca}
 
   .top3{margin-top:22px;max-width:1000px;margin-left:auto;margin-right:auto}
   .top3-title{font-family:var(--font-mono);font-size:.76rem;letter-spacing:0;text-transform:uppercase;font-weight:600;color:var(--gray);margin-bottom:12px}
   .top3-table{width:100%;border-collapse:collapse}
-  .top3-table th{font-family:var(--font-mono);font-size:.68rem;letter-spacing:0;text-transform:uppercase;color:var(--gray);text-align:left;padding:0 14px 8px;font-weight:600}
-  .top3-table td{padding:10px 14px;border-top:1px solid var(--gray-line);font-size:.94rem}
+  .top3-table th{font-family:var(--font-mono);font-size:.66rem;letter-spacing:0;text-transform:uppercase;color:var(--gray);text-align:left;padding:0 12px 8px;font-weight:600}
+  .top3-table td{padding:10px 12px;border-top:1px solid var(--gray-line);font-size:.9rem}
   .top3-table tr:first-child td{border-top:none}
   .top3-table .rank{font-family:var(--font-mono);font-weight:700;color:var(--gold);width:34px}
   .top3-table .name{font-weight:500;color:var(--ink)}
@@ -497,7 +508,7 @@ const SLIDES = [
     {en:'Max drawdown', cz:'maximální drawdown'},
     {en:'Number of trades', cz:'počet obchodů'}
   ],
-  note:{en:'6,673 historical backtests completed to date.', cz:'K dnešnímu dni dokončeno 6 673 historických backtestů.'} },
+  note:{en:'12,595 backtests are presented in the current web dataset.', cz:'V aktuální webové datové sadě prezentujeme 12 595 backtestů.'} },
 
 /* 8B — FORWARD VALIDATION */
 { type:'feat', label:{en:'Forward Validation',cz:'Forward validace'}, shot:'VALIDATION',
@@ -511,10 +522,10 @@ const SLIDES = [
     {en:'Multiple capital levels', cz:'více úrovní kapitálu'},
     {en:'Running since (duration)', cz:'aktivní od (doba běhu)'},
     {en:'Trades &amp; signal count', cz:'počet obchodů a signálů'},
-    {en:'7,161 paper trades logged', cz:'7 161 zaznamenaných paper trades'}
+    {en:'Paper trading result: +28.4% vs. SPY +20.9%', cz:'Paper trading výsledek: +28,4 % vs. SPY +20,9 %'}
   ],
-  note:{en:'117 forward validations completed \u2014 some running live for over 3 years. Only strategies that prove stable long-term are promoted to production.',
-        cz:'Dokončeno 117 forward validací \u2014 některé běží naživo přes 3 roky. Do produkce postupují pouze strategie, které dlouhodobě prokážou stabilitu.'} },
+  note:{en:'Live signals are shown as a separate validation layer: +63.3% vs. SPY +20.9% in the demo period.',
+        cz:'Live signály prezentujeme jako samostatnou validační vrstvu: +63,3 % vs. SPY +20,9 % v demo období.'} },
 
 /* 9 — VIBE TRADING */
 { type:'vibe', label:{en:'Vibe Trading',cz:'Vibe Trading'}, shot:'VIBE_INTRO',
@@ -576,35 +587,34 @@ const SLIDES = [
 /* 12 — PROOF OF CONCEPT RESULTS (hero slide) */
 { type:'results', label:{en:'PoC Results',cz:'Výsledky PoC'},
   eyebrow:{en:'Proof of Concept results',cz:'Výsledky Proof of Concept'},
-  h2:{en:'The platform already creates, tests and validates trading strategies.',
-      cz:'Platforma již dnes vytváří, testuje a validuje obchodní strategie.'},
+  h2:{en:'Real results, not marketing numbers.',
+      cz:'Reálné výsledky, ne marketingová čísla.'},
   statsHead:{en:'Platform activity',cz:'Aktivita platformy'},
   stats:[
-    {v:'1,171', l:{en:'Strategies created', cz:'vytvořených strategií'}},
-    {v:'6,673', l:{en:'Historical backtests', cz:'historických backtestů'}},
-    {v:'117',   l:{en:'Forward validations', cz:'forward validací'}},
-    {v:'156,000+', l:{en:'Trading signals', cz:'obchodních signálů'}},
-    {v:'266',   l:{en:'Trading rules', cz:'obchodních pravidel'}},
-    {v:'13',    l:{en:'Instruments tracked', cz:'sledovaných instrumentů'}}
+    {v:'1 194', l:{en:'Strategies', cz:'strategií'}},
+    {v:'12 595', l:{en:'Backtests', cz:'backtestů'}},
+    {v:'1,57 mil.', l:{en:'Signals', cz:'signálů'}},
+    {v:'86', l:{en:'Tracked assets', cz:'sledovaných aktiv'}}
   ],
-  top3Head:{en:'Top backtested strategies',cz:'Nejlepší strategie'},
+  webChart:{title:{en:'Strategies vs. SPY',cz:'Strategie vs. SPY'}, badge:{en:'Demo results',cz:'Demo výsledky'}},
+  top3Head:{en:'Risk profiles shown on the website',cz:'Rizikové profily z webu'},
   top3:[
-    {rank:'#1', name:'Backtest TSLA', sub:{en:'2024-06-19 \u2013 2026-06-19', cz:'19. 6. 2024 \u2013 19. 6. 2026'}, ret:'+207.8%', wr:'62.3%', sharpe:'4.22'},
-    {rank:'#2', name:{en:'Matrix 39 \u2014 Regime skip Bear+HighVol [clean] + Breakout EMA21 H4', cz:'Matrix 39 \u2014 Regime skip Bear+HighVol [clean] + Breakout EMA21 H4'}, sub:{en:'TSLA', cz:'TSLA'}, ret:'+171.4%', wr:'64.1%', sharpe:'5.95'},
-    {rank:'#3', name:{en:'Matrix 40 \u2014 Regime skip Bear+HighVol [clean] + Breakout EMA21 H4', cz:'Matrix 40 \u2014 Regime skip Bear+HighVol [clean] + Breakout EMA21 H4'}, sub:{en:'TSLA', cz:'TSLA'}, ret:'+166.5%', wr:'59.8%', sharpe:'6.25'}
+    {rank:'01', name:{en:'Conservative', cz:'Konzervativní'}, sub:{en:'Lower risk profile', cz:'Nižší riziko'}, ret:'+36,8 %', wr:'55 %', dd:'-3,3 %', sharpe:'3,2', pf:'1,97'},
+    {rank:'02', name:{en:'Balanced', cz:'Vyvážená'}, sub:{en:'Medium risk profile', cz:'Střední riziko'}, ret:'+64,5 %', wr:'59 %', dd:'-4,7 %', sharpe:'3,3', pf:'1,98'},
+    {rank:'03', name:{en:'Dynamic', cz:'Dynamická'}, sub:{en:'Higher risk profile', cz:'Vyšší riziko'}, ret:'+132,4 %', wr:'58 %', dd:'-5,1 %', sharpe:'5,1', pf:'2,59'}
   ],
-  bestHead:{en:'Best forward-validated result',cz:'Nejlepší validovaný výsledek'},
-  bestSub:{en:'H2: EMA21 + VolSpike + Regime \u2014 TSLA \u2014 live forward validation, active since Jun 30, 2025',
-           cz:'H2: EMA21 + VolSpike + Regime \u2014 TSLA \u2014 živá forward validace, aktivní od 30. 6. 2025'},
+  bestHead:{en:'Comparison layer',cz:'Srovnávací vrstva'},
+  bestSub:{en:'The same decision logic is presented across backtest, paper trading and live signals, always against SPY.',
+           cz:'Stejná rozhodovací logika je prezentována přes backtest, paper trading a live signály, vždy proti SPY.'},
   best:[
-    {v:'+114.22%', l:{en:'Total return', cz:'Celkové zhodnocení'}, gold:true},
-    {v:'+$114,225', l:{en:'P&amp;L', cz:'Zisk'}},
-    {v:'229', l:{en:'Trades', cz:'Počet obchodů'}},
-    {v:'$100,000', l:{en:'Starting capital', cz:'Počáteční kapitál'}},
-    {v:'1.0y', l:{en:'Duration', cz:'Doba běhu'}}
+    {v:'+137,9 %', l:{en:'Backtest TOP 10', cz:'Backtest TOP 10'}, gold:true},
+    {v:'+28,4 %', l:{en:'Paper trading', cz:'Paper trading'}},
+    {v:'+63,3 %', l:{en:'Live signals', cz:'Live signály'}},
+    {v:'+20,9 %', l:{en:'SPY benchmark', cz:'Benchmark SPY'}},
+    {v:'06/25-06/26', l:{en:'Demo period', cz:'Demo období'}}
   ],
-  footnote:{en:'Only strategies that successfully pass both historical backtesting and forward validation are promoted to production strategies generating live trading signals. Past performance does not guarantee future results.',
-            cz:'Pouze strategie, které úspěšně projdou historickým backtestem i forward validací, jsou zařazeny mezi produkční strategie generující obchodní signály. Minulá výkonnost nezaručuje budoucí výsledky.'} },
+  footnote:{en:'Demo results for 06/2025-06/2026. Historical results are not a guarantee of future performance.',
+            cz:'Demo výsledky za období 06/2025-06/2026. Historické výsledky nejsou zárukou budoucích výnosů.'} },
 
 /* 13 — WHERE WE'RE HEADED */
 { type:'stepper', label:{en:'Where we\u2019re headed',cz:'Kam směřujeme'},
@@ -896,13 +906,42 @@ SLIDES.forEach((s, idx) => {
       c.append(v,l); statGrid.append(c);
     });
 
+    let webChart = null;
+    if(s.webChart){
+      webChart = document.createElement('div'); webChart.className='web-results-card reveal d3';
+      webChart.innerHTML = `
+        <div class="web-results-head">
+          <div class="web-results-title"></div>
+          <div class="demo-badge"></div>
+        </div>
+        <svg class="web-results-chart" viewBox="0 0 640 310" role="img" aria-label="Backtest, paper trading and live signals compared with SPY">
+          <defs>
+            <linearGradient id="pocBlueArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4C63FF" stop-opacity=".24"/><stop offset="100%" stop-color="#4C63FF" stop-opacity="0"/></linearGradient>
+            <linearGradient id="pocPurpleArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#B12ACA" stop-opacity=".2"/><stop offset="100%" stop-color="#B12ACA" stop-opacity="0"/></linearGradient>
+            <linearGradient id="pocGreenArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4AAF84" stop-opacity=".22"/><stop offset="100%" stop-color="#4AAF84" stop-opacity="0"/></linearGradient>
+          </defs>
+          <line class="chart-grid-line" x1="78" y1="36" x2="600" y2="36"/><line class="chart-grid-line" x1="78" y1="90" x2="600" y2="90"/><line class="chart-grid-line" x1="78" y1="144" x2="600" y2="144"/><line class="chart-grid-line" x1="78" y1="198" x2="600" y2="198"/><line class="chart-grid-line" x1="78" y1="252" x2="600" y2="252"/>
+          <text x="20" y="40" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+150 %</text><text x="26" y="94" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+111 %</text><text x="32" y="148" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+73 %</text><text x="32" y="202" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+34 %</text><text x="36" y="256" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">-5 %</text>
+          <path class="blue-fill" d="M84 246 L120 238 L156 220 L192 196 L228 168 L264 142 L300 120 L336 94 L372 84 L408 88 L444 76 L480 68 L516 54 L552 26 L584 18 L584 252 L84 252 Z"/>
+          <path class="green-fill" d="M84 224 L120 210 L156 186 L192 172 L228 150 L264 132 L300 118 L336 104 L372 118 L408 112 L444 134 L480 104 L516 72 L552 50 L584 62 L584 252 L84 252 Z"/>
+          <path class="purple-fill" d="M84 234 L120 210 L156 188 L192 162 L228 132 L264 116 L300 128 L336 140 L372 158 L408 178 L444 198 L480 124 L516 102 L552 112 L584 96 L584 252 L84 252 Z"/>
+          <path class="spy-line" d="M84 244 L120 226 L156 216 L192 206 L228 198 L264 188 L300 192 L336 182 L372 186 L408 188 L444 202 L480 168 L516 152 L552 158 L584 150"/>
+          <path class="purple-line" d="M84 234 L120 210 L156 188 L192 162 L228 132 L264 116 L300 128 L336 140 L372 158 L408 178 L444 198 L480 124 L516 102 L552 112 L584 96"/>
+          <path class="green-line" d="M84 224 L120 210 L156 186 L192 172 L228 150 L264 132 L300 118 L336 104 L372 118 L408 112 L444 134 L480 104 L516 72 L552 50 L584 62"/>
+          <path class="blue-line" d="M84 246 L120 238 L156 220 L192 196 L228 168 L264 142 L300 120 L336 94 L372 84 L408 88 L444 76 L480 68 L516 54 L552 26 L584 18"/>
+          <text x="530" y="24" fill="#4C63FF" font-size="14" font-weight="700" font-family="IBM Plex Mono">+137,9 %</text><text x="528" y="70" fill="#4AAF84" font-size="14" font-weight="700" font-family="IBM Plex Mono">+63,3 %</text><text x="528" y="104" fill="#B12ACA" font-size="14" font-weight="700" font-family="IBM Plex Mono">+28,4 %</text><text x="530" y="154" fill="#8C96AA" font-size="14" font-weight="700" font-family="IBM Plex Mono">+20,9 %</text>
+        </svg>`;
+      bind(webChart.querySelector('.web-results-title'), s.webChart.title);
+      bind(webChart.querySelector('.demo-badge'), s.webChart.badge);
+    }
+
     const top3 = document.createElement('div'); top3.className='top3 reveal d3'; top3.style.textAlign='left';
     top3.append(el('div','top3-title', s.top3Head));
     const table = document.createElement('table'); table.className='top3-table';
     const thead = document.createElement('thead');
     const trh = document.createElement('tr');
     const heads = [
-      {en:'',cz:''},{en:'Strategy',cz:'Strategie'},{en:'Return',cz:'Zhodnocení'},{en:'Win Rate',cz:'Win Rate'},{en:'Sharpe',cz:'Sharpe'}
+      {en:'',cz:''},{en:'Strategy',cz:'Strategie'},{en:'Return',cz:'Zhodnocení'},{en:'Win Rate',cz:'Win Rate'},{en:'Max DD',cz:'Max DD'},{en:'Sharpe',cz:'Sharpe'},{en:'PF',cz:'PF'}
     ];
     heads.forEach((hd,i)=>{ const th=document.createElement('th'); if(i>=2) th.style.textAlign='right'; bind(th,hd); trh.append(th); });
     thead.append(trh); table.append(thead);
@@ -915,8 +954,10 @@ SLIDES.forEach((s, idx) => {
       const sub = document.createElement('span'); sub.className='sub'; bind(sub,row.sub); tdName.append(sub);
       const tdRet = document.createElement('td'); tdRet.className='ret num'; tdRet.textContent = row.ret;
       const tdWr = document.createElement('td'); tdWr.className='num'; tdWr.textContent = row.wr;
+      const tdDd = document.createElement('td'); tdDd.className='num metric-down'; tdDd.textContent = row.dd || '';
       const tdSh = document.createElement('td'); tdSh.className='num'; tdSh.textContent = row.sharpe;
-      tr.append(tdRank, tdName, tdRet, tdWr, tdSh); tbody.append(tr);
+      const tdPf = document.createElement('td'); tdPf.className='num'; tdPf.textContent = row.pf || '';
+      tr.append(tdRank, tdName, tdRet, tdWr, tdDd, tdSh, tdPf); tbody.append(tr);
     });
     table.append(tbody); top3.append(table);
 
@@ -935,7 +976,9 @@ SLIDES.forEach((s, idx) => {
 
     const foot = el('p','poc-footnote reveal d4 center', s.footnote); foot.style.marginLeft='auto'; foot.style.marginRight='auto';
 
-    wrap.append(eb,h,statsHead,statGrid,top3,best,foot);
+    wrap.append(eb,h,statsHead,statGrid);
+    if(webChart) wrap.append(webChart);
+    wrap.append(top3,best,foot);
 
   } else if(s.type === 'stepper'){
     const eb = el('div','eyebrow reveal', s.eyebrow);
