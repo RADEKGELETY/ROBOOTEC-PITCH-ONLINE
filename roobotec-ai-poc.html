@@ -10,33 +10,62 @@
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
+  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-Latin.woff2?v=poc-system") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-LatinExt.woff2?v=poc-system") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
   :root{
-    --ink:#0a0a0a;--ink-soft:#1d1d1f;--gray:#86868b;--gray-line:#e8e8ea;
-    --gray-faint:#f5f5f7;--gold:#4C63FF;--gold-soft:#CDD3FF;--white:#ffffff;
-    --max:1160px;--font-sans:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --ink:#0a0a0a;--ink-soft:#1d1d1f;--deep-navy:#041534;
+    --gray:#86868b;--gray-line:#e8e8ea;--gray-faint:#f5f5f7;
+    --gold:#4C63FF;--gold-soft:#CDD3FF;--white:#ffffff;
+    --paper:#fafbfe;--color-paper:#fafbfe;--color-ink:#121826;--color-muted:#5f6677;
+    --color-line:#12182614;--color-line-strong:#12182624;
+    --purple:#7B4DFF;--green:#3FA27A;
+    --gradient-brand:linear-gradient(110deg, #4C63FF 0%, #7B4DFF 33.333%, #5D8BFF 66.666%, #3FA27A 100%);
+    --container:1500px;--max:1120px;--nav-h:76px;
+    --slide-x:clamp(84px,7.75vw,150px);--slide-y-top:var(--nav-h);--slide-y-bottom:72px;
+    --content-gap:clamp(30px,4vw,50px);
+    --hero-headline-size:clamp(5.1rem,6.45vw,8.15rem);
+    --headline-size:clamp(3.15rem,4.05vw,5.2rem);
+    --headline-line:1.04;--headline-track:-.045em;
+    --radius-card:22px;--shadow-soft:0 30px 70px -52px rgba(15,23,42,.26);
+    --font-sans:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     --font-mono:"IBM Plex Mono","SFMono-Regular","Roboto Mono",Consolas,monospace;
     --ease:cubic-bezier(.22,.61,.36,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{font-family:var(--font-sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;line-height:1.5}
+  body{font-family:var(--font-sans);color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"ss01","cv11";font-synthesis:none;line-height:1.5}
 
   .deck{height:100vh;overflow-y:scroll;scroll-snap-type:y proximity;scroll-behavior:smooth;scrollbar-width:none;background:var(--white)}
   .deck::-webkit-scrollbar{display:none}
-  section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding:100px 40px;position:relative;overflow:hidden;background:var(--white)}
-  .wrap{width:100%;max-width:var(--max);margin:0 auto}
-  .wrap.wide{max-width:1680px}
-  section.sc-section{padding-left:26px;padding-right:26px}
+  section{min-height:100vh;scroll-snap-align:start;display:flex;align-items:center;justify-content:center;padding:var(--slide-y-top) var(--slide-x) var(--slide-y-bottom);position:relative;overflow:hidden;background:var(--color-paper)}
+  section::before{
+    content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(to right, rgba(18,24,38,.032) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(18,24,38,.032) 1px, transparent 1px);
+    background-size:64px 64px;
+    opacity:.62;
+    -webkit-mask-image:radial-gradient(84% 76% at 44% 42%,#000 42%,#0000 100%);
+    mask-image:radial-gradient(84% 76% at 44% 42%,#000 42%,#0000 100%);
+  }
+  .wrap{width:100%;max-width:var(--container);margin:0 auto;position:relative;z-index:2}
+  .wrap.wide{max-width:var(--container)}
+  section.sc-section{padding-left:var(--slide-x);padding-right:var(--slide-x)}
 
-  .eyebrow{font-family:var(--font-mono);font-size:.9rem;letter-spacing:0;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:22px}
-  h1{font-size:clamp(3rem,6.7vw,5.8rem);font-weight:800;letter-spacing:0;line-height:1.02}
-  h2{font-size:clamp(2.25rem,4.5vw,3.7rem);font-weight:800;letter-spacing:0;line-height:1.07}
-  .lead{font-size:clamp(1.12rem,1.85vw,1.5rem);color:var(--gray);font-weight:400;line-height:1.52;max-width:700px}
-  p.body{font-size:clamp(1.06rem,1.45vw,1.26rem);color:var(--ink-soft);line-height:1.56}
-  .gold{color:var(--gold)}
-  .center{text-align:center;margin-left:auto;margin-right:auto}
+  .eyebrow{font-family:var(--font-mono);font-size:.9rem;letter-spacing:0;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:24px}
+  h1,h2{font-size:var(--headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line);color:var(--deep-navy)}
+  .headline-line{display:block;line-height:var(--headline-line)}
+  .vibe-heading{max-width:none}
+  .vibe-heading .headline-line{white-space:nowrap}
+  .lead{font-size:clamp(1.15rem,1.85vw,1.52rem);color:var(--gray);font-weight:400;line-height:1.55;max-width:700px}
+  p.body{font-size:clamp(1.08rem,1.5vw,1.3rem);color:var(--ink-soft);line-height:1.56;font-weight:400}
+  .gold{background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .signature-highlight{background:var(--gradient-brand);-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;-webkit-text-stroke:0}
+  .center{text-align:left;margin-left:0;margin-right:auto}
+  section .wrap{text-align:left!important}
+  section .center{text-align:left!important;margin-left:0!important;margin-right:auto!important}
 
   .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
   .reveal.in{opacity:1;transform:none}
@@ -45,14 +74,14 @@
 
   .progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold);z-index:60;transition:width .12s linear}
   .brandbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;pointer-events:none}
-  .brandbar .mark{font-weight:700;letter-spacing:0;font-size:1.06rem;display:flex;align-items:center;gap:9px;pointer-events:auto;text-decoration:none;color:var(--ink)}
+  .brandbar .mark{font-weight:800;letter-spacing:-.035em;font-size:1.35rem;line-height:1;display:flex;align-items:center;gap:9px;pointer-events:auto;text-decoration:none;color:var(--ink)}
   .nav-logo{height:24px;width:auto;display:block}
-  .nav-logo-icon{height:22px;width:auto;display:block}
+  .nav-logo-icon{height:28px;width:auto;display:block}
   .hero-logo{height:56px;width:auto;display:block;margin:0 auto}
   .close-logo{height:52px;width:auto;display:block;margin:0 auto}
   .dot-mark{width:9px;height:9px;border-radius:50%;background:var(--gold)}
   .brandbar .right{display:flex;align-items:center;gap:18px;pointer-events:auto}
-  .brandbar .meta{font-family:var(--font-mono);font-size:.82rem;color:var(--gray);letter-spacing:0}
+  .brandbar .meta{font-family:var(--font-mono);font-size:.82rem;color:#98a2b3;letter-spacing:0}
   .lang{font-family:var(--font-mono);display:flex;align-items:center;gap:9px;font-size:.84rem;font-weight:600;letter-spacing:0}
   .lang button{border:none;background:none;cursor:pointer;color:var(--gray);padding:0;font:inherit;transition:color .3s var(--ease)}
   .lang button:hover{color:var(--ink)}
@@ -71,39 +100,45 @@
   .chev{width:16px;height:16px;animation:bob 1.8s var(--ease) infinite}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 
-  /* cover — same hero as pitch/Q&A */
-  .cover{text-align:center}
-  .cover .wrap{position:relative;z-index:2}
-  .cover .sub{margin:26px auto 0;max-width:600px}
-  .net{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;pointer-events:none}
-  .net svg{width:min(1100px,92vw);height:auto;opacity:.9}
+  /* cover — pitch hero rhythm */
+  .cover{text-align:left;max-width:88rem;margin:0 auto 0 0}
+  .cover .eyebrow{display:none}
+  .cover h1{font-size:var(--hero-headline-size);max-width:88rem}
+  .cover-title-line{display:block;line-height:var(--headline-line);width:max-content;max-width:100%}
+  .cover .sub{margin:48px 0 0;max-width:42ch}
+  .cover .sub p{font-size:clamp(1.2rem,1.55vw,1.58rem);line-height:1.46;color:var(--color-muted)}
+  .net{display:none}
+  .net svg{width:min(1100px,92vw);height:auto;opacity:.18}
   .pulse{animation:pulse 3.4s ease-in-out infinite}
   .pulse.b{animation-delay:1.1s}.pulse.c{animation-delay:2.2s}
   @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
   .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s var(--ease) forwards}
   @keyframes draw{to{stroke-dashoffset:0}}
-  .poc-tag{font-family:var(--font-mono);display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:0;text-transform:uppercase;padding:6px 14px;border:1px solid var(--gold-soft);border-radius:999px;color:var(--gold);margin-top:26px}
+  .poc-tag{font-family:var(--font-mono);display:inline-flex;align-items:center;gap:8px;font-size:clamp(.75rem,.82vw,.95rem);font-weight:400;letter-spacing:0;padding:7px 16px;border:1px solid var(--color-line-strong);border-radius:999px;color:var(--color-ink);background:var(--color-paper);margin-top:34px;line-height:1}
+  .poc-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
 
   /* checklist (slide 2) */
-  .poc-list{list-style:none;display:flex;flex-direction:column;gap:15px;margin-top:36px;max-width:680px;margin-left:auto;margin-right:auto;text-align:left}
+  .poc-list{list-style:none;display:flex;flex-direction:column;gap:15px;margin-top:36px;max-width:680px;margin-left:0;margin-right:auto;text-align:left}
   .poc-list li{display:flex;align-items:center;gap:14px;font-size:1.05rem;font-weight:500}
   .poc-list .ck{flex:none;width:24px;height:24px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center}
   .poc-list .ck svg{width:13px;height:13px;stroke:#fff}
 
   /* vertical flow / pipeline (slide 3) */
-  .flow{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:18px}
+  .flow{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:34px;width:100%;max-width:1180px}
+  .flow-row{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:center;column-gap:36px;width:100%}
   .flow-step{
     border:1px solid var(--gray-line);border-radius:11px;padding:7px 26px;background:var(--white);
-    font-weight:600;font-size:.96rem;letter-spacing:0;min-width:240px;text-align:center;
+    font-weight:600;font-size:.96rem;letter-spacing:0;width:240px;text-align:center;
     transition:border-color .4s var(--ease),transform .4s var(--ease);
   }
+  .flow-desc{font-size:clamp(.86rem,1.05vw,1rem);line-height:1.38;color:var(--color-muted);max-width:820px}
   .flow-step:hover{border-color:var(--gold-soft);transform:translateY(-2px)}
-  .flow-step.accent{border-color:var(--gold);color:var(--gold);background:linear-gradient(180deg,#fff,#fcf9f2)}
-  .flow-arrow{color:var(--gold-soft);font-size:1.1rem;line-height:1;padding:2px 0}
+  .flow-step.accent{border-color:var(--gold);color:var(--gold);background:linear-gradient(180deg,#fff,var(--gray-faint))}
+  .flow-arrow{color:var(--gold-soft);font-size:1.1rem;line-height:1;padding:2px 0;width:240px;text-align:center}
 
   /* architecture icon grid (slide 4) */
   .arch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-  .arch-card{border:1px solid var(--gray-line);border-radius:16px;padding:26px 22px;text-align:left;transition:transform .4s var(--ease),border-color .4s var(--ease)}
+  .arch-card{border:1px solid var(--gray-line);border-radius:16px;padding:26px 22px;text-align:left;background:var(--white);transition:transform .4s var(--ease),border-color .4s var(--ease)}
   .arch-card:hover{transform:translateY(-5px);border-color:var(--gold-soft)}
   .arch-card .ic{width:30px;height:30px;margin-bottom:16px}
   .arch-card b{font-size:1.04rem;font-weight:600;letter-spacing:0;display:block}
@@ -111,33 +146,35 @@
 
   /* screenshot frame (browser chrome) */
   .shot{border:1px solid var(--gray-line);border-radius:13px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -32px rgba(0,0,0,.3)}
-  .shot .bchrome{display:flex;align-items:center;gap:6px;padding:9px 15px;background:#f6f6f8;border-bottom:1px solid var(--gray-line)}
-  .shot .bchrome span{width:9px;height:9px;border-radius:50%;background:#d7d7dc;flex:none}
+  .shot .bchrome{display:flex;align-items:center;gap:6px;padding:9px 15px;background:var(--gray-faint);border-bottom:1px solid var(--gray-line)}
+  .shot .bchrome span{width:9px;height:9px;border-radius:50%;background:#d8dee9;flex:none}
   .shot .bchrome i{font-style:normal;font-size:.7rem;color:var(--gray);margin-left:12px;letter-spacing:.02em}
   .shot img{display:block;width:100%;height:auto}
 
   /* showcase slides (5,6,7,8,9,11) — compact text above, huge image, compact text below */
   section.sc-section{padding-top:58px;padding-bottom:36px}
-  .sc-head{text-align:center;max-width:760px;margin:0 auto 16px}
+  .sc-head{text-align:left;max-width:900px;margin:0 0 24px}
   .sc-head h2{margin-top:2px}
-  .sc-head .lead{margin:10px auto 0;max-width:680px}
-  .sc-shot-wrap{width:100%;max-width:1560px;margin:0 auto;display:flex;justify-content:center}
+  .sc-head .lead{margin:16px 0 0;max-width:760px}
+  .sc-shot-wrap{width:100%;max-width:1560px;margin:0;display:flex;justify-content:flex-start}
   .sc-shot-wrap .shot{display:inline-flex;flex-direction:column;max-width:100%}
   .sc-shot-wrap .shot img{display:block;width:auto;height:auto;max-width:100%;max-height:46vh}
-  .vibe-shot .shot img{max-height:37vh}
+  .vibe-shot .shot{width:414px;max-width:100%}
+  .vibe-shot .shot img{width:100%;max-height:none}
+  .vibe-section .eyebrow{display:none}
   .tall-shot .shot img{max-height:55vh}
   .prompt-quote{
     background:var(--gray-faint);border:1px solid var(--gray-line);border-radius:12px;
     padding:11px 22px;font-size:.88rem;color:var(--ink-soft);font-style:italic;
-    max-width:760px;margin:0 auto 14px;text-align:left;line-height:1.45;
+    max-width:760px;margin:0 0 14px;text-align:left;line-height:1.45;
   }
   .prompt-quote b{font-style:normal;color:var(--gold);font-weight:600;margin-right:6px}
-  .sc-bigline{font-size:1.12rem;font-weight:600;letter-spacing:0;text-align:center;margin:12px auto 0;max-width:720px}
-  .chip-row{list-style:none;display:flex;flex-wrap:wrap;gap:7px 22px;justify-content:center;margin:14px auto 0;max-width:920px;padding:0}
+  .sc-bigline{font-size:1.12rem;font-weight:600;letter-spacing:0;text-align:left;margin:18px 0 0;max-width:720px}
+  .chip-row{list-style:none;display:flex;flex-wrap:wrap;gap:7px 22px;justify-content:flex-start;margin:18px 0 0;max-width:920px;padding:0}
   .chip-row li{font-size:.92rem;color:var(--ink-soft);font-weight:500;display:flex;align-items:center;gap:8px}
   .chip-row li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
-  .sc-note{margin:14px auto 0;text-align:center;color:var(--gray);font-size:.86rem;max-width:720px;line-height:1.5}
-  .shot-caption{font-family:var(--font-mono);font-size:.76rem;color:var(--gray);letter-spacing:0;margin-top:9px;text-align:center}
+  .sc-note{margin:18px 0 0;text-align:left;color:var(--gray);font-size:.86rem;max-width:720px;line-height:1.5}
+  .shot-caption{font-family:var(--font-mono);font-size:.76rem;color:var(--gray);letter-spacing:0;margin-top:9px;text-align:left}
 
   /* native dashboard mockup (slide 5) — white, on-brand, always current */
   .dash-mock{width:100%}
@@ -147,48 +184,63 @@
   .dstat .dv{font-family:var(--font-mono);font-size:clamp(1.28rem,2.15vw,1.78rem);font-weight:700;color:var(--gold);letter-spacing:0}
   .dstat .dl{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);text-transform:uppercase;letter-spacing:0;margin-top:5px;line-height:1.25}
   .dash-panels{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:14px}
-  .dpanel{border:1px solid var(--gray-line);border-radius:12px;padding:16px 18px}
+  .dpanel{border:1px solid var(--gray-line);border-radius:12px;padding:16px 18px;background:var(--white)}
   .dpanel-h{font-family:var(--font-mono);font-size:.7rem;font-weight:700;letter-spacing:0;text-transform:uppercase;color:var(--gray);margin-bottom:12px}
   .dpanel-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;font-size:.9rem;border-top:1px solid var(--gray-faint)}
   .dpanel-row:first-of-type{border-top:none}
   .dpanel-row span:first-child{color:var(--ink-soft);font-weight:500}
   .dret{font-family:var(--font-mono);color:var(--gold);font-weight:700}
   .dsig-wrap{display:flex;flex-wrap:wrap;gap:8px}
-  .dsig{font-family:var(--font-mono);border:1px solid var(--gold-soft);color:var(--gold);border-radius:999px;padding:5px 13px;font-size:.8rem;font-weight:600;background:#fcf9f2}
+  .dsig{font-family:var(--font-mono);border:1px solid var(--gold-soft);color:var(--gold);border-radius:999px;padding:5px 13px;font-size:.8rem;font-weight:600;background:var(--gray-faint)}
 
   /* dual-shot layout (slides 8, 11) */
-  .sc-dual{display:flex;justify-content:center;gap:24px;max-width:1560px;margin:0 auto;align-items:start;flex-wrap:wrap}
-  .sc-dual > div{display:flex;flex-direction:column;align-items:center;flex:0 1 auto}
+  .sc-dual{display:flex;justify-content:flex-start;gap:24px;max-width:1560px;margin:0;align-items:start;flex-wrap:wrap}
+  .sc-dual > div{display:flex;flex-direction:column;align-items:flex-start;flex:0 1 auto}
   .sc-dual .shot img{max-height:44vh}
-  .sc-steps{list-style:none;counter-reset:sc;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 26px;margin:14px auto 0;max-width:960px;padding:0}
+  .sc-steps{list-style:none;counter-reset:sc;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px 26px;margin:18px 0 0;max-width:960px;padding:0}
   .sc-steps li{counter-increment:sc;font-size:.9rem;color:var(--ink-soft);font-weight:500;display:flex;align-items:center;gap:9px}
   .sc-steps li::before{content:counter(sc);flex:none;width:21px;height:21px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-size:.7rem;font-weight:700;display:flex;align-items:center;justify-content:center}
 
   /* vibe trading numbered flow (slide 10) */
-  .mini-flow{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin-top:44px;max-width:820px;margin-left:auto;margin-right:auto}
-  .mini-step{display:flex;align-items:center;gap:14px;border:1px solid var(--gray-line);border-radius:12px;padding:13px 18px;text-align:left}
+  .mini-flow{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;margin-top:44px;max-width:820px;margin-left:0;margin-right:auto}
+  .mini-step{display:flex;align-items:center;gap:14px;border:1px solid var(--gray-line);border-radius:12px;padding:13px 18px;text-align:left;background:var(--white)}
   .mini-step .n{font-family:var(--font-mono);flex:none;width:27px;height:27px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center}
   .mini-step span{font-size:.98rem;font-weight:500;color:var(--ink-soft)}
-  .mini-note{margin-top:34px;font-size:.94rem;color:var(--gray);max-width:680px;text-align:center;margin-left:auto;margin-right:auto;line-height:1.55}
+  .mini-note{margin-top:34px;font-size:.94rem;color:var(--gray);max-width:680px;text-align:left;margin-left:0;margin-right:auto;line-height:1.55}
 
   /* big stats hero (slide 12 — most visually striking) */
-  .stat-hero{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:6px;max-width:1400px;margin-left:auto;margin-right:auto}
-  .stat-hero .sc{border:1px solid var(--gray-line);border-radius:14px;padding:16px 12px;text-align:center}
+  .stat-hero{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:18px;max-width:920px;margin-left:auto;margin-right:auto;width:100%}
+  .stat-hero .sc{border:1px solid var(--gray-line);border-radius:14px;padding:16px 12px;text-align:center;background:var(--white)}
   .stat-hero .sv{font-family:var(--font-mono);font-size:clamp(1.42rem,2.55vw,2.05rem);font-weight:700;letter-spacing:0;color:var(--gold)}
   .stat-hero .sl{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);text-transform:uppercase;letter-spacing:0;margin-top:5px;line-height:1.25}
-  .web-results-card{max-width:1120px;margin:20px auto 0;border:1px solid var(--gray-line);border-radius:18px;padding:22px 26px;background:linear-gradient(180deg,#fff,#fbfcff);text-align:left;box-shadow:0 28px 70px -54px rgba(76,99,255,.36)}
+  .web-results-card{max-width:1120px;margin:20px auto 0;border:1px solid var(--gray-line);border-radius:18px;padding:20px 26px 18px;background:linear-gradient(180deg,#fff,var(--paper));text-align:left;box-shadow:0 28px 70px -54px rgba(76,99,255,.36);width:100%}
   .web-results-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:20px}
   .web-results-title{font-weight:800;font-size:1.02rem}
-  .demo-badge{font-family:var(--font-mono);font-size:.64rem;color:#a2aabd;border:1px solid var(--gray-line);border-radius:5px;padding:4px 8px;text-transform:uppercase;font-weight:600}
-  .web-results-chart{display:block;width:100%;height:auto;max-height:300px}
-  .chart-grid-line{stroke:#e8ebf0;stroke-width:1}
-  .spy-line{stroke:#aeb6c5;stroke-width:3;stroke-dasharray:7 7;fill:none}
+  .demo-badge{font-family:var(--font-mono);font-size:.64rem;color:#98a2b3;border:1px solid var(--gray-line);border-radius:5px;padding:4px 8px;text-transform:uppercase;font-weight:600}
+  .web-results-chart{display:block;width:100%;height:auto;max-height:250px}
+  .chart-grid-line{stroke:#e6e9f1;stroke-width:1}
+  .spy-line{stroke:#98a2b3;stroke-width:3;stroke-dasharray:7 7;fill:none}
   .blue-line,.purple-line,.green-line{fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
-  .blue-line{stroke:#4c63ff}.purple-line{stroke:#b12aca}.green-line{stroke:#4aaf84}
+  .blue-line{stroke:#4C63FF}.purple-line{stroke:var(--purple)}.green-line{stroke:var(--green)}
   .blue-fill{fill:url(#pocBlueArea);opacity:.72}.purple-fill{fill:url(#pocPurpleArea);opacity:.68}.green-fill{fill:url(#pocGreenArea);opacity:.7}
-  .metric-up{color:#4aaf84}.metric-down{color:#ef4444}.metric-blue{color:#4c63ff}.metric-purple{color:#b12aca}
+  .metric-up{color:var(--green)}.metric-down{color:#ef4444}.metric-blue{color:#4C63FF}.metric-purple{color:var(--purple)}
+  .results-legend{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin:5px 0 12px;font-size:.78rem;color:var(--ink-soft)}
+  .results-legend span{display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .results-legend i{display:block;width:18px;height:3px;border-radius:99px;background:currentColor}
+  .results-legend .lg-blue{color:#4C63FF}.results-legend .lg-purple{color:var(--purple)}.results-legend .lg-green{color:var(--green)}.results-legend .lg-spy{color:#8c96aa}
+  .results-legend .lg-spy i{height:0;border-top:2px dashed currentColor;background:none;border-radius:0}
+  .results-table{width:100%;border-collapse:collapse;table-layout:fixed}
+  .results-table th{font-family:var(--font-mono);font-size:.62rem;text-transform:uppercase;color:var(--gray);font-weight:600;padding:0 12px 7px;text-align:right}
+  .results-table th:first-child,.results-table td:first-child{text-align:left;width:42%}
+  .results-table td{border-top:1px solid var(--gray-line);padding:8px 12px;font-size:.82rem;text-align:right}
+  .results-table .result-name{font-weight:600;color:var(--ink)}
+  .results-table .result-return{font-family:var(--font-mono);font-weight:700;color:var(--green)}
+  .results-table .result-number{font-family:var(--font-mono);font-weight:600}
+  .results-table .result-dd{font-family:var(--font-mono);font-weight:600;color:#ef4444}
+  .results-table .result-spy .result-return{color:#8c96aa}
+  .results-disclaimer{font-family:var(--font-mono);font-size:.65rem;color:var(--gray);line-height:1.45;margin:10px 12px 0}
 
-  .top3{margin-top:22px;max-width:1000px;margin-left:auto;margin-right:auto}
+  .top3{margin-top:22px;max-width:1000px;margin-left:0;margin-right:auto}
   .top3-title{font-family:var(--font-mono);font-size:.76rem;letter-spacing:0;text-transform:uppercase;font-weight:600;color:var(--gray);margin-bottom:12px}
   .top3-table{width:100%;border-collapse:collapse}
   .top3-table th{font-family:var(--font-mono);font-size:.66rem;letter-spacing:0;text-transform:uppercase;color:var(--gray);text-align:left;padding:0 12px 8px;font-weight:600}
@@ -200,39 +252,41 @@
   .top3-table .ret{font-family:var(--font-mono);color:var(--gold);font-weight:700}
   .top3-table td.num{font-family:var(--font-mono);text-align:right;font-weight:500}
 
-  .best-result{margin-top:22px;max-width:1000px;margin-left:auto;margin-right:auto;border:1px solid var(--gold-soft);border-radius:16px;padding:20px 28px;background:linear-gradient(180deg,#fff,#fcf9f2)}
+  .best-result{margin-top:22px;max-width:1000px;margin-left:0;margin-right:auto;border:1px solid var(--gold-soft);border-radius:16px;padding:20px 28px;background:linear-gradient(180deg,#fff,var(--gray-faint))}
   .best-result .brh{font-family:var(--font-mono);font-size:.72rem;letter-spacing:0;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:10px}
   .best-result .brgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
   .best-result .bv{font-family:var(--font-mono);font-size:clamp(1.12rem,1.85vw,1.55rem);font-weight:700;letter-spacing:0}
   .best-result .bv.g{color:var(--gold)}
   .best-result .bl{font-family:var(--font-mono);font-size:.68rem;color:var(--gray);text-transform:uppercase;letter-spacing:0;margin-top:4px}
-  .poc-footnote{margin-top:16px;font-size:.78rem;color:var(--gray);max-width:820px}
+  .poc-footnote{margin-top:16px;font-size:.78rem;color:var(--gray);max-width:820px;text-align:left}
 
   /* stepper roadmap (slide 13) */
-  .stepper{display:flex;align-items:center;justify-content:center;gap:0;margin-top:52px;flex-wrap:wrap}
-  .step-node{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:150px;text-align:center}
+  .stepper{display:flex;align-items:center;justify-content:flex-start;gap:0;margin-top:52px;flex-wrap:wrap}
+  .step-node{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:150px;text-align:left}
   .step-node .dot{width:14px;height:14px;border-radius:50%;background:var(--gray-line);border:2px solid var(--white);box-shadow:0 0 0 1px var(--gray-line)}
   .step-node.now .dot{background:var(--gold);box-shadow:0 0 0 1px var(--gold)}
   .step-node b{font-size:.94rem;font-weight:600;letter-spacing:0}
   .step-node.now b{color:var(--gold)}
   .step-line{flex:1;height:1px;background:var(--gray-line);min-width:26px;margin:0 -2px;transform:translateY(-19px)}
-  .stepper-note{margin-top:40px;display:flex;flex-direction:column;gap:10px;max-width:760px;margin-left:auto;margin-right:auto}
+  .stepper-note{margin-top:40px;display:flex;flex-direction:column;gap:10px;max-width:760px;margin-left:0;margin-right:auto}
   .stepper-note p{font-size:.98rem;color:var(--ink-soft);line-height:1.55}
 
   /* advantage list (slide 14) */
-  .adv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:40px;max-width:820px;margin-left:auto;margin-right:auto}
+  .adv-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:40px;max-width:820px;margin-left:0;margin-right:auto}
   .adv-item{display:flex;align-items:center;gap:12px;text-align:left;font-size:.98rem;color:var(--ink-soft);font-weight:500}
   .adv-item::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
-  .adv-close{margin-top:36px;font-size:1.05rem;color:var(--ink);font-weight:500;max-width:680px;margin-left:auto;margin-right:auto;line-height:1.5}
+  .adv-close{margin-top:36px;font-size:1.05rem;color:var(--ink);font-weight:500;max-width:680px;margin-left:0;margin-right:auto;line-height:1.5}
 
   /* closing (same iconic pattern) */
-  .closing{text-align:center}
-  .iconic{font-size:clamp(2.7rem,6.6vw,5.2rem);font-weight:800;letter-spacing:0;line-height:1.06}
+  .closing{max-width:1120px;text-align:left}
+  .iconic{font-size:var(--headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line);color:var(--deep-navy)}
   .closing-body{margin:22px auto 0;max-width:640px}
   .iconic-brand{margin-top:clamp(40px,7vh,84px);font-size:clamp(1.24rem,2.5vw,1.85rem);font-weight:700;letter-spacing:0}
-  .end-contact{margin-top:32px;display:flex;flex-direction:column;gap:7px;align-items:center}
+  .iconic-brand .close-logo{margin:0}
+  .closing-thanks{margin-top:clamp(64px,9vh,104px);font-size:clamp(1.55rem,2.2vw,2.15rem);font-weight:700;color:var(--ink);letter-spacing:-.025em}
+  .end-contact{margin-top:44px;display:flex;flex-direction:column;gap:7px;align-items:flex-start}
   .end-contact .ec-name{font-size:1rem;font-weight:700;color:var(--ink);letter-spacing:0}
-  .end-contact .ec-line{font-family:var(--font-mono);font-size:.9rem;color:var(--gray);display:flex;gap:11px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .end-contact .ec-line{font-family:var(--font-mono);font-size:.9rem;color:var(--gray);display:flex;gap:11px;align-items:center;flex-wrap:wrap;justify-content:flex-start}
   .end-contact a{color:var(--gold);text-decoration:none}
   .end-contact a:hover{text-decoration:underline}
   .end-contact .ec-sep{color:var(--gray-line)}
@@ -240,21 +294,54 @@
   @media (max-height:760px) and (min-width:900px){
     section{padding-top:70px;padding-bottom:34px}
     section.sc-section{padding-top:46px;padding-bottom:28px}
-    h1{font-size:clamp(2.7rem,5.4vw,4.8rem)}
-    h2{font-size:clamp(2rem,3.65vw,3rem)}
+    h1,h2,.iconic{font-size:clamp(2rem,3.65vw,3rem);line-height:var(--headline-line);letter-spacing:var(--headline-track)}
+    .cover h1{font-size:clamp(4.45rem,5.7vw,7.2rem)}
     .eyebrow{margin-bottom:14px}
     .lead{font-size:clamp(1rem,1.42vw,1.18rem);line-height:1.46}
     p.body{font-size:clamp(.98rem,1.2vw,1.08rem);line-height:1.46}
     .sc-head{margin-bottom:12px}
     .sc-shot-wrap .shot img{max-height:42vh}
+    section.vibe-section{padding-top:58px;padding-bottom:16px}
+    .vibe-section .sc-head{margin-bottom:4px}
+    .vibe-section .sc-head .lead{margin-top:8px}
+    .vibe-section .vibe-shot .shot img{max-height:none}
+    .vibe-section .chip-row{max-width:1080px;margin-top:8px;flex-wrap:nowrap;gap:7px 18px}
+    .vibe-section .sc-note{max-width:1000px;margin-top:8px;white-space:nowrap}
     .stat-hero .sc{padding:12px 10px}
+    .web-results-card{margin-top:14px;padding-top:14px;padding-bottom:12px}
+    .web-results-chart{max-height:205px}
+    .results-legend{margin-top:2px;margin-bottom:8px}
+    .results-table td{padding-top:6px;padding-bottom:6px}
+    .results-disclaimer{margin-top:7px}
+    section.results-section{padding-top:38px;padding-bottom:22px}
+    .results-section h2{font-size:clamp(2rem,3.3vw,2.65rem)}
+    .results-section .platform-stats-title{margin-top:10px!important}
+    .results-section .stat-hero{margin-top:10px;max-width:820px}
+    .results-section .stat-hero .sc{padding:7px 10px}
+    .results-section .stat-hero .sv{font-size:1.35rem}
+    .results-section .web-results-card{margin-top:10px;padding:9px 20px 8px}
+    .results-section .web-results-head{margin-bottom:0}
+    .results-section .web-results-chart{max-height:145px}
+    .results-section .results-legend{font-size:.68rem;margin:0 0 5px;gap:16px}
+    .results-section .results-table th{font-size:.54rem;padding:0 10px 4px}
+    .results-section .results-table td{font-size:.7rem;padding:4px 10px}
+    .results-section .results-disclaimer{font-size:.55rem;margin:5px 10px 0}
     .top3{margin-top:16px}
     .best-result{margin-top:16px;padding:16px 22px}
     .top3-table td{font-size:.86rem;padding-top:8px;padding-bottom:8px}
     .best-result .bv{font-size:clamp(1rem,1.45vw,1.3rem)}
+    .flow{margin-top:22px}
+    .flow-step{padding-top:5px;padding-bottom:5px;font-size:.88rem}
+    .flow-desc{font-size:.8rem;line-height:1.26}
+    .flow-arrow{height:11px;padding:0;font-size:.82rem;line-height:11px}
+    .flow + p.body{margin-top:18px!important;font-size:.85rem;line-height:1.35}
   }
 
   @media (max-width:980px){
+    .flow-row{grid-template-columns:210px minmax(0,1fr);column-gap:24px}
+    .flow-step,.flow-arrow{width:210px}
+    .flow-step{padding-left:16px;padding-right:16px}
+    .flow-desc{font-size:.84rem}
     .sc-dual{grid-template-columns:1fr;gap:22px}
     .arch-grid{grid-template-columns:1fr 1fr}
     .stat-hero{grid-template-columns:repeat(3,1fr)}
@@ -267,6 +354,10 @@
   }
   @media (max-width:640px){
     section{padding:90px 22px}
+    .flow{gap:12px}
+    .flow-row{grid-template-columns:1fr;row-gap:7px}
+    .flow-step{width:100%;text-align:left}
+    .flow-arrow{display:none}
     .mini-flow{grid-template-columns:1fr}
     .arch-grid{grid-template-columns:1fr}
     .stat-hero{grid-template-columns:repeat(2,1fr)}
@@ -331,7 +422,7 @@ const NETSVG = `<svg viewBox="0 0 1100 560" fill="none">
     <path class="draw" d="M380 300 L620 200"/>
     <path class="draw" d="M560 380 L860 130"/>
   </g>
-  <g fill="#0a0a0a">
+  <g fill="#041534">
     <circle cx="180" cy="180" r="4"/><circle cx="620" cy="200" r="4"/>
     <circle cx="940" cy="400" r="4"/><circle cx="150" cy="360" r="4"/>
     <circle cx="760" cy="320" r="4"/>
@@ -369,7 +460,7 @@ const SLIDES = [
 
 /* 1 — COVER */
 { type:'cover', label:{en:'Overview',cz:'Přehled'},
-  title:{en:'ROBOOTEC.AI', cz:'ROBOOTEC.AI'},
+  title:{en:'<span class="cover-title-line">TECHNICAL PRESENTATION</span><span class="cover-title-line signature-highlight">PROOF OF CONCEPT - POC</span>', cz:'<span class="cover-title-line">TECHNICKÁ PREZENTACE</span><span class="cover-title-line signature-highlight">PROOF OF CONCEPT - POC</span>'},
   tag:{en:'Proof of Concept (PoC)', cz:'Proof of Concept (PoC)'},
   sub1:{en:'A technology platform for AI-driven trading.', cz:'Technologická platforma pro AI řízené obchodování.'},
   sub2:{en:'From data, through artificial intelligence, to trading decisions.', cz:'Od dat přes umělou inteligenci až po obchodní rozhodnutí.'} },
@@ -397,15 +488,15 @@ const SLIDES = [
   eyebrow:{en:'Workflow',cz:'Workflow'},
   h2:{en:'How the platform works', cz:'Jak platforma funguje'},
   steps:[
-    {en:'Market data', cz:'Tržní data'},
-    {en:'AI analysis', cz:'AI analýza'},
-    {en:'Trading strategy', cz:'Obchodní strategie'},
-    {en:'Backtesting', cz:'Backtesting'},
-    {en:'AI optimization', cz:'AI optimalizace'},
-    {en:'Forward validation', cz:'Forward validace'},
-    {en:'Trading signals', cz:'Obchodní signály'},
-    {en:'Vibe Trading', cz:'Vibe Trading'},
-    {en:'Investor / Trader', cz:'Investor / Trader'}
+    {title:{en:'Market data', cz:'Tržní data'}, desc:{en:'Processing price charts, fundamentals, macroeconomic news, sentiment and other market inputs.', cz:'Zpracování cenových grafů, fundamentů, makroekonomických zpráv, sentimentu a dalších tržních vstupů.'}},
+    {title:{en:'AI analysis', cz:'AI analýza'}, desc:{en:'AI evaluates all inputs and creates a comprehensive analysis of the market, risks and likely scenarios.', cz:'AI vyhodnotí všechny vstupy a vytvoří komplexní analýzu trhu, rizik a pravděpodobných scénářů.'}},
+    {title:{en:'Trading strategy', cz:'Obchodní strategie'}, desc:{en:'The analysis is converted into specific trading rules, entries, exits and risk management.', cz:'Z analýzy vzniknou konkrétní obchodní pravidla, vstupy, výstupy a řízení rizika.'}},
+    {title:{en:'Backtesting', cz:'Backtesting'}, desc:{en:'The strategy is tested on historical data to measure return, stability and drawdown.', cz:'Strategie se otestuje na historických datech a změří se výnos, stabilita i drawdown.'}},
+    {title:{en:'AI optimization', cz:'AI optimalizace'}, desc:{en:'AI tunes the parameters and selects a robust variant that is not dependent on a single period.', cz:'AI ladí parametry a vybírá robustní variantu, která není závislá na jediném období.'}},
+    {title:{en:'Forward validation', cz:'Forward validace'}, desc:{en:'The strategy is verified on new data and in paper trading outside the original backtest.', cz:'Strategie se ověří na nových datech a v paper tradingu mimo původní backtest.'}},
+    {title:{en:'Trading signals', cz:'Obchodní signály'}, desc:{en:'The validated strategy generates actionable signals with entry, stop-loss and take-profit.', cz:'Ověřená strategie generuje konkrétní signály s entry, stop-lossem a take-profitem.'}},
+    {title:{en:'Vibe Trading', cz:'Vibe Trading'}, desc:{en:'The complete process becomes accessible to traders through a simple conversation with AI.', cz:'Celý proces je traderovi dostupný v jednoduché konverzaci s AI.'}},
+    {title:{en:'Investor / Trader', cz:'Investor / Trader'}, desc:{en:'The user receives an explained result, risk control and a clear basis for decision-making.', cz:'Uživatel získá vysvětlený výsledek, kontrolu nad rizikem a jasný podklad pro rozhodnutí.'}}
   ],
   note:{en:'Each layer builds on the previous one, forming a complete AI ecosystem for analyzing, testing and trading on financial markets.',
         cz:'Každá vrstva navazuje na předchozí a vytváří kompletní AI ekosystém pro analýzu, testování a obchodování na finančních trzích.'} },
@@ -513,7 +604,10 @@ const SLIDES = [
 /* 8B — FORWARD VALIDATION */
 { type:'feat', label:{en:'Forward Validation',cz:'Forward validace'}, shot:'VALIDATION',
   eyebrow:{en:'Forward validation',cz:'Forward validace'},
-  h2:{en:'Validated live, not just on paper', cz:'Validováno naživo, nejen na papíře'},
+  h2:{
+    en:'<span class="headline-line">Validated <span class="signature-highlight">live</span>,</span><span class="headline-line">not just on paper</span>',
+    cz:'<span class="headline-line">Validováno <span class="signature-highlight">naživo</span>,</span><span class="headline-line">nejen na papíře</span>'
+  },
   lead:{en:'Before a strategy is trusted, it has to prove itself in real-time market conditions \u2014 not only in a historical backtest.',
         cz:'Než se strategii začne důvěřovat, musí se osvědčit v reálných tržních podmínkách \u2014 ne jen v historickém backtestu.'},
   items:[
@@ -530,7 +624,7 @@ const SLIDES = [
 /* 9 — VIBE TRADING */
 { type:'vibe', label:{en:'Vibe Trading',cz:'Vibe Trading'}, shot:'VIBE_INTRO',
   eyebrow:{en:'Vibe Trading',cz:'VIBE TRADING'},
-  h2:{en:'The first ROBOOTEC.AI product for retail traders', cz:'První produkt ROBOOTEC.AI pro retailové tradery'},
+  h2:{en:'<span class="headline-line">FIRST PRODUCT: <span class="signature-highlight">VIBE TRADING</span></span><span class="headline-line">APP FOR RETAIL TRADERS</span>', cz:'<span class="headline-line">PRVNÍ PRODUKT: <span class="signature-highlight">VIBE TRADING</span></span><span class="headline-line">APLIKACE PRO RETAIL TRADERY</span>'},
   lead:{en:'Vibe Trading changes the way people trade. Instead of configuring indicators or coding strategies, the user talks to the AI in plain language.',
         cz:'Vibe Trading mění způsob, jakým lidé obchodují. Namísto nastavování indikátorů nebo programování strategií komunikuje uživatel s AI přirozeným jazykem.'},
   promptQuote:{en:'Analyze NASDAQ for today, predict where it\u2019s heading, give entry signals for trades with probabilities, and recommend which trade to take."',
@@ -569,8 +663,11 @@ const SLIDES = [
 
 /* 11 — AI BUILDS A COMPLETE TRADING PLAN */
 { type:'feat', label:{en:'Trading plan',cz:'Obchodní plán'}, shot:'VIBE_PLAN', tall:true,
-  eyebrow:{en:'One question, one full plan',cz:'AI vytvoří obchodní plán'},
-  h2:{en:'AI builds a complete trading plan', cz:'AI vytvoří kompletní obchodní plán'},
+  eyebrow:{en:'VIBE TRADING ANALYSIS',cz:'VIBE TRADING ANALÝZA'},
+  h2:{
+    en:'<span class="headline-line">AI builds a complete</span><span class="headline-line signature-highlight">trading plan</span>',
+    cz:'<span class="headline-line">AI vytvoří kompletní</span><span class="headline-line signature-highlight">obchodní plán</span>'
+  },
   lead:{en:'Based on a single query, Vibe Trading prepares a complete trading analysis \u2014 including LONG, SHORT and WAIT scenarios.',
         cz:'Na základě jediného dotazu připraví Vibe Trading kompletní obchodní analýzu \u2014 včetně scénářů LONG, SHORT a WAIT.'},
   items:[
@@ -587,8 +684,10 @@ const SLIDES = [
 /* 12 — PROOF OF CONCEPT RESULTS (hero slide) */
 { type:'results', label:{en:'PoC Results',cz:'Výsledky PoC'},
   eyebrow:{en:'Proof of Concept results',cz:'Výsledky Proof of Concept'},
-  h2:{en:'Real results, not marketing numbers.',
-      cz:'Reálné výsledky, ne marketingová čísla.'},
+  h2:{
+    en:'<span class="headline-line signature-highlight">Real results</span><span class="headline-line">not marketing numbers</span>',
+    cz:'<span class="headline-line signature-highlight">Reálné výsledky</span><span class="headline-line">ne marketingová čísla</span>'
+  },
   statsHead:{en:'Platform activity',cz:'Aktivita platformy'},
   stats:[
     {v:'1 194', l:{en:'Strategies', cz:'strategií'}},
@@ -597,21 +696,11 @@ const SLIDES = [
     {v:'86', l:{en:'Tracked assets', cz:'sledovaných aktiv'}}
   ],
   webChart:{title:{en:'Strategies vs. SPY',cz:'Strategie vs. SPY'}, badge:{en:'Demo results',cz:'Demo výsledky'}},
-  top3Head:{en:'Risk profiles shown on the website',cz:'Rizikové profily z webu'},
-  top3:[
-    {rank:'01', name:{en:'Conservative', cz:'Konzervativní'}, sub:{en:'Lower risk profile', cz:'Nižší riziko'}, ret:'+36,8 %', wr:'55 %', dd:'-3,3 %', sharpe:'3,2', pf:'1,97'},
-    {rank:'02', name:{en:'Balanced', cz:'Vyvážená'}, sub:{en:'Medium risk profile', cz:'Střední riziko'}, ret:'+64,5 %', wr:'59 %', dd:'-4,7 %', sharpe:'3,3', pf:'1,98'},
-    {rank:'03', name:{en:'Dynamic', cz:'Dynamická'}, sub:{en:'Higher risk profile', cz:'Vyšší riziko'}, ret:'+132,4 %', wr:'58 %', dd:'-5,1 %', sharpe:'5,1', pf:'2,59'}
-  ],
-  bestHead:{en:'Comparison layer',cz:'Srovnávací vrstva'},
-  bestSub:{en:'The same decision logic is presented across backtest, paper trading and live signals, always against SPY.',
-           cz:'Stejná rozhodovací logika je prezentována přes backtest, paper trading a live signály, vždy proti SPY.'},
-  best:[
-    {v:'+137,9 %', l:{en:'Backtest TOP 10', cz:'Backtest TOP 10'}, gold:true},
-    {v:'+28,4 %', l:{en:'Paper trading', cz:'Paper trading'}},
-    {v:'+63,3 %', l:{en:'Live signals', cz:'Live signály'}},
-    {v:'+20,9 %', l:{en:'SPY benchmark', cz:'Benchmark SPY'}},
-    {v:'06/25-06/26', l:{en:'Demo period', cz:'Demo období'}}
+  comparison:[
+    {name:{en:'Backtest (TOP 10 strategies)',cz:'Backtest (TOP 10 strategií)'}, ret:'+139 %', wr:'57 %', dd:'−10,8 %'},
+    {name:{en:'Paper Trading',cz:'Paper Trading'}, ret:'+36 %', wr:'61 %', dd:'−8,6 %'},
+    {name:{en:'Live Signals',cz:'Live Signály'}, ret:'+65 %', wr:'71 %', dd:'−6,3 %'},
+    {name:{en:'SPY (market index)',cz:'SPY (index trhu)'}, ret:'+22 %', wr:'–', dd:'–', spy:true}
   ],
   footnote:{en:'Demo results for 06/2025-06/2026. Historical results are not a guarantee of future performance.',
             cz:'Demo výsledky za období 06/2025-06/2026. Historické výsledky nejsou zárukou budoucích výnosů.'} },
@@ -637,8 +726,10 @@ const SLIDES = [
 /* 14 — COMPETITIVE ADVANTAGE */
 { type:'advantage', label:{en:'Advantage',cz:'Konkurenční výhoda'},
   eyebrow:{en:'Competitive advantage',cz:'Konkurenční výhoda'},
-  h2:{en:'ROBOOTEC.AI is not another AI chatbot or another trading app.',
-      cz:'ROBOOTEC.AI není další AI chatbot ani další trading aplikace.'},
+  h2:{
+    en:'<span class="headline-line signature-highlight">ROBOOTEC.AI</span><span class="headline-line">is not another AI chatbot</span><span class="headline-line">or another trading app</span>',
+    cz:'<span class="headline-line signature-highlight">ROBOOTEC.AI</span><span class="headline-line">není další AI chat bot</span><span class="headline-line">ani další trading aplikace</span>'
+  },
   lead:{en:'Our advantage is connecting all the key parts into a single platform:', cz:'Naší výhodou je propojení všech klíčových částí do jediné platformy:'},
   items:[
     {en:'AI market analysis', cz:'AI analýza trhu'},
@@ -655,7 +746,11 @@ const SLIDES = [
 
 /* 15 — CLOSING */
 { type:'closing', label:{en:'Vision',cz:'Vize'},
-  h1:{en:'We are building the future of investing.', cz:'Stavíme budoucnost investování.'},
+  h1:{
+    en:'<span class="headline-line">Join us in changing</span><span class="headline-line signature-highlight">the future</span><span class="headline-line">of trading.</span>',
+    cz:'<span class="headline-line">Pojďte s námi změnit</span><span class="headline-line signature-highlight">budoucnost</span><span class="headline-line">obchodování.</span>'
+  },
+  thanks:{en:'Thank you for your attention.',cz:'Díky za pozornost.'},
   role:{en:'Founder &amp; CEO', cz:'Zakladatel &amp; CEO'} }
 ];
 
@@ -670,12 +765,63 @@ function bind(el, pair, isHTML){
   if(pair.en !== undefined) nodes.push({el, en:pair.en, cz:pair.cz});
 }
 function el(tag, cls, pair){ const e=document.createElement(tag); if(cls) e.className=cls; if(pair) bind(e,pair); return e; }
+function escapeHtml(value){
+  return String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+}
+const HEADING_HIGHLIGHTS = [
+  'koncept ani prezentace','concept or a deck',
+  'platforma funguje','platform works',
+  'Architektura','architecture',
+  'Dashboard',
+  'Market Intelligence',
+  'obchodním signálům','actionable signals',
+  'Strategy Engine',
+  'Backtesting',
+  'naživo','live',
+  'Vibe Trading',
+  'obchodní strategii','trading strategy',
+  'obchodní plán','trading plan',
+  'Reálné výsledky','Real results',
+  'směřujeme','headed',
+  'AI chatbot',
+  'budoucnost','future'
+];
+function applyHeadingHighlights(){
+  document.querySelectorAll('h1,h2').forEach(heading => {
+    if(heading.closest('.cover')) return;
+    if(heading.querySelector('.signature-highlight')) return;
+    const text = heading.textContent || '';
+    const term = HEADING_HIGHLIGHTS.find(item => text.includes(item));
+    if(!term) return;
+    const escaped = escapeHtml(text);
+    const escapedTerm = escapeHtml(term);
+    heading.innerHTML = escaped.replace(escapedTerm, `<span class="signature-highlight">${escapedTerm}</span>`);
+  });
+}
+
+function patchDashboardSymbols(img){
+  img.addEventListener('load', function(){
+    const canvas = document.createElement('canvas');
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(48, 212, 72, 43);
+    ctx.fillStyle = '#101828';
+    ctx.font = '800 34px Manrope';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText('86', 53, 247);
+    img.src = canvas.toDataURL('image/png');
+  }, {once:true});
+}
 
 function shotFigure(key, urlAttr, caption){
   const fig = document.createElement('figure'); fig.className='shot';
   const chrome = document.createElement('div'); chrome.className='bchrome';
   chrome.innerHTML = '<span></span><span></span><span></span><i>app.robootec.ai</i>';
   const img = document.createElement('img'); img.src = IMG[key]; img.alt = key;
+  if(key === 'DASHBOARD') patchDashboardSymbols(img);
   fig.append(chrome, img);
   if(caption){
     const wrap = document.createElement('div');
@@ -697,33 +843,33 @@ SLIDES.forEach((s, idx) => {
     sec.append(net);
     const eb = el('div','eyebrow reveal'); eb.innerHTML = '<img class="hero-logo" src="'+LOGO_URI+'" alt="ROBOOTEC.AI">';
     const h = el('h1','reveal d1', s.title);
-    const tag = el('div','poc-tag reveal d2', s.tag);
     const sub = document.createElement('div'); sub.className='lead sub reveal d3';
     const p1 = el('p',null,s.sub1); const p2 = el('p',null,s.sub2); p2.style.marginTop='10px';
     sub.append(p1,p2);
-    wrap.append(eb,h,tag,sub);
+    wrap.append(eb,h,sub);
 
   } else if(s.type === 'checklist'){
     const eb = el('div','eyebrow reveal', s.eyebrow);
-    const h = el('h2','reveal d1 center', s.h2); h.style.maxWidth='820px';
-    const lead = el('p','lead reveal d2 center', s.lead); lead.style.maxWidth='700px'; lead.style.marginTop='18px';
-    const subh = el('div','reveal d2 center', s.subhead); subh.style.marginTop='30px'; subh.style.fontWeight='600'; subh.style.fontSize='.82rem'; subh.style.letterSpacing='.1em'; subh.style.textTransform='uppercase'; subh.style.color='var(--gold)';
+    const h = el('h2','reveal d1', s.h2); h.style.maxWidth='820px';
+    const lead = el('p','lead reveal d2', s.lead); lead.style.maxWidth='700px'; lead.style.marginTop='18px';
+    const subh = el('div','reveal d2', s.subhead); subh.style.marginTop='30px'; subh.style.fontWeight='600'; subh.style.fontSize='.82rem'; subh.style.letterSpacing='.1em'; subh.style.textTransform='uppercase'; subh.style.color='var(--gold)';
     const ul = el('ul','poc-list reveal d3');
     s.items.forEach(it=>{ const li=document.createElement('li'); li.innerHTML=ck; const span=el('span',null,it); li.append(span); ul.append(li); });
     wrap.append(eb,h,lead,subh,ul);
-    wrap.style.textAlign='center';
 
   } else if(s.type === 'flow'){
     const eb = el('div','eyebrow reveal', s.eyebrow);
     const h = el('h2','reveal d1', s.h2);
     const flow = el('div','flow reveal d2');
     s.steps.forEach((st,i)=>{
-      const box = el('div','flow-step'+(i===s.steps.length-2?' accent':'')+(i===0?'':''), st);
-      flow.append(box);
+      const row = el('div','flow-row');
+      const box = el('div','flow-step'+(i===s.steps.length-2?' accent':'')+(i===0?'':''), st.title);
+      const desc = el('p','flow-desc', st.desc);
+      row.append(box,desc);
+      flow.append(row);
       if(i < s.steps.length-1){ const ar=document.createElement('div'); ar.className='flow-arrow'; ar.textContent='↓'; flow.append(ar); }
     });
-    const note = el('p','body reveal d3 center', s.note); note.style.maxWidth='740px'; note.style.marginTop='14px';
-    wrap.style.textAlign='center';
+    const note = el('p','body reveal d3', s.note); note.style.maxWidth='740px'; note.style.marginTop='24px';
     wrap.append(eb,h,flow,note);
 
   } else if(s.type === 'arch'){
@@ -752,7 +898,7 @@ SLIDES.forEach((s, idx) => {
     sec.classList.add('sc-section'); wrap.classList.add('wide');
     const head = document.createElement('div'); head.className='sc-head reveal';
     head.append(el('div','eyebrow', s.eyebrow));
-    head.append(el('h2',null, s.h2));
+    head.append(el('h2','vibe-heading', s.h2));
     head.append(el('p','lead', s.lead));
 
     const shotWrap = el('div','sc-shot-wrap reveal d1');
@@ -829,23 +975,19 @@ SLIDES.forEach((s, idx) => {
     const note = el('p','sc-note reveal d3', s.note);
     wrap.append(head, shotWrap, chips, note);
 
-  } else if(s.type === 'vibe'){
-    sec.classList.add('sc-section'); wrap.classList.add('wide');
+} else if(s.type === 'vibe'){
+  sec.classList.add('sc-section','vibe-section'); wrap.classList.add('wide');
     const head = document.createElement('div'); head.className='sc-head reveal';
     head.append(el('div','eyebrow', s.eyebrow));
     head.append(el('h2',null, s.h2));
     head.append(el('p','lead', s.lead));
-    const quote = document.createElement('div'); quote.className='prompt-quote reveal d1';
-    const qb = document.createElement('b'); qb.textContent='"';
-    const qt = document.createElement('span'); bind(qt, s.promptQuote);
-    quote.append(qb, qt);
-    const shotWrap = el('div','sc-shot-wrap vibe-shot reveal d2');
-    shotWrap.style.maxWidth='820px';
+  const shotWrap = el('div','sc-shot-wrap vibe-shot reveal d2');
+  shotWrap.style.maxWidth='920px';
     shotWrap.append(shotFigure(s.shot));
     const chips = el('ul','chip-row reveal d3');
     s.items.forEach(it=>{ const li=document.createElement('li'); bind(li,it); chips.append(li); });
     const note = el('p','sc-note reveal d4', s.note);
-    wrap.append(head, quote, shotWrap, chips, note);
+  wrap.append(head, shotWrap, chips, note);
 
   } else if(s.type === 'verify'){
     sec.classList.add('sc-section'); wrap.classList.add('wide');
@@ -864,7 +1006,7 @@ SLIDES.forEach((s, idx) => {
 
   } else if(s.type === 'miniflow'){
     const eb = el('div','eyebrow reveal', s.eyebrow);
-    const h = el('h2','reveal d1 center', s.h2); h.style.maxWidth='860px';
+    const h = el('h2','reveal d1', s.h2); h.style.maxWidth='860px';
     const grid = el('div','mini-flow reveal d2');
     s.steps.forEach((st,i)=>{
       const box = document.createElement('div'); box.className='mini-step';
@@ -873,7 +1015,6 @@ SLIDES.forEach((s, idx) => {
       box.append(n, sp); grid.append(box);
     });
     const note = el('p','mini-note reveal d3', s.note);
-    wrap.style.textAlign='center';
     wrap.append(eb,h,grid,note);
 
   } else if(s.type === 'scenario'){
@@ -893,11 +1034,10 @@ SLIDES.forEach((s, idx) => {
     wrap.append(head, dual, chips, note);
 
   } else if(s.type === 'results'){
-    sec.classList.add('sc-section'); wrap.classList.add('wide');
+    sec.classList.add('sc-section','results-section'); wrap.classList.add('wide');
     const eb = el('div','eyebrow reveal', s.eyebrow);
-    const h = el('h2','reveal d1 center', s.h2); h.style.maxWidth='860px';
-    wrap.style.textAlign='center';
-    const statsHead = el('div','reveal d2', s.statsHead); statsHead.style.marginTop='18px'; statsHead.style.fontSize='.76rem'; statsHead.style.fontWeight='700'; statsHead.style.letterSpacing='.1em'; statsHead.style.textTransform='uppercase'; statsHead.style.color='var(--gold)';
+    const h = el('h2','reveal d1', s.h2); h.style.maxWidth='860px';
+    const statsHead = el('div','platform-stats-title reveal d2', s.statsHead); statsHead.style.marginTop='18px'; statsHead.style.fontSize='.76rem'; statsHead.style.fontWeight='700'; statsHead.style.letterSpacing='.1em'; statsHead.style.textTransform='uppercase'; statsHead.style.color='var(--gold)';
     const statGrid = el('div','stat-hero reveal d2');
     s.stats.forEach(st=>{
       const c = document.createElement('div'); c.className='sc';
@@ -914,76 +1054,66 @@ SLIDES.forEach((s, idx) => {
           <div class="web-results-title"></div>
           <div class="demo-badge"></div>
         </div>
-        <svg class="web-results-chart" viewBox="0 0 640 310" role="img" aria-label="Backtest, paper trading and live signals compared with SPY">
+        <svg class="web-results-chart" viewBox="0 0 1000 145" role="img" aria-label="Backtest, paper trading and live signals compared with SPY">
           <defs>
             <linearGradient id="pocBlueArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4C63FF" stop-opacity=".24"/><stop offset="100%" stop-color="#4C63FF" stop-opacity="0"/></linearGradient>
-            <linearGradient id="pocPurpleArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#B12ACA" stop-opacity=".2"/><stop offset="100%" stop-color="#B12ACA" stop-opacity="0"/></linearGradient>
-            <linearGradient id="pocGreenArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4AAF84" stop-opacity=".22"/><stop offset="100%" stop-color="#4AAF84" stop-opacity="0"/></linearGradient>
+            <linearGradient id="pocPurpleArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#7B4DFF" stop-opacity=".2"/><stop offset="100%" stop-color="#7B4DFF" stop-opacity="0"/></linearGradient>
+            <linearGradient id="pocGreenArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#3FA27A" stop-opacity=".22"/><stop offset="100%" stop-color="#3FA27A" stop-opacity="0"/></linearGradient>
           </defs>
-          <line class="chart-grid-line" x1="78" y1="36" x2="600" y2="36"/><line class="chart-grid-line" x1="78" y1="90" x2="600" y2="90"/><line class="chart-grid-line" x1="78" y1="144" x2="600" y2="144"/><line class="chart-grid-line" x1="78" y1="198" x2="600" y2="198"/><line class="chart-grid-line" x1="78" y1="252" x2="600" y2="252"/>
-          <text x="20" y="40" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+150 %</text><text x="26" y="94" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+111 %</text><text x="32" y="148" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+73 %</text><text x="32" y="202" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">+34 %</text><text x="36" y="256" fill="#A7B0C0" font-size="13" font-family="IBM Plex Mono">-5 %</text>
-          <path class="blue-fill" d="M84 246 L120 238 L156 220 L192 196 L228 168 L264 142 L300 120 L336 94 L372 84 L408 88 L444 76 L480 68 L516 54 L552 26 L584 18 L584 252 L84 252 Z"/>
-          <path class="green-fill" d="M84 224 L120 210 L156 186 L192 172 L228 150 L264 132 L300 118 L336 104 L372 118 L408 112 L444 134 L480 104 L516 72 L552 50 L584 62 L584 252 L84 252 Z"/>
-          <path class="purple-fill" d="M84 234 L120 210 L156 188 L192 162 L228 132 L264 116 L300 128 L336 140 L372 158 L408 178 L444 198 L480 124 L516 102 L552 112 L584 96 L584 252 L84 252 Z"/>
-          <path class="spy-line" d="M84 244 L120 226 L156 216 L192 206 L228 198 L264 188 L300 192 L336 182 L372 186 L408 188 L444 202 L480 168 L516 152 L552 158 L584 150"/>
-          <path class="purple-line" d="M84 234 L120 210 L156 188 L192 162 L228 132 L264 116 L300 128 L336 140 L372 158 L408 178 L444 198 L480 124 L516 102 L552 112 L584 96"/>
-          <path class="green-line" d="M84 224 L120 210 L156 186 L192 172 L228 150 L264 132 L300 118 L336 104 L372 118 L408 112 L444 134 L480 104 L516 72 L552 50 L584 62"/>
-          <path class="blue-line" d="M84 246 L120 238 L156 220 L192 196 L228 168 L264 142 L300 120 L336 94 L372 84 L408 88 L444 76 L480 68 L516 54 L552 26 L584 18"/>
-          <text x="530" y="24" fill="#4C63FF" font-size="14" font-weight="700" font-family="IBM Plex Mono">+137,9 %</text><text x="528" y="70" fill="#4AAF84" font-size="14" font-weight="700" font-family="IBM Plex Mono">+63,3 %</text><text x="528" y="104" fill="#B12ACA" font-size="14" font-weight="700" font-family="IBM Plex Mono">+28,4 %</text><text x="530" y="154" fill="#8C96AA" font-size="14" font-weight="700" font-family="IBM Plex Mono">+20,9 %</text>
+          <line class="chart-grid-line" x1="70" y1="10" x2="850" y2="10"/><line class="chart-grid-line" x1="70" y1="38" x2="850" y2="38"/><line class="chart-grid-line" x1="70" y1="66" x2="850" y2="66"/><line class="chart-grid-line" x1="70" y1="94" x2="850" y2="94"/><line class="chart-grid-line" x1="70" y1="122" x2="850" y2="122"/>
+          <text x="8" y="14" fill="#98A2B3" font-size="10" font-family="IBM Plex Mono">+150 %</text><text x="14" y="42" fill="#98A2B3" font-size="10" font-family="IBM Plex Mono">+111 %</text><text x="20" y="70" fill="#98A2B3" font-size="10" font-family="IBM Plex Mono">+73 %</text><text x="20" y="98" fill="#98A2B3" font-size="10" font-family="IBM Plex Mono">+34 %</text><text x="26" y="126" fill="#98A2B3" font-size="10" font-family="IBM Plex Mono">-5 %</text>
+          <path class="blue-fill" d="M70 120 L105 123 L140 116 L175 105 L210 91 L245 80 L280 69 L315 63 L350 68 L385 73 L420 67 L455 60 L490 54 L525 61 L560 56 L595 48 L630 42 L665 33 L700 38 L735 29 L770 21 L805 18 L850 11 L850 122 L70 122 Z"/>
+          <path class="green-fill" d="M70 111 L105 106 L140 96 L175 101 L210 99 L245 90 L280 88 L315 81 L350 87 L385 79 L420 84 L455 75 L490 82 L525 74 L560 86 L595 80 L630 91 L665 78 L700 70 L735 53 L770 46 L805 57 L850 61 L850 122 L70 122 Z"/>
+          <path class="purple-fill" d="M70 117 L105 114 L140 106 L175 100 L210 90 L245 85 L280 82 L315 77 L350 79 L385 81 L420 84 L455 88 L490 91 L525 94 L560 101 L595 105 L630 110 L665 101 L700 87 L735 78 L770 75 L805 79 L850 76 L850 122 L70 122 Z"/>
+          <path class="spy-line" d="M70 124 L105 122 L140 118 L175 116 L210 112 L245 110 L280 108 L315 105 L350 107 L385 103 L420 102 L455 101 L490 100 L525 102 L560 106 L595 110 L630 112 L665 106 L700 101 L735 97 L770 94 L805 99 L850 96"/>
+          <path class="purple-line" d="M70 117 L105 114 L140 106 L175 100 L210 90 L245 85 L280 82 L315 77 L350 79 L385 81 L420 84 L455 88 L490 91 L525 94 L560 101 L595 105 L630 110 L665 101 L700 87 L735 78 L770 75 L805 79 L850 76"/>
+          <path class="green-line" d="M70 111 L105 106 L140 96 L175 101 L210 99 L245 90 L280 88 L315 81 L350 87 L385 79 L420 84 L455 75 L490 82 L525 74 L560 86 L595 80 L630 91 L665 78 L700 70 L735 53 L770 46 L805 57 L850 61"/>
+          <path class="blue-line" d="M70 120 L105 123 L140 116 L175 105 L210 91 L245 80 L280 69 L315 63 L350 68 L385 73 L420 67 L455 60 L490 54 L525 61 L560 56 L595 48 L630 42 L665 33 L700 38 L735 29 L770 21 L805 18 L850 11"/>
+          <text x="865" y="14" fill="#4C63FF" font-size="11" font-weight="700" font-family="IBM Plex Mono">+139 %</text><text x="865" y="64" fill="#3FA27A" font-size="11" font-weight="700" font-family="IBM Plex Mono">+65 %</text><text x="865" y="79" fill="#7B4DFF" font-size="11" font-weight="700" font-family="IBM Plex Mono">+36 %</text><text x="865" y="99" fill="#8C96AA" font-size="11" font-weight="700" font-family="IBM Plex Mono">+22 %</text>
+          <text x="70" y="141" fill="#98A2B3" font-size="9" font-family="IBM Plex Mono">06/25</text><text x="250" y="141" fill="#98A2B3" font-size="9" font-family="IBM Plex Mono">10/25</text><text x="455" y="141" fill="#98A2B3" font-size="9" font-family="IBM Plex Mono">02/26</text><text x="650" y="141" fill="#98A2B3" font-size="9" font-family="IBM Plex Mono">04/26</text><text x="810" y="141" fill="#98A2B3" font-size="9" font-family="IBM Plex Mono">06/26</text>
         </svg>`;
       bind(webChart.querySelector('.web-results-title'), s.webChart.title);
       bind(webChart.querySelector('.demo-badge'), s.webChart.badge);
+      const legend = document.createElement('div'); legend.className='results-legend';
+      [
+        ['lg-blue',{en:'Backtest',cz:'Backtest'}],
+        ['lg-purple',{en:'Paper trading',cz:'Paper trading'}],
+        ['lg-green',{en:'Signals',cz:'Signály'}],
+        ['lg-spy',{en:'Market index (SPY)',cz:'Index trhu (SPY)'}]
+      ].forEach(([cls,label])=>{
+        const item=document.createElement('span'); item.className=cls;
+        const line=document.createElement('i'); const text=document.createElement('b'); text.style.fontWeight='500'; bind(text,label);
+        item.append(line,text); legend.append(item);
+      });
+      const table = document.createElement('table'); table.className='results-table';
+      const thead=document.createElement('thead'); const headRow=document.createElement('tr');
+      [
+        {en:'Strategy',cz:'Strategie'},
+        {en:'Return',cz:'Zhodnocení'},
+        {en:'Win rate',cz:'Win rate'},
+        {en:'Max drawdown',cz:'Max drawdown'}
+      ].forEach(label=>{ const th=document.createElement('th'); bind(th,label); headRow.append(th); });
+      thead.append(headRow); table.append(thead);
+      const tbody = document.createElement('tbody');
+      s.comparison.forEach(row=>{
+        const tr = document.createElement('tr'); if(row.spy) tr.className='result-spy';
+        const name = el('td','result-name',row.name);
+        const ret = document.createElement('td'); ret.className='result-return'; ret.textContent=row.ret;
+        const wr = document.createElement('td'); wr.className='result-number'; wr.textContent=row.wr;
+        const dd = document.createElement('td'); dd.className='result-dd'; dd.textContent=row.dd;
+        tr.append(name,ret,wr,dd); tbody.append(tr);
+      });
+      table.append(tbody);
+      const disclaimer = el('p','results-disclaimer',s.footnote);
+      webChart.append(legend,table,disclaimer);
     }
-
-    const top3 = document.createElement('div'); top3.className='top3 reveal d3'; top3.style.textAlign='left';
-    top3.append(el('div','top3-title', s.top3Head));
-    const table = document.createElement('table'); table.className='top3-table';
-    const thead = document.createElement('thead');
-    const trh = document.createElement('tr');
-    const heads = [
-      {en:'',cz:''},{en:'Strategy',cz:'Strategie'},{en:'Return',cz:'Zhodnocení'},{en:'Win Rate',cz:'Win Rate'},{en:'Max DD',cz:'Max DD'},{en:'Sharpe',cz:'Sharpe'},{en:'PF',cz:'PF'}
-    ];
-    heads.forEach((hd,i)=>{ const th=document.createElement('th'); if(i>=2) th.style.textAlign='right'; bind(th,hd); trh.append(th); });
-    thead.append(trh); table.append(thead);
-    const tbody = document.createElement('tbody');
-    s.top3.forEach(row=>{
-      const tr = document.createElement('tr');
-      const tdRank = document.createElement('td'); tdRank.className='rank'; tdRank.textContent = row.rank;
-      const tdName = document.createElement('td'); tdName.className='name';
-      if(typeof row.name === 'string'){ tdName.textContent = row.name; } else { bind(tdName, row.name); }
-      const sub = document.createElement('span'); sub.className='sub'; bind(sub,row.sub); tdName.append(sub);
-      const tdRet = document.createElement('td'); tdRet.className='ret num'; tdRet.textContent = row.ret;
-      const tdWr = document.createElement('td'); tdWr.className='num'; tdWr.textContent = row.wr;
-      const tdDd = document.createElement('td'); tdDd.className='num metric-down'; tdDd.textContent = row.dd || '';
-      const tdSh = document.createElement('td'); tdSh.className='num'; tdSh.textContent = row.sharpe;
-      const tdPf = document.createElement('td'); tdPf.className='num'; tdPf.textContent = row.pf || '';
-      tr.append(tdRank, tdName, tdRet, tdWr, tdDd, tdSh, tdPf); tbody.append(tr);
-    });
-    table.append(tbody); top3.append(table);
-
-    const best = document.createElement('div'); best.className='best-result reveal d4'; best.style.textAlign='left';
-    best.append(el('div','brh', s.bestHead));
-    const bestSubEl = document.createElement('p'); bestSubEl.style.fontSize='.92rem'; bestSubEl.style.color='var(--ink-soft)'; bestSubEl.style.marginBottom='18px'; bind(bestSubEl, s.bestSub);
-    best.append(bestSubEl);
-    const brgrid = document.createElement('div'); brgrid.className='brgrid';
-    s.best.forEach(b=>{
-      const c = document.createElement('div');
-      const v = document.createElement('div'); v.className = 'bv' + (b.gold ? ' g':''); v.textContent = b.v;
-      const l = el('div','bl', b.l);
-      c.append(v,l); brgrid.append(c);
-    });
-    best.append(brgrid);
-
-    const foot = el('p','poc-footnote reveal d4 center', s.footnote); foot.style.marginLeft='auto'; foot.style.marginRight='auto';
 
     wrap.append(eb,h,statsHead,statGrid);
     if(webChart) wrap.append(webChart);
-    wrap.append(top3,best,foot);
 
   } else if(s.type === 'stepper'){
     const eb = el('div','eyebrow reveal', s.eyebrow);
     const h = el('h2','reveal d1', s.h2);
-    wrap.style.textAlign='center';
     const stepper = el('div','stepper reveal d2');
     s.steps.forEach((st,i)=>{
       const node = document.createElement('div'); node.className='step-node'+(st.now?' now':'');
@@ -998,9 +1128,8 @@ SLIDES.forEach((s, idx) => {
 
   } else if(s.type === 'advantage'){
     const eb = el('div','eyebrow reveal', s.eyebrow);
-    const h = el('h2','reveal d1 center', s.h2); h.style.maxWidth='840px';
-    const lead = el('p','lead reveal d2 center', s.lead); lead.style.marginTop='18px'; lead.style.marginLeft='auto'; lead.style.marginRight='auto';
-    wrap.style.textAlign='center';
+    const h = el('h2','reveal d1', s.h2); h.style.maxWidth='840px';
+    const lead = el('p','lead reveal d2', s.lead); lead.style.marginTop='18px';
     const list = el('div','adv-wrap reveal d3');
     s.items.forEach(it=>{ const d=document.createElement('div'); d.className='adv-item'; bind(d,it); list.append(d); });
     const close = el('p','adv-close reveal d4', s.close);
@@ -1009,15 +1138,15 @@ SLIDES.forEach((s, idx) => {
   } else if(s.type === 'closing'){
     wrap.classList.add('closing');
     const h = el('h1','iconic reveal', s.h1);
-    const brand = document.createElement('div'); brand.className='iconic-brand reveal d1'; brand.innerHTML='<img class="close-logo" src="'+LOGO_URI+'" alt="ROBOOTEC.AI">';
-    const ec = document.createElement('div'); ec.className='end-contact reveal d2';
+    const thanks = el('div','closing-thanks reveal d2',s.thanks);
+    const ec = document.createElement('div'); ec.className='end-contact reveal d3';
     const name = document.createElement('div'); name.className='ec-name';
     const roleSpan = document.createElement('span'); bind(roleSpan, s.role);
     name.append(document.createTextNode('Radek Gelety · '), roleSpan);
     const line = document.createElement('div'); line.className='ec-line';
     line.innerHTML = '<a href="tel:+420777150218">+420 777 150 218</a><span class="ec-sep">·</span><a href="mailto:radek@robootec.ai">radek@robootec.ai</a>';
     ec.append(name,line);
-    wrap.append(h,brand,ec);
+    wrap.append(h,thanks,ec);
   }
 
   sec.append(wrap); deck.append(sec);
@@ -1100,6 +1229,7 @@ function updateHomeLink(lang){
 function setLang(lang){
   lang = validLang(lang) ? lang : 'en';
   nodes.forEach(n=>{ n.el.innerHTML = n[lang] != null ? n[lang] : n.en; });
+  applyHeadingHighlights();
   metaEl.innerHTML = M.meta[lang] || M.meta.en;
   hintText.innerHTML = M.hint[lang] || M.hint.en;
   document.documentElement.lang = (lang==='cz') ? 'cs' : lang;
