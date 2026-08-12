@@ -12,15 +12,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-Latin.woff2?v=qa-system") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-LatinExt.woff2?v=qa-system") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-Latin.woff2?v=hero-headline") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-LatinExt.woff2?v=hero-headline") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
   :root{
-    --ink:#041534;--ink-soft:#101828;--gray:#667085;--gray-line:#e6e9f1;
-    --gray-faint:#f7f8fc;--gold:#4C63FF;--gold-soft:#CDD3FF;--white:#ffffff;
-    --paper:#fafbfe;--purple:#7B4DFF;--green:#3FA27A;
+    --ink:#0a0a0a;--ink-soft:#1d1d1f;--deep-navy:#041534;
+    --gray:#86868b;--gray-line:#e8e8ea;--gray-faint:#f5f5f7;
+    --gold:#4C63FF;--gold-soft:#CDD3FF;--white:#ffffff;
+    --paper:#fafbfe;--light-bg:#F6F8FF;--purple:#7B4DFF;--green:#3FA27A;
     --gradient-brand:linear-gradient(110deg, #4C63FF 0%, #7B4DFF 33.333%, #5D8BFF 66.666%, #3FA27A 100%);
     --max:1500px;--slide-x:clamp(84px,7.75vw,150px);--nav-h:76px;
-    --headline-size:clamp(3.55rem,4.65vw,6rem);--hero-headline-size:clamp(5.1rem,6.45vw,8.15rem);
+    --headline-size:clamp(3.65rem,4.75vw,6.1rem);--hero-headline-size:clamp(6.12rem,7.74vw,9.78rem);
     --hero-title-block:clamp(254.6px,20.124vw,406.85px);
     --hero-sub-block:clamp(64.5px,5.0808vw,86.9px);
     --hero-cover-height:calc(var(--hero-title-block) + 56px + var(--hero-sub-block));
@@ -47,14 +48,15 @@
   }
   .wrap{width:100%;max-width:var(--max);margin:0 auto;position:relative;z-index:2}
 
-  .eyebrow{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:22px}
-  h1{font-size:var(--headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line);color:var(--ink)}
-  .lead{font-size:clamp(1.16rem,1.65vw,1.45rem);color:var(--gray);font-weight:500;line-height:1.52;max-width:640px}
+  .eyebrow{font-family:var(--font-mono);font-size:.9rem;letter-spacing:0;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:24px}
+  h1{font-size:var(--headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line);color:var(--deep-navy)}
+  .lead{font-size:clamp(1.15rem,1.85vw,1.52rem);color:var(--gray);font-weight:400;line-height:1.55;max-width:700px}
   .gold{color:var(--gold)}
   .signature-highlight,.gold{
     background:var(--gradient-brand);-webkit-background-clip:text;background-clip:text;
     color:transparent;-webkit-text-fill-color:transparent;
   }
+  .brand-highlight{color:var(--gold);-webkit-text-fill-color:var(--gold)}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
@@ -66,23 +68,23 @@
   .progress{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--gold);z-index:60;transition:width .12s linear}
   .brandbar{position:fixed;top:0;left:50%;right:auto;z-index:50;width:min(calc(100% - 88px),var(--max));transform:translateX(-50%);display:flex;align-items:center;justify-content:space-between;height:var(--nav-h);padding:0;pointer-events:none}
   .brandbar .mark{font-weight:800;letter-spacing:-.035em;font-size:1.35rem;line-height:1;display:flex;align-items:center;gap:8px;pointer-events:auto;text-decoration:none;color:var(--ink)}
-  .nav-logo{height:24px;width:auto;display:block}
+  .nav-logo{height:34px;width:auto;display:block}
   .nav-logo-icon{height:34px;width:auto;display:block}
   .hero-logo{display:none}
   .close-logo{display:none}
   .dot-mark{width:9px;height:9px;border-radius:50%;background:var(--gold)}
-  .brandbar .right{display:flex;align-items:center;gap:18px;pointer-events:auto}
-  .brandbar .meta{font-family:var(--font-mono);font-size:.78rem;color:#98a2b3;letter-spacing:0}
+  .brandbar .right{display:none}
+  .brandbar .meta{font-family:var(--font-mono);font-size:.82rem;color:var(--gray);letter-spacing:0}
   .lang{font-family:var(--font-mono);display:flex;align-items:center;gap:9px;font-size:.84rem;font-weight:600;letter-spacing:0}
   .lang button{border:none;background:none;cursor:pointer;color:var(--gray);padding:0;font:inherit;transition:color .3s var(--ease)}
   .lang button:hover{color:var(--ink)}
   .lang button.active{color:var(--gold)}
   .lang .bar{color:var(--gray-line);font-weight:400}
 
-  nav.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:12px}
-  nav.dots button{width:7px;height:7px;border-radius:50%;border:none;cursor:pointer;background:#d8dee9;padding:0;transition:all .35s var(--ease);position:relative}
+  nav.dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:55;display:flex;flex-direction:column;gap:14px}
+  nav.dots button{width:9px;height:9px;border-radius:50%;border:none;cursor:pointer;background:var(--gray-line);padding:0;transition:all .35s var(--ease);position:relative}
   nav.dots button:hover{background:var(--gold-soft)}
-  nav.dots button.active{background:var(--gold);transform:scale(1.3)}
+  nav.dots button.active{background:var(--gold);transform:scale(1.25)}
   nav.dots button::after{font-family:var(--font-mono);content:attr(data-label);position:absolute;right:20px;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:.72rem;color:var(--gray);opacity:0;pointer-events:none;transition:opacity .25s}
   nav.dots button:hover::after{opacity:1}
 
@@ -95,8 +97,8 @@
   .cover{text-align:left;width:min(100%,88rem);max-width:none;min-height:var(--hero-cover-height);margin:0 auto}
   @media (min-width:901px){section.cover-section{padding:var(--nav-h) var(--slide-x) 72px}}
   .cover .eyebrow{display:none}
-  .cover h1{font-size:var(--hero-headline-size);margin:0;max-width:88rem}
-  .cover .sub{margin:56px 0 0;max-width:36ch;font-size:clamp(1.38rem,1.74vw,1.86rem);line-height:1.46}
+  .cover h1{font-size:var(--hero-headline-size);margin:0;max-width:88rem;color:var(--deep-navy);font-variation-settings:"wght" 800;font-synthesis:none}
+  .cover .sub{margin:67px 0 0;max-width:none;font-size:clamp(1.656rem,2.088vw,2.232rem);font-weight:400;line-height:1.46;color:var(--ink);white-space:nowrap}
   .net{display:none}
   .net svg{width:min(1100px,92vw);height:auto;opacity:.9}
   .pulse{animation:pulse 3.4s ease-in-out infinite}
@@ -106,33 +108,34 @@
   @keyframes draw{to{stroke-dashoffset:0}}
 
   /* closing — same as the pitch final slide */
-  .closing{text-align:left;max-width:1040px;margin:0}
+  .closing{text-align:left;max-width:1120px;margin:0}
   .iconic{font-size:var(--headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line)}
   .iconic-brand{display:none}
   .end-contact{margin-top:48px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
-  .end-contact .ec-name{font-size:1rem;font-weight:700;color:var(--ink);letter-spacing:0}
-  .end-contact .ec-line{font-family:var(--font-mono);font-size:.9rem;color:var(--gray);display:flex;gap:11px;align-items:center;flex-wrap:wrap;justify-content:center}
+  .end-contact .ec-name{font-family:var(--font-sans);font-size:1rem;font-weight:600;line-height:1.4;color:var(--ink);letter-spacing:0}
+  .end-contact .ec-line{font-family:var(--font-sans);font-size:.96rem;font-weight:500;line-height:1.4;color:var(--gray);display:flex;gap:11px;align-items:center;flex-wrap:wrap;justify-content:flex-start}
   .end-contact a{color:var(--gold);text-decoration:none}
   .end-contact a:hover{text-decoration:underline}
   .end-contact .ec-sep{color:var(--gray-line)}
 
   /* Q&A slide — question on top, answer below (full width) */
-  .qa{max-width:1040px;margin:0 auto}
-  .qa-head{margin-bottom:24px}
-  .qa-q{font-size:clamp(1.95rem,3.4vw,3rem);font-weight:800;letter-spacing:var(--headline-track);line-height:1.08;color:var(--ink)}
-  .qa-a{max-width:1040px;padding:0;max-height:calc(100vh - 260px);overflow:auto;scrollbar-width:none}
+  .qa{width:100%;max-width:1180px;margin:0 auto}
+  .qa-head{margin-bottom:30px}
+  .qa-q{font-size:clamp(2.2rem,3.55vw,3.45rem);font-weight:800;letter-spacing:var(--headline-track);line-height:1.08;color:var(--deep-navy);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;font-synthesis:none}
+  .qa-a{max-width:1120px;padding:0;max-height:calc(100vh - 280px);overflow:auto;scrollbar-width:none}
   .qa-a::-webkit-scrollbar{display:none}
-  .qa-a p{font-size:clamp(1.02rem,1.25vw,1.18rem);line-height:1.56;color:var(--ink-soft);font-weight:500}
+  .qa-a p{font-size:clamp(1.02rem,1.25vw,1.18rem);line-height:1.56;color:var(--ink-soft);font-weight:400}
   .qa-a p+p{margin-top:13px}
-  .qa-sub{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;font-weight:700;color:var(--gold);margin:20px 0 10px}
+  .qa-sub{font-family:var(--font-sans);font-size:.975rem;letter-spacing:0;text-transform:uppercase;font-weight:700;color:var(--gold);margin:20px 0 10px}
   .qa-a ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:4px}
   .qa-a ul+p,.qa-a p+.qa-sub,.qa-a ul+.qa-sub{margin-top:18px}
-  .qa-a li{font-size:clamp(1rem,1.18vw,1.12rem);line-height:1.46;color:var(--ink-soft);display:flex;gap:13px;align-items:flex-start;font-weight:500}
+  .qa-a li{font-size:clamp(1rem,1.18vw,1.12rem);line-height:1.46;color:var(--ink-soft);display:flex;gap:13px;align-items:flex-start;font-weight:400}
   .qa-a li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;margin-top:9px}
 
   @media (max-height:760px) and (min-width:900px){
     :root{
-      --hero-headline-size:clamp(4.45rem,5.7vw,7.2rem);
+      --hero-headline-size:clamp(5.34rem,6.84vw,8.64rem);
+      --headline-size:clamp(3.15rem,4.05vw,5.2rem);
       --hero-title-block:clamp(222.14px,17.784vw,359.42px);
     }
     section{padding:64px var(--slide-x) 34px}
@@ -142,7 +145,7 @@
     .qa-a{max-height:calc(100vh - 210px)}
     .qa-a p{font-size:clamp(.9rem,.98vw,.98rem);line-height:1.42}
     .qa-a p+p{margin-top:8px}
-    .qa-sub{font-size:.66rem;margin:13px 0 7px}
+    .qa-sub{font-size:.825rem;margin:13px 0 7px}
     .qa-a ul{gap:6px}
     .qa-a li{font-size:clamp(.87rem,.95vw,.95rem);line-height:1.34}
     .qa-a li::before{width:5px;height:5px;margin-top:7px}
@@ -157,6 +160,7 @@
     .qa-q{font-size:clamp(2rem,9vw,3.15rem)}
     .qa-a{border:none;padding:0;max-width:none;max-height:none}
     .cover{min-height:0}
+    .cover .sub{white-space:normal}
     nav.dots{right:14px}
     .brandbar .meta{display:none}
     .brandbar{width:calc(100% - 48px);height:68px;padding:0}
@@ -240,60 +244,60 @@ const M = {
 const QA = [
   { cover:true, label:{en:"Q&A",cz:"Q&A"},
     title:{en:"Questions &amp;<br><span class=\"signature-highlight\">Answers</span>", cz:"Otázky a<br><span class=\"signature-highlight\">odpovědi</span>"},
-    sub:{en:"Everything investors ask about ROBOOTEC.AI —<br>in one place.",
-         cz:"Vše, na co se investoři ptají —<br>na jednom místě."} },
+    sub:{en:"Everything investors ask about ROBOOTEC.AI in one place.",
+         cz:"Vše, na co se investoři ptají na jednom místě."} },
 
   { label:{en:"What we do",cz:"Co děláme"},
     q:{en:"What does your company do?", cz:"Co vaše firma dělá?"},
     a:[
-      {p:{en:"ROBOOTEC.AI is building the AI infrastructure powering the next generation of autonomous investing.",
-          cz:"ROBOOTEC.AI buduje AI infrastrukturu, která pohání novou generaci autonomního investování."}},
-      {p:{en:"Our multi-agent platform transforms real-time market data into explainable investment decisions by combining AI agents, predictive analytics, strategy validation and automated risk management.",
-          cz:"Naše multi-agentní platforma transformuje tržní data v reálném čase na vysvětlitelná investiční rozhodnutí kombinací AI agentů, prediktivní analytiky, validace strategií a automatizovaného řízení rizik."}},
-      {p:{en:"Unlike traditional trading tools that generate isolated signals, ROBOOTEC.AI orchestrates specialized AI agents into a single autonomous decision-making system. The same infrastructure powers both our retail product, AI Vibe Trading, and enterprise solutions for financial institutions.",
-          cz:"Na rozdíl od tradičních obchodních nástrojů, které generují izolované signály, ROBOOTEC.AI orchestruje specializované AI agenty do jednoho autonomního rozhodovacího systému. Stejná infrastruktura pohání jak náš retailový produkt AI Vibe Trading, tak enterprise řešení pro finanční instituce."}},
-      {p:{en:"Our vision is to become the intelligence layer for autonomous capital management, enabling millions of investors and financial institutions to make faster, smarter and more transparent investment decisions.",
-          cz:"Naší vizí je stát se inteligenční vrstvou pro autonomní správu kapitálu a umožnit milionům investorů a finančních institucí činit rychlejší, chytřejší a transparentnější investiční rozhodnutí."}}
+      {p:{en:"ROBOOTEC.AI is developing a predictive AI trading platform for intelligent capital management.",
+          cz:"ROBOOTEC.AI vyvíjí prediktivní AI trading platformu pro inteligentní správu kapitálu."}},
+      {p:{en:"The platform connects market data, AI prediction, validated trading logic and risk management in one decision-making system.",
+          cz:"Platforma propojuje tržní data, AI predikci, ověřenou obchodní logiku a risk management do jednoho rozhodovacího systému."}},
+      {p:{en:"Specialized AI agents work together across the decision-making process. The same platform powers Vibe Trading for retail investors and Asset Manager for financial institutions and professional capital managers.",
+          cz:"Specializovaní AI agenti spolupracují napříč rozhodovacím procesem. Na stejné platformě stojí Vibe Trading pro retailové investory a Asset Manager pro finanční instituce a profesionální správce kapitálu."}},
+      {p:{en:"Our long-term vision is autonomous capital management that enables faster, more consistent and transparent investment decisions.",
+          cz:"Naší dlouhodobou vizí je autonomní správa kapitálu, která umožní rychlejší, konzistentnější a transparentnější investiční rozhodování."}}
     ]},
 
   { label:{en:"The problem",cz:"Problém"},
     q:{en:"What problem do you solve?", cz:"Jaký problém řešíte?"},
     a:[
-      {p:{en:"Financial markets generate far more data than any human or traditional algorithm can process in real time. Every second, investment decisions are influenced by news, macroeconomic events, market data, company announcements and alternative data sources. Most investors and financial institutions still rely on fragmented tools, manual analysis and static algorithms that cannot adapt to constantly changing market conditions.",
-          cz:"Finanční trhy generují mnohem více dat, než dokáže kterýkoli člověk nebo tradiční algoritmus zpracovat v reálném čase. Každou vteřinu ovlivňují investiční rozhodnutí zprávy, makroekonomické události, tržní data, firemní oznámení a alternativní datové zdroje. Většina investorů a finančních institucí stále spoléhá na roztříštěné nástroje, ruční analýzu a statické algoritmy, které se nedokáží přizpůsobit neustále se měnícím tržním podmínkám."}},
+      {p:{en:"Financial markets produce more information than people can process effectively in real time. Investment decisions are continuously influenced by market data, news, macroeconomic events, company results and sentiment. Investors and financial institutions therefore often rely on fragmented tools and manual analysis.",
+          cz:"Finanční trhy produkují více informací, než dokáže člověk efektivně zpracovat v reálném čase. Investiční rozhodnutí průběžně ovlivňují tržní data, zprávy, makroekonomické události, výsledky firem a sentiment. Investoři a finanční instituce proto často spoléhají na roztříštěné nástroje a ruční analýzu."}},
       {p:{en:"The result is slower decision-making, inconsistent investment strategies and missed opportunities. Even professional investors spend countless hours analyzing information instead of making decisions based on continuously evolving market intelligence.",
           cz:"Výsledkem je pomalejší rozhodování, nekonzistentní investiční strategie a zmeškané příležitosti. I profesionální investoři tráví nespočet hodin analýzou informací namísto rozhodování na základě průběžně se vyvíjející tržní inteligence."}},
-      {p:{en:"We experienced this challenge firsthand while developing and validating quantitative trading strategies. Existing solutions either provide isolated trading signals or generic AI assistants, but none orchestrate specialized AI agents into a transparent, explainable decision-making system.",
-          cz:"Tuto výzvu jsme zažili na vlastní kůži při vývoji a validaci kvantitativních obchodních strategií. Existující řešení buď poskytují izolované obchodní signály, nebo generické AI asistenty, ale žádné neorchestruje specializované AI agenty do transparentního, vysvětlitelného rozhodovacího systému."}},
-      {p:{en:"ROBOOTEC.AI solves this by transforming fragmented market data into autonomous, explainable investment decisions through a coordinated network of specialized AI agents.",
-          cz:"ROBOOTEC.AI to řeší tím, že proměňuje roztříštěná tržní data na autonomní a vysvětlitelná investiční rozhodnutí prostřednictvím koordinované sítě specializovaných AI agentů."}}
+      {p:{en:"We encountered this problem while developing and validating quantitative trading strategies. Existing solutions typically provide isolated signals, static automation or generic AI assistance rather than a transparent end-to-end decision-making process.",
+          cz:"S tímto problémem jsme se setkali při vývoji a validaci kvantitativních obchodních strategií. Existující řešení obvykle nabízejí izolované signály, statickou automatizaci nebo obecnou AI asistenci, nikoli transparentní rozhodovací proces jako celek."}},
+      {p:{en:"ROBOOTEC.AI transforms fragmented market information into explainable investment outputs through one coordinated AI platform.",
+          cz:"ROBOOTEC.AI proměňuje roztříštěné tržní informace na vysvětlitelné investiční výstupy prostřednictvím jedné koordinované AI platformy."}}
     ]},
 
   { label:{en:"Our solution",cz:"Naše řešení"},
     q:{en:"How do you solve this problem?", cz:"Jak tento problém řešíte?"},
     a:[
-      {p:{en:"ROBOOTEC.AI replaces fragmented financial analysis with an autonomous AI decision-making infrastructure.",
-          cz:"ROBOOTEC.AI nahrazuje roztříštěnou finanční analýzu autonomní AI rozhodovací infrastrukturou."}},
-      {p:{en:"Our platform orchestrates specialized AI agents that continuously collect, analyze and validate real-time market data, generate predictive insights, select optimal investment strategies and manage portfolio risk. Every investment decision is transparent, explainable and continuously validated through backtesting, forward testing and paper trading before live deployment.",
-          cz:"Naše platforma orchestruje specializované AI agenty, kteří nepřetržitě sbírají, analyzují a validují tržní data v reálném čase, generují prediktivní vhledy, vybírají optimální investiční strategie a řídí riziko portfolia. Každé investiční rozhodnutí je transparentní, vysvětlitelné a průběžně validované backtestem, forward testem a paper tradingem před nasazením naživo."}},
-      {p:{en:"Unlike traditional trading platforms that provide isolated signals or static algorithms, ROBOOTEC.AI creates a complete AI-driven investment workflow—from data collection to autonomous decision support and execution.",
-          cz:"Na rozdíl od tradičních obchodních platforem, které poskytují izolované signály nebo statické algoritmy, ROBOOTEC.AI vytváří kompletní AI investiční workflow — od sběru dat po autonomní podporu rozhodování a exekuci."}},
-      {p:{en:"The same infrastructure powers both AI Vibe Trading for retail investors and enterprise solutions for financial institutions, enabling a scalable business model built on a single AI platform.",
-          cz:"Stejná infrastruktura pohání jak AI Vibe Trading pro retailové investory, tak enterprise řešení pro finanční instituce, což umožňuje škálovatelný obchodní model postavený na jedné AI platformě."}}
+      {p:{en:"ROBOOTEC.AI connects market data, AI prediction, validated trading logic and risk management in one decision-making system.",
+          cz:"ROBOOTEC.AI propojuje tržní data, AI predikci, ověřenou obchodní logiku a risk management do jednoho rozhodovacího systému."}},
+      {p:{en:"Specialized AI agents collect and analyze real-time market data, generate predictive insights, select suitable strategies and manage portfolio risk. Outputs and strategies are transparently evaluated through backtesting, forward testing and paper trading before further validation or deployment.",
+          cz:"Specializovaní AI agenti sbírají a analyzují tržní data v reálném čase, vytvářejí prediktivní výstupy, vybírají vhodné strategie a řídí riziko portfolia. Výstupy a strategie transparentně ověřujeme backtestem, forward testem a paper tradingem před dalším ověřováním nebo nasazením."}},
+      {p:{en:"Unlike traditional trading platforms that provide isolated signals or static algorithms, ROBOOTEC.AI creates a complete AI-driven investment workflow covering data collection, AI-supported decision-making and execution.",
+          cz:"Na rozdíl od tradičních obchodních platforem, které poskytují izolované signály nebo statické algoritmy, ROBOOTEC.AI vytváří kompletní AI investiční workflow zahrnující sběr dat, podporu rozhodování řízenou AI a exekuci."}},
+      {p:{en:"The same platform powers Vibe Trading for retail investors and Asset Manager for financial institutions, creating a scalable business model based on one shared technology.",
+          cz:"Na stejné platformě stojí Vibe Trading pro retailové investory a Asset Manager pro finanční instituce. Díky tomu vytváříme škálovatelný obchodní model postavený na jedné společné technologii."}}
     ]},
 
   { label:{en:"How it works",cz:"Jak to funguje"},
     q:{en:"How does your product or service work?", cz:"Jak váš produkt nebo služba funguje?"},
     a:[
-      {p:{en:"ROBOOTEC.AI operates as an AI-powered decision infrastructure that transforms complex financial data into autonomous investment intelligence.",
-          cz:"ROBOOTEC.AI funguje jako rozhodovací infrastruktura poháněná AI, která transformuje komplexní finanční data na autonomní investiční inteligenci."}},
-      {p:{en:"The platform continuously processes real-time market data, news, macroeconomic events and alternative data sources through a network of specialized AI agents. Each agent performs a specific task—from market analysis and predictive modeling to strategy selection, validation and portfolio risk management.",
-          cz:"Platforma nepřetržitě zpracovává tržní data v reálném čase, zprávy, makroekonomické události a alternativní datové zdroje prostřednictvím sítě specializovaných AI agentů. Každý agent plní konkrétní úkol — od analýzy trhu a prediktivního modelování po výběr strategie, validaci a řízení rizika portfolia."}},
-      {p:{en:"Before any strategy reaches production, it is continuously validated through backtesting, forward testing and paper trading to ensure robustness under different market conditions.",
-          cz:"Než se jakákoli strategie dostane do produkce, je průběžně validována backtestem, forward testem a paper tradingem, aby byla zajištěna robustnost za různých tržních podmínek."}},
+      {p:{en:"ROBOOTEC.AI turns complex financial data into clear investment outputs through one continuous decision-making process.",
+          cz:"ROBOOTEC.AI převádí komplexní finanční data na srozumitelné investiční výstupy prostřednictvím jednoho souvislého rozhodovacího procesu."}},
+      {p:{en:"The platform continuously processes real-time market data, news, macroeconomic events and alternative data sources through a network of specialized AI agents. Each agent performs a specific task, including market analysis, predictive modeling, strategy selection, validation and portfolio risk management.",
+          cz:"Platforma nepřetržitě zpracovává tržní data v reálném čase, zprávy, makroekonomické události a alternativní datové zdroje prostřednictvím sítě specializovaných AI agentů. Každý agent plní konkrétní úkol, například analýzu trhu, prediktivní modelování, výběr strategie, validaci nebo řízení rizika portfolia."}},
+      {p:{en:"The process follows six connected stages: data collection, market analysis, AI prediction, strategy selection, risk management and trade execution. Strategies are validated through backtesting, forward testing and paper trading before further testing or deployment.",
+          cz:"Proces tvoří šest navazujících kroků: sběr dat, analýza trhu, AI predikce, výběr strategie, řízení rizik a exekuce obchodů. Strategie ověřujeme backtestem, forward testem a paper tradingem před dalším testováním nebo nasazením."}},
       {sub:{en:"Key features",cz:"Klíčové funkce"}},
       {ul:[
-        {en:"Multi-agent AI architecture for autonomous decision support", cz:"Multi-agentní AI architektura pro autonomní podporu rozhodování"},
+        {en:"Multi-agent AI architecture for coordinated decision support", cz:"Multi-agentní AI architektura pro koordinovanou podporu rozhodování"},
         {en:"Real-time market intelligence and predictive analytics", cz:"Tržní inteligence a prediktivní analytika v reálném čase"},
         {en:"Explainable AI with transparent investment reasoning", cz:"Vysvětlitelná AI s transparentním investičním zdůvodněním"},
         {en:"Automated strategy validation and optimization", cz:"Automatizovaná validace a optimalizace strategií"},
@@ -307,56 +311,56 @@ const QA = [
   { label:{en:"Key innovation",cz:"Klíčová inovace"},
     q:{en:"What is the key innovation?", cz:"Co je klíčová inovace?"},
     a:[
-      {p:{en:"Our innovation is not a single AI model—it is the orchestration of specialized AI agents into one autonomous decision-making infrastructure.",
-          cz:"Naší inovací není jeden AI model — je to orchestrace specializovaných AI agentů do jedné autonomní rozhodovací infrastruktury."}},
-      {p:{en:"Instead of relying on a general-purpose language model or static trading algorithms, ROBOOTEC.AI combines multiple AI agents, each responsible for a specific task such as market intelligence, predictive analytics, strategy generation, validation, portfolio optimization and risk management. Together they create a continuous decision-making pipeline rather than isolated AI outputs.",
-          cz:"Místo spoléhání na univerzální jazykový model nebo statické obchodní algoritmy kombinuje ROBOOTEC.AI více AI agentů, z nichž každý odpovídá za konkrétní úkol, jako je tržní inteligence, prediktivní analytika, tvorba strategií, validace, optimalizace portfolia a řízení rizik. Společně vytvářejí kontinuální rozhodovací pipeline namísto izolovaných AI výstupů."}},
+      {p:{en:"Our innovation is not a single AI model. It is the coordination of specialized AI agents in one decision-making system.",
+          cz:"Naší inovací není jeden AI model. Je jí propojení specializovaných AI agentů do jednoho rozhodovacího systému."}},
+      {p:{en:"ROBOOTEC.AI combines multiple AI agents, each responsible for a specific task such as market analysis, prediction, strategy generation, validation, portfolio optimization and risk management. Together they form a continuous process instead of producing isolated AI outputs.",
+          cz:"ROBOOTEC.AI kombinuje více AI agentů, z nichž každý odpovídá za konkrétní úkol, například analýzu trhu, predikci, tvorbu strategií, validaci, optimalizaci portfolia nebo řízení rizik. Společně vytvářejí souvislý proces namísto izolovaných AI výstupů."}},
       {p:{en:"A key differentiator is our validation-first approach. Every strategy is continuously evaluated through backtesting, forward testing and paper trading before deployment, creating a feedback loop that improves system reliability and transparency.",
           cz:"Klíčovým odlišením je náš přístup s validací na prvním místě. Každá strategie je před nasazením průběžně vyhodnocována backtestem, forward testem a paper tradingem, což vytváří zpětnovazební smyčku, která zvyšuje spolehlivost a transparentnost systému."}},
-      {p:{en:"The platform is designed as modular AI infrastructure, allowing new agents, data sources and investment strategies to be integrated without redesigning the core architecture. This enables us to scale from a single investment application to an enterprise-grade platform for autonomous capital management.",
-          cz:"Platforma je navržena jako modulární AI infrastruktura, která umožňuje integrovat nové agenty, datové zdroje a investiční strategie bez přepracování jádra architektury. To nám umožňuje škálovat od jediné investiční aplikace po platformu enterprise úrovně pro autonomní správu kapitálu."}},
-      {p:{en:"Our long-term competitive advantage lies in the combination of multi-agent orchestration, explainable AI, continuous validation and a unified infrastructure serving both retail and institutional markets.",
-          cz:"Naše dlouhodobá konkurenční výhoda spočívá v kombinaci multi-agentní orchestrace, vysvětlitelné AI, průběžné validace a jednotné infrastruktury sloužící retailovému i institucionálnímu trhu."}}
+      {p:{en:"The modular platform allows us to add new agents, data sources and investment strategies without redesigning its core. This enables us to grow from a retail investment application into a platform for professional capital management.",
+          cz:"Modulární platforma umožňuje přidávat nové agenty, datové zdroje a investiční strategie bez přepracování jejího jádra. Díky tomu můžeme růst od retailové investiční aplikace k platformě pro profesionální správu kapitálu."}},
+      {p:{en:"Our long-term advantage lies in the combination of specialized AI agents, explainable outputs, continuous validation and one shared platform for retail and institutional markets.",
+          cz:"Naše dlouhodobá výhoda spočívá v kombinaci specializovaných AI agentů, vysvětlitelných výstupů, průběžné validace a jedné společné platformy pro retailový a institucionální trh."}}
     ]},
 
   { label:{en:"Market",cz:"Trh"},
     q:{en:"What is your target market and its size?", cz:"Jaký je váš cílový trh a jeho velikost?"},
     a:[
-      {p:{en:"ROBOOTEC.AI operates at the intersection of AI, fintech and enterprise software—three of the fastest-growing technology markets.",
-          cz:"ROBOOTEC.AI působí na průsečíku AI, fintechu a enterprise softwaru — tří nejrychleji rostoucích technologických trhů."}},
+      {p:{en:"ROBOOTEC.AI connects three growing areas: artificial intelligence, fintech and professional capital management.",
+          cz:"ROBOOTEC.AI propojuje tři rostoucí oblasti: umělou inteligenci, fintech a profesionální správu kapitálu."}},
       {p:{en:"Our long-term opportunity spans the global investment management ecosystem, including retail investors, asset managers, hedge funds, proprietary trading firms, brokers and financial institutions seeking AI-powered decision support and automation.",
           cz:"Naše dlouhodobá příležitost pokrývá globální ekosystém správy investic, včetně retailových investorů, správců aktiv, hedge fondů, proprietárních obchodních firem, brokerů a finančních institucí, které hledají AI podporu rozhodování a automatizaci."}},
       {p:{en:"We are entering the market through two complementary customer segments:",
           cz:"Na trh vstupujeme přes dva doplňující se zákaznické segmenty:"}},
-      {sub:{en:"B2C – AI Vibe Trading",cz:"B2C – AI Vibe Trading"}},
-      {p:{en:"Providing retail investors with AI-powered market intelligence, strategy validation and autonomous investment assistance.",
-          cz:"Poskytujeme retailovým investorům tržní inteligenci poháněnou AI, validaci strategií a autonomní investiční asistenci."}},
-      {sub:{en:"B2B – Enterprise AI Infrastructure",cz:"B2B – Enterprise AI infrastruktura"}},
-      {p:{en:"Licensing our AI platform to financial institutions, asset managers and trading firms requiring explainable AI, predictive analytics and automated decision support.",
-          cz:"Licencujeme naši AI platformu finančním institucím, správcům aktiv a obchodním firmám, které vyžadují vysvětlitelnou AI, prediktivní analytiku a automatizovanou podporu rozhodování."}},
+      {sub:{en:"B2C – Vibe Trading",cz:"B2C – Vibe Trading"}},
+      {p:{en:"An AI application for intelligent trading, designed for retail investors and active traders.",
+          cz:"AI aplikace pro inteligentní obchodování určená retailovým investorům a aktivním traderům."}},
+      {sub:{en:"B2B – ASSET MANAGER",cz:"B2B – ASSET MANAGER"}},
+      {p:{en:"A comprehensive AI platform for professional capital management, designed for banks, investment funds, fintech companies and trading firms.",
+          cz:"Komplexní AI platforma pro profesionální správu kapitálu určená bankám, investičním fondům, fintech společnostem a tradingovým firmám."}},
       {p:{en:"We are initially focused on Europe, where growing demand for AI-driven financial solutions, strong regulatory frameworks and an active fintech ecosystem create an attractive entry point. Our platform is designed from day one to scale globally through a software licensing model.",
           cz:"Zpočátku se zaměřujeme na Evropu, kde rostoucí poptávka po AI finančních řešeních, silné regulační rámce a aktivní fintech ekosystém vytvářejí atraktivní vstupní bod. Naše platforma je od prvního dne navržena pro globální škálování prostřednictvím modelu softwarového licencování."}},
-      {p:{en:"By serving both retail and enterprise customers on the same AI infrastructure, we significantly expand our addressable market while maintaining a highly scalable business model.",
-          cz:"Tím, že sloužíme retailovým i enterprise zákazníkům na stejné AI infrastruktuře, výrazně rozšiřujeme svůj adresovatelný trh a zároveň udržujeme vysoce škálovatelný obchodní model."}},
-      {p:{en:"Our long-term vision is to become the intelligence layer powering autonomous capital management across the global financial industry.",
-          cz:"Naší dlouhodobou vizí je stát se inteligenční vrstvou pohánějící autonomní správu kapitálu napříč globálním finančním odvětvím."}}
+      {p:{en:"Serving retail investors and financial institutions on the same AI platform expands our addressable market while preserving a scalable business model.",
+          cz:"Obsluha retailových investorů a finančních institucí na stejné AI platformě rozšiřuje náš adresovatelný trh a zároveň zachovává škálovatelný obchodní model."}},
+      {p:{en:"Our long-term vision is to build a leading AI platform for autonomous capital management across global financial markets.",
+          cz:"Naší dlouhodobou vizí je vybudovat přední AI platformu pro autonomní správu kapitálu na globálních finančních trzích."}}
     ]},
 
   { label:{en:"Why now",cz:"Proč teď"},
     q:{en:"Why is now good timing for your business?", cz:"Proč je teď dobré načasování pro váš byznys?"},
     a:[
-      {p:{en:"The timing for ROBOOTEC.AI is driven by the convergence of three major technology shifts.",
-          cz:"Načasování pro ROBOOTEC.AI žene souběh tří zásadních technologických posunů."}},
-      {p:{en:"First, foundation AI models have evolved into autonomous AI agents capable of performing specialized tasks, enabling entirely new approaches to financial decision-making.",
-          cz:"Zaprvé, základové AI modely se vyvinuly v autonomní AI agenty schopné plnit specializované úkoly, což umožňuje zcela nové přístupy k finančnímu rozhodování."}},
-      {p:{en:"Second, financial markets have become increasingly data-intensive. The volume and complexity of market information now exceed what human analysts and traditional algorithms can efficiently process in real time.",
-          cz:"Zadruhé, finanční trhy jsou stále náročnější na data. Objem a komplexita tržních informací nyní překračují to, co dokáží lidští analytici a tradiční algoritmy efektivně zpracovat v reálném čase."}},
-      {p:{en:"Third, investors and financial institutions are actively seeking AI-powered solutions that improve decision quality, transparency and operational efficiency while reducing manual work.",
-          cz:"Zatřetí, investoři a finanční instituce aktivně hledají AI řešení, která zlepšují kvalitu rozhodování, transparentnost a provozní efektivitu a zároveň snižují ruční práci."}},
-      {p:{en:"These trends create a unique market opportunity for AI-native investment infrastructure. What was technically impossible just a few years ago is now becoming commercially viable.",
-          cz:"Tyto trendy vytvářejí jedinečnou tržní příležitost pro AI-native investiční infrastrukturu. Co bylo před pár lety technicky nemožné, se nyní stává komerčně životaschopným."}},
-      {p:{en:"We believe this is the right moment to build the intelligence layer for the next generation of autonomous capital management.",
-          cz:"Věříme, že toto je správný okamžik postavit inteligenční vrstvu pro novou generaci autonomní správy kapitálu."}}
+      {p:{en:"The timing for ROBOOTEC.AI is driven by the convergence of three global trends.",
+          cz:"Načasování ROBOOTEC.AI určuje spojení tří globálních trendů."}},
+      {p:{en:"First, AI agents have reached practical autonomy and can perform specialized tasks with minimal human intervention.",
+          cz:"Zaprvé, AI agenti dosáhli praktické autonomie a dokážou plnit specializované úkoly s minimálním zásahem člověka."}},
+      {p:{en:"Second, financial markets generate unprecedented volumes of data and real-time signals that exceed human processing capacity.",
+          cz:"Zadruhé, trhy generují bezprecedentní množství dat a signálů v reálném čase, které překračuje lidskou kapacitu zpracování."}},
+      {p:{en:"Third, investors and financial institutions increasingly demand AI systems that improve decision quality, transparency and efficiency.",
+          cz:"Zatřetí, investoři a finanční instituce stále více požadují AI systémy, které zlepšují kvalitu rozhodování, transparentnost a efektivitu."}},
+      {p:{en:"Together, these trends create a market opportunity for a predictive AI platform for capital management.",
+          cz:"Tyto trendy společně vytvářejí tržní příležitost pro prediktivní AI platformu pro správu kapitálu."}},
+      {p:{en:"What was technically out of reach a few years ago is now becoming commercially viable.",
+          cz:"To, co bylo před několika lety technicky nedostupné, se nyní stává komerčně životaschopným."}}
     ]},
 
   { label:{en:"Competition",cz:"Konkurence"},
@@ -370,55 +374,50 @@ const QA = [
           cz:"Algoritmické obchodní platformy nabízejí automatizaci založenou na předdefinovaných pravidlech, ale obvykle jim chybí adaptivní AI uvažování, vysvětlitelnost a průběžná validace strategií."}},
       {p:{en:"AI-powered trading assistants generate market insights or trading signals, but they usually operate as isolated tools rather than autonomous decision-making systems.",
           cz:"AI obchodní asistenti generují tržní vhledy nebo obchodní signály, ale obvykle fungují jako izolované nástroje, nikoli jako autonomní rozhodovací systémy."}},
-      {p:{en:"ROBOOTEC.AI combines these capabilities into a single AI-native infrastructure. Our platform orchestrates specialized AI agents across the entire investment workflow—from market intelligence and predictive analytics to strategy validation, risk management and autonomous decision support.",
-          cz:"ROBOOTEC.AI kombinuje tyto schopnosti do jedné AI-native infrastruktury. Naše platforma orchestruje specializované AI agenty napříč celým investičním workflow — od tržní inteligence a prediktivní analytiky po validaci strategií, řízení rizik a autonomní podporu rozhodování."}},
-      {p:{en:"Our competitive advantage is not a single AI model, but a modular multi-agent architecture, continuous validation pipeline and explainable AI designed to serve both retail investors and financial institutions on one scalable platform.",
-          cz:"Naší konkurenční výhodou není jeden AI model, ale modulární multi-agentní architektura, průběžná validační pipeline a vysvětlitelná AI navržená tak, aby na jedné škálovatelné platformě sloužila retailovým investorům i finančním institucím."}}
+      {p:{en:"ROBOOTEC.AI is neither another AI chatbot nor another trading application. It connects market data, specialized AI agents, strategy validation and risk management across the full decision-making process.",
+          cz:"ROBOOTEC.AI není další AI chatbot ani další tradingová aplikace. Propojuje tržní data, specializované AI agenty, validaci strategií a risk management napříč celým rozhodovacím procesem."}},
+      {p:{en:"Our competitive advantage is a modular multi-agent architecture, continuous validation and explainable outputs delivered through one scalable platform for retail investors and financial institutions.",
+          cz:"Naší konkurenční výhodou je modulární multi-agentní architektura, průběžná validace a vysvětlitelné výstupy na jedné škálovatelné platformě pro retailové investory a finanční instituce."}}
     ]},
 
   { label:{en:"Go-to-market",cz:"Go-to-market"},
     q:{en:"What is your Go-To-Market strategy?", cz:"Jaká je vaše go-to-market strategie?"},
     a:[
-      {p:{en:"Our go-to-market strategy follows a phased approach, allowing us to validate the product, build trust and scale efficiently.",
-          cz:"Naše go-to-market strategie sleduje fázový přístup, který nám umožňuje validovat produkt, budovat důvěru a efektivně škálovat."}},
-      {sub:{en:"Phase 1 – Product Validation",cz:"Fáze 1 – Validace produktu"}},
+      {p:{en:"Our go-to-market strategy follows a phased path from external testing to commercial validation and B2B development.",
+          cz:"Naše go-to-market strategie postupuje od externího testování přes komerční validaci až k rozvoji B2B směru."}},
+      {sub:{en:"Phase 1 – External testing",cz:"Fáze 1 – Externí testování"}},
       {ul:[
-        {en:"Complete the MVP.", cz:"Dokončit MVP."},
-        {en:"Build an early community through AI-powered market analysis.", cz:"Vybudovat ranou komunitu prostřednictvím tržních analýz poháněných AI."},
-        {en:"Launch the AI Vibe Trading waitlist.", cz:"Spustit waitlist AI Vibe Trading."},
-        {en:"Validate product-market fit with early users.", cz:"Ověřit product-market fit s prvními uživateli."}
+        {en:"Test Vibe Trading with external traders.", cz:"Testovat Vibe Trading s externími tradery."},
+        {en:"Collect real user feedback.", cz:"Získat reálnou uživatelskou zpětnou vazbu."},
+        {en:"Continue validating the platform and trading strategies.", cz:"Pokračovat ve validaci platformy a obchodních strategií."}
       ]},
-      {sub:{en:"Phase 2 – Commercial Launch",cz:"Fáze 2 – Komerční spuštění"}},
-      {p:{en:"Launch AI Vibe Trading as a subscription-based product providing AI-powered market intelligence, predictive analytics, strategy validation and autonomous investment assistance.",
-          cz:"Spustit AI Vibe Trading jako produkt na bázi předplatného, který poskytuje tržní inteligenci poháněnou AI, prediktivní analytiku, validaci strategií a autonomní investiční asistenci."}},
-      {p:{en:"Begin enterprise pilot projects with selected financial institutions, proprietary trading firms and asset managers.",
-          cz:"Zahájit enterprise pilotní projekty s vybranými finančními institucemi, proprietárními obchodními firmami a správci aktiv."}},
-      {sub:{en:"Phase 3 – Enterprise Expansion",cz:"Fáze 3 – Enterprise expanze"}},
-      {p:{en:"Scale through enterprise software licensing and strategic partnerships across Europe before expanding globally.",
-          cz:"Škálovat prostřednictvím enterprise softwarového licencování a strategických partnerství napříč Evropou, poté expandovat globálně."}},
-      {p:{en:"The retail product continuously generates user feedback and validates AI workflows, while enterprise customers benefit from the same continuously improving AI infrastructure. This creates a powerful feedback loop that accelerates product development and strengthens our competitive advantage.",
-          cz:"Retailový produkt průběžně generuje zpětnou vazbu od uživatelů a validuje AI workflow, zatímco enterprise zákazníci těží ze stejné, průběžně se zlepšující AI infrastruktury. To vytváří silnou zpětnovazební smyčku, která urychluje vývoj produktu a posiluje naši konkurenční výhodu."}},
-      {p:{en:"Our dual-market strategy allows us to build a consumer brand while creating recurring enterprise revenue on the same AI infrastructure, resulting in a highly scalable business model.",
-          cz:"Naše strategie dvou trhů nám umožňuje budovat spotřebitelskou značku a zároveň vytvářet opakované enterprise příjmy na stejné AI infrastruktuře, což vede k vysoce škálovatelnému obchodnímu modelu."}}
+      {sub:{en:"Phase 2 – Commercial validation",cz:"Fáze 2 – Komerční validace"}},
+      {p:{en:"Launch Vibe Trading pre-orders and early access, followed by the commercial launch and acquisition of the first paying users.",
+          cz:"Spustit předobjednávky a early access Vibe Trading, následně produkt uvést na trh a získat první platící uživatele."}},
+      {sub:{en:"Phase 3 – B2B development",cz:"Fáze 3 – Rozvoj B2B"}},
+      {p:{en:"Begin Asset Manager pilot projects with selected financial institutions and develop platform licensing and strategic partnerships.",
+          cz:"Zahájit pilotní projekty Asset Manageru s vybranými finančními institucemi a rozvíjet licencování platformy a strategická partnerství."}},
+      {p:{en:"Vibe Trading generates user feedback and validates platform workflows, while Asset Manager brings the same continuously improving technology to professional capital management.",
+          cz:"Vibe Trading přináší uživatelskou zpětnou vazbu a validuje fungování platformy. Asset Manager využívá stejnou průběžně zlepšovanou technologii pro profesionální správu kapitálu."}},
+      {p:{en:"This two-market strategy allows us to build a consumer product and recurring B2B revenue on one shared AI platform.",
+          cz:"Tato strategie dvou trhů nám umožňuje budovat spotřebitelský produkt a opakované B2B příjmy na jedné společné AI platformě."}}
     ]},
 
   { label:{en:"Business model",cz:"Obchodní model"},
     q:{en:"What is your business and revenue model?", cz:"Jaký je váš obchodní a příjmový model?"},
     a:[
-      {p:{en:"ROBOOTEC.AI is built on a recurring software revenue model with two complementary customer segments powered by the same AI infrastructure.",
-          cz:"ROBOOTEC.AI je postaven na modelu opakovaných softwarových příjmů se dvěma doplňujícími se zákaznickými segmenty poháněnými stejnou AI infrastrukturou."}},
-      {sub:{en:"B2C – AI Vibe Trading",cz:"B2C – AI Vibe Trading"}},
-      {p:{en:"Retail investors subscribe to AI-powered market intelligence, predictive analytics, strategy validation and autonomous investment assistance through a monthly subscription model.",
-          cz:"Retailoví investoři si předplácejí tržní inteligenci poháněnou AI, prediktivní analytiku, validaci strategií a autonomní investiční asistenci prostřednictvím modelu měsíčního předplatného."}},
-      {sub:{en:"B2B – Enterprise AI Platform",cz:"B2B – Enterprise AI platforma"}},
-      {p:{en:"Financial institutions, asset managers, proprietary trading firms and brokers license our AI infrastructure through annual software subscriptions, enterprise licenses and custom integrations.",
-          cz:"Finanční instituce, správci aktiv, proprietární obchodní firmy a brokeři licencují naši AI infrastrukturu prostřednictvím ročních softwarových předplatných, enterprise licencí a integrací na míru."}},
-      {p:{en:"Over time, additional revenue opportunities may include premium AI modules, API access and white-label enterprise solutions.",
-          cz:"Postupem času mohou další příjmové příležitosti zahrnovat prémiové AI moduly, přístup přes API a white-label enterprise řešení."}},
-      {p:{en:"By serving both retail and enterprise customers on one modular AI platform, we create multiple recurring revenue streams while continuously improving the same underlying technology.",
-          cz:"Tím, že sloužíme retailovým i enterprise zákazníkům na jedné modulární AI platformě, vytváříme více opakovaných příjmových toků a zároveň průběžně zlepšujeme stejnou základní technologii."}},
-      {p:{en:"This software-first business model enables high scalability, predictable recurring revenue and efficient expansion into international markets.",
-          cz:"Tento software-first obchodní model umožňuje vysokou škálovatelnost, předvídatelné opakované příjmy a efektivní expanzi na mezinárodní trhy."}}
+      {p:{en:"One AI platform serves two markets through complementary recurring revenue models.",
+          cz:"Jedna AI platforma obsluhuje dva trhy prostřednictvím doplňujících se modelů opakovaných příjmů."}},
+      {sub:{en:"B2C – Vibe Trading",cz:"B2C – Vibe Trading"}},
+      {p:{en:"Vibe Trading is monetized through monthly subscriptions, premium licenses and performance-based services.",
+          cz:"Vibe Trading monetizujeme prostřednictvím měsíčního předplatného, prémiových licencí a výkonnostních služeb."}},
+      {sub:{en:"B2B – Asset Manager",cz:"B2B – Asset Manager"}},
+      {p:{en:"Financial institutions, investment funds, fintech companies and trading firms license the Asset Manager platform and related services.",
+          cz:"Finanční instituce, investiční fondy, fintech společnosti a tradingové firmy využívají licence platformy Asset Manager a související služby."}},
+      {p:{en:"The B2B revenue model combines platform licensing, performance-based services and, over time, asset management products.",
+          cz:"B2B příjmový model kombinuje licence platformy, výkonnostní služby a v budoucnu také produkty správy aktiv."}},
+      {p:{en:"Both products improve the same underlying technology and create multiple recurring revenue streams on one modular platform.",
+          cz:"Oba produkty rozvíjejí stejnou základní technologii a vytvářejí více opakovaných příjmových toků na jedné modulární platformě."}}
     ]},
 
   { label:{en:"Traction",cz:"Trakce"},
@@ -428,52 +427,52 @@ const QA = [
           cz:"Přestože jsme aktuálně pre-revenue, za poslední rok jsme dosáhli významných produktových a firemních milníků."}},
       {sub:{en:"Product &amp; Technology",cz:"Produkt a technologie"}},
       {ul:[
-        {en:"Built a functional AI trading infrastructure with live market data processing.", cz:"Postavili jsme funkční AI obchodní infrastrukturu se zpracováním živých tržních dat."},
+        {en:"Built a functional PoC and demo platform tested on real market data.", cz:"Postavili jsme funkční PoC a demo platformy testované na reálných tržních datech."},
         {en:"Developed a multi-agent AI architecture for market intelligence, predictive analytics, strategy validation and risk management.", cz:"Vyvinuli jsme multi-agentní AI architekturu pro tržní inteligenci, prediktivní analytiku, validaci strategií a řízení rizik."},
         {en:"Successfully implemented backtesting, forward testing and paper trading workflows.", cz:"Úspěšně jsme implementovali workflow backtestingu, forward testingu a paper tradingu."},
-        {en:"Developed a functional MVP foundation demonstrating autonomous AI-driven investment decision support.", cz:"Vyvinuli jsme funkční základ MVP demonstrující autonomní podporu investičního rozhodování poháněnou AI."}
+        {en:"Developed a functional MVP foundation demonstrating AI-supported investment decision-making.", cz:"Vyvinuli jsme funkční základ MVP demonstrující podporu investičního rozhodování pomocí AI."}
       ]},
       {sub:{en:"Business Development",cz:"Business development"}},
       {ul:[
         {en:"Validated the concept through discussions with retail investors, traders and financial professionals.", cz:"Ověřili jsme koncept prostřednictvím diskuzí s retailovými investory, tradery a finančními profesionály."},
-        {en:"Established a strategic technology collaboration with Continero, our enterprise software development partner.", cz:"Navázali jsme strategickou technologickou spolupráci s Continero, naším partnerem pro vývoj enterprise softwaru."},
-        {en:"Built an experienced founding team combining expertise in AI, enterprise software, finance and business development.", cz:"Sestavili jsme zkušený zakladatelský tým spojující expertízu v AI, enterprise softwaru, financích a business developmentu."}
+        {en:"Established a collaboration with an external technology supplier for software development for financial institutions.", cz:"Navázali jsme spolupráci s externím technologickým dodavatelem pro vývoj softwaru pro finanční instituce."},
+        {en:"Built an experienced founding team combining expertise in AI, complex technology platforms, finance and business development.", cz:"Sestavili jsme zkušený zakladatelský tým spojující expertízu v AI, komplexních technologických platformách, financích a business developmentu."}
       ]},
       {sub:{en:"Fundraising &amp; Market Validation",cz:"Financování a validace trhu"}},
       {ul:[
-        {en:"Bootstrapped the company with approximately €50,000 invested by the founders.", cz:"Firmu jsme bootstrapovali s přibližně 1.200.000 Kč vloženými zakladateli."},
-        {en:"Currently raising a €500,000 pre-seed round.", cz:"Aktuálně získáváme pre-seed kolo ve výši 12.000.000 Kč."},
+        {en:"Bootstrapped the company with approximately EUR 165,000 invested by the founders.", cz:"Firmu jsme bootstrapovali s přibližně 4 mil. Kč investovanými zakladateli."},
+        {en:"Currently raising a EUR 370,000 pre-seed round.", cz:"Aktuálně získáváme pre-seed kolo ve výši 9 mil. Kč."},
         {en:"Participated in startup competitions, accelerator applications and investor networking events across the Czech and European startup ecosystem.", cz:"Účastnili jsme se startupových soutěží, přihlášek do akcelerátorů a investorských networkingových akcí napříč českým a evropským startupovým ekosystémem."}
       ]},
-      {p:{en:"Our next milestones are the commercial launch of AI Vibe Trading, the first enterprise pilot projects and the expansion of our AI infrastructure across European financial markets.",
-          cz:"Našimi dalšími milníky jsou komerční spuštění AI Vibe Trading, první enterprise pilotní projekty a rozšíření naší AI infrastruktury napříč evropskými finančními trhy."}}
+      {p:{en:"Our next milestones are external testing and the commercial launch of Vibe Trading, followed by the first Asset Manager pilot projects with financial institutions.",
+          cz:"Našimi dalšími milníky jsou externí testování a komerční spuštění Vibe Trading, následované prvními pilotními projekty Asset Manageru s finančními institucemi."}}
     ]},
 
   { label:{en:"Milestones",cz:"Milníky"},
     q:{en:"What are your next milestones?", cz:"Jaké jsou vaše další milníky?"},
     a:[
-      {p:{en:"Our next milestones are focused on completing the MVP, achieving commercial validation and preparing for international expansion.",
-          cz:"Naše další milníky se zaměřují na dokončení MVP, dosažení komerční validace a přípravu na mezinárodní expanzi."}},
+      {p:{en:"Our next milestones connect platform validation with the first revenue while development of the main MVP continues.",
+          cz:"Naše další milníky propojují validaci platformy s prvními příjmy, zatímco pokračuje vývoj hlavního MVP."}},
       {sub:{en:"Q3 2026",cz:"Q3 2026"}},
       {ul:[
-        {en:"Complete the MVP and core AI infrastructure.", cz:"Dokončit MVP a jádro AI infrastruktury."},
-        {en:"Launch the AI Vibe Trading waitlist and onboard the first beta users.", cz:"Spustit waitlist AI Vibe Trading a onboardovat první beta uživatele."},
-        {en:"Finalize the €500,000 pre-seed funding round.", cz:"Uzavřít pre-seed kolo financování ve výši 12.000.000,- Kč."}
+        {en:"Test Vibe Trading with external traders and collect real user feedback.", cz:"Testovat Vibe Trading s externími tradery a získat reálnou uživatelskou zpětnou vazbu."},
+        {en:"Launch Vibe Trading pre-orders and early access.", cz:"Spustit předobjednávky a early access Vibe Trading."},
+        {en:"Finalize the EUR 370,000 pre-seed funding round.", cz:"Uzavřít pre-seed kolo financování ve výši 9 mil. Kč."}
       ]},
       {sub:{en:"Q4 2026",cz:"Q4 2026"}},
       {ul:[
-        {en:"Commercial launch of AI Vibe Trading.", cz:"Komerční spuštění AI Vibe Trading."},
+        {en:"Commercial launch of Vibe Trading.", cz:"Komerční spuštění Vibe Trading."},
         {en:"Acquire the first paying retail customers.", cz:"Získat první platící retailové zákazníky."},
-        {en:"Start enterprise pilot projects with selected financial institutions and trading firms.", cz:"Zahájit enterprise pilotní projekty s vybranými finančními institucemi a obchodními firmami."}
+        {en:"Prepare the first Asset Manager pilot projects with selected financial institutions.", cz:"Připravit první pilotní projekty Asset Manageru s vybranými finančními institucemi."}
       ]},
       {sub:{en:"2027",cz:"2027"}},
       {ul:[
-        {en:"Expand the AI platform with additional AI agents, investment strategies and new financial markets.", cz:"Rozšířit AI platformu o další AI agenty, investiční strategie a nové finanční trhy."},
-        {en:"Convert enterprise pilots into long-term software licensing agreements.", cz:"Převést enterprise piloty na dlouhodobé smlouvy o softwarovém licencování."},
-        {en:"Scale across Europe through strategic partnerships and recurring SaaS revenue.", cz:"Škálovat napříč Evropou prostřednictvím strategických partnerství a opakovaných SaaS příjmů."}
+        {en:"Complete the main ROBOOTEC.AI MVP and continue developing Vibe Trading.", cz:"Dokončit hlavní MVP ROBOOTEC.AI a pokračovat v rozvoji Vibe Trading."},
+        {en:"Develop the B2B direction and convert Asset Manager pilots into long-term platform licenses.", cz:"Rozvíjet B2B směr a převádět pilotní projekty Asset Manageru na dlouhodobé licence platformy."},
+        {en:"Prepare for global expansion through strategic partnerships and recurring software revenue.", cz:"Připravit globální expanzi prostřednictvím strategických partnerství a opakovaných softwarových příjmů."}
       ]},
-      {p:{en:"Our long-term objective is to build the leading AI infrastructure for autonomous capital management, serving both retail investors and financial institutions on a global scale.",
-          cz:"Naším dlouhodobým cílem je vybudovat přední AI infrastrukturu pro autonomní správu kapitálu, sloužící retailovým investorům i finančním institucím v globálním měřítku."}}
+      {p:{en:"Our long-term objective is to build the leading AI platform for autonomous capital management, serving both retail investors and financial institutions on a global scale.",
+          cz:"Naším dlouhodobým cílem je vybudovat přední AI platformu pro autonomní správu kapitálu, sloužící retailovým investorům i finančním institucím v globálním měřítku."}}
     ]},
 
   { label:{en:"Risks",cz:"Rizika"},
@@ -482,19 +481,19 @@ const QA = [
       {p:{en:"As an early-stage AI fintech company, we recognize several key risks and actively design our strategy to mitigate them.",
           cz:"Jako AI fintech společnost v rané fázi si uvědomujeme několik klíčových rizik a aktivně navrhujeme strategii k jejich zmírnění."}},
       {sub:{en:"Technology Risk",cz:"Technologické riziko"}},
-      {p:{en:"Building a reliable autonomous AI platform is technically complex. We reduce this risk through a modular architecture, continuous validation, backtesting, forward testing and paper trading before commercial deployment.",
-          cz:"Postavit spolehlivou autonomní AI platformu je technicky složité. Toto riziko snižujeme modulární architekturou, průběžnou validací, backtestingem, forward testingem a paper tradingem před komerčním nasazením."}},
+      {p:{en:"Building a reliable predictive AI platform is technically complex. We reduce this risk through modular architecture, continuous validation, backtesting, forward testing and paper trading before commercial deployment.",
+          cz:"Vývoj spolehlivé prediktivní AI platformy je technicky složitý. Toto riziko snižujeme modulární architekturou, průběžnou validací, backtestingem, forward testingem a paper tradingem před komerčním nasazením."}},
       {sub:{en:"Market Adoption Risk",cz:"Riziko adopce trhu"}},
-      {p:{en:"Adoption of AI-powered investment solutions depends on user trust. We address this by focusing on explainable AI, transparent decision-making and gradual market validation with both retail users and enterprise pilot customers.",
-          cz:"Adopce investičních řešení poháněných AI závisí na důvěře uživatelů. Řešíme to zaměřením na vysvětlitelnou AI, transparentní rozhodování a postupnou validaci trhu jak s retailovými uživateli, tak s enterprise pilotními zákazníky."}},
+      {p:{en:"Adoption of AI-powered investment solutions depends on user trust. We address this through explainable outputs, transparent decision-making and gradual market validation with retail users and institutional partners in pilot projects.",
+          cz:"Přijetí investičních řešení využívajících AI závisí na důvěře uživatelů. Budujeme ji pomocí vysvětlitelných výstupů, transparentního rozhodování a postupné validace trhu s retailovými uživateli i institucionálními partnery v pilotních projektech."}},
       {sub:{en:"Regulatory Risk",cz:"Regulační riziko"}},
       {p:{en:"Financial services are subject to evolving regulations. Our initial business model focuses on AI-powered decision support and software licensing rather than regulated asset management, while working closely with legal advisors to ensure compliance as the business evolves.",
           cz:"Finanční služby podléhají vyvíjejícím se regulacím. Náš počáteční obchodní model se zaměřuje na AI podporu rozhodování a softwarové licencování namísto regulované správy aktiv, přičemž úzce spolupracujeme s právními poradci, abychom zajistili soulad s předpisy, jak se byznys vyvíjí."}},
       {sub:{en:"Competition Risk",cz:"Konkurenční riziko"}},
-      {p:{en:"AI innovation is moving rapidly, with both startups and large technology companies entering the market. Our strategy is to build long-term competitive advantage through multi-agent orchestration, continuous validation, explainable AI and a scalable software platform rather than relying on a single AI model.",
-          cz:"AI inovace se pohybují rychle, na trh vstupují jak startupy, tak velké technologické společnosti. Naší strategií je budovat dlouhodobou konkurenční výhodu prostřednictvím multi-agentní orchestrace, průběžné validace, vysvětlitelné AI a škálovatelné softwarové platformy, nikoli spoléháním na jeden AI model."}},
-      {p:{en:"We believe these risks are manageable and typical for high-growth AI infrastructure companies. Our modular product strategy enables us to adapt quickly as technology, regulation and customer needs evolve.",
-          cz:"Věříme, že tato rizika jsou zvládnutelná a typická pro rychle rostoucí AI infrastrukturní společnosti. Naše modulární produktová strategie nám umožňuje rychle se přizpůsobit, jak se vyvíjí technologie, regulace a potřeby zákazníků."}}
+      {p:{en:"AI innovation is moving rapidly, with both startups and large technology companies entering the market. Our strategy is to build long-term advantage through coordinated AI agents, continuous validation, explainable outputs and a scalable software platform rather than relying on a single model.",
+          cz:"AI inovace postupují rychle a na trh vstupují startupy i velké technologické společnosti. Dlouhodobou výhodu proto budujeme propojením AI agentů, průběžnou validací, vysvětlitelnými výstupy a škálovatelnou softwarovou platformou, nikoli závislostí na jediném modelu."}},
+      {p:{en:"We believe these risks are manageable and typical for high-growth AI platform companies. Our modular product strategy enables us to adapt quickly as technology, regulation and customer needs evolve.",
+          cz:"Věříme, že tato rizika jsou zvládnutelná a typická pro rychle rostoucí společnosti zaměřené na AI platformy. Naše modulární produktová strategie nám umožňuje rychle se přizpůsobit, jak se vyvíjí technologie, regulace a potřeby zákazníků."}}
     ]},
 
   { label:{en:"The team",cz:"Tým"},
@@ -504,21 +503,24 @@ const QA = [
           cz:"S původním nápadem na ROBOOTEC.AI přišel Radek Gelety, který se dlouhodobě věnuje průsečíku umělé inteligence, kvantitativního obchodování a technologického podnikání. Radek přinesl vizi AI investování a autonomní správy kapitálu."}},
       {p:{en:"Radek and Markéta Schröcková then founded ROBOOTEC.AI together. They are both founders of the company: Radek leads vision, product strategy, fundraising and commercial growth, while Markéta leads finance, operations, reporting and execution. Their long-term friendship and trust form the foundation of the company.",
           cz:"Radek a Markéta Schröcková následně společně založili ROBOOTEC.AI. Oba jsou zakladateli společnosti: Radek vede vizi, produktovou strategii, fundraising a obchodní růst, zatímco Markéta vede finance, provoz, reporting a exekuci. Jejich dlouhodobé přátelství a důvěra tvoří základ firmy."}},
-      {p:{en:"Our CTO, David Fogl, joined after a series of discussions about the future of AI, enterprise software and autonomous investing. The team quickly realized they shared the same ambition: to build an AI infrastructure company with global ambitions. David's experience in enterprise software engineering perfectly complements the business and product vision.",
-          cz:"Náš CTO David Fogl se přidal po sérii diskuzí o budoucnosti AI, enterprise softwaru a autonomního investování. Tým si rychle uvědomil, že sdílí stejnou ambici: vybudovat AI infrastrukturní společnost s globálními ambicemi. Davidovy zkušenosti s vývojem enterprise softwaru dokonale doplňují byznysovou a produktovou vizi."}},
-      {p:{en:"Today, the founding team combines entrepreneurial leadership, finance and deep technical expertise, supported by AI developers, legal advisors and industry specialists. We believe exceptional companies are built not only on technology, but on trust, complementary strengths and a shared long-term vision.",
-          cz:"Dnes zakladatelský tým spojuje podnikatelské vedení, finance a hlubokou technickou expertízu, podpořený AI vývojáři, právními poradci a odborníky z oboru. Věříme, že výjimečné firmy nevznikají jen na technologii, ale na důvěře, doplňujících se silných stránkách a sdílené dlouhodobé vizi."}}
+      {p:{en:"Our CTO, David Fogl, joined after a series of discussions about the future of AI, complex technology platforms and autonomous investing. The team quickly realized that they shared the ambition to build a global AI platform company. David's experience in developing complex software platforms complements the business and product vision.",
+          cz:"Náš CTO David Fogl se přidal po sérii diskuzí o budoucnosti AI, komplexních technologických platforem a autonomního investování. Tým rychle zjistil, že sdílí ambici vybudovat globální společnost postavenou na AI platformě. Davidovy zkušenosti s vývojem komplexních softwarových platforem doplňují byznysovou a produktovou vizi."}},
+      {p:{en:"Today, the core team combines entrepreneurial leadership, finance, product and technology development. It is supported by data engineering, legal, product and operations specialists.",
+          cz:"Dnes core team spojuje podnikatelské vedení, finance, produkt a technologický vývoj. Podporují ho specialisté na datové inženýrství, právní zastoupení, produkt a operativu."}}
     ]},
 
   { closing:true, label:{en:"Vision",cz:"Vize"},
-    h1:{en:"We are building<br><span class=\"signature-highlight\">the future</span><br>of investing.", cz:"Stavíme<br><span class=\"signature-highlight\">budoucnost</span><br>investování."},
+    h1:{en:"Join us in changing<br><span class=\"signature-highlight\">the future</span><br>of trading.", cz:"Pojďte s námi změnit<br><span class=\"signature-highlight\">budoucnost</span><br>obchodování."},
     role:{en:"Founder &amp; CEO", cz:"Zakladatel &amp; CEO"} }
 ];
 
 /* ============================ RENDER ============================ */
 const deck=document.getElementById('deck');
 const nodes=[];
-function bind(el, pair){ el.innerHTML=pair.en; nodes.push({el, en:pair.en, cz:pair.cz}); }
+function highlightBrand(text){
+  return String(text).replace(/ROBOOTEC\.AI/g,'<span class="brand-highlight">ROBOOTEC.AI</span>');
+}
+function bind(el, pair){ el.innerHTML=highlightBrand(pair.en); nodes.push({el, en:pair.en, cz:pair.cz}); }
 
 QA.forEach((item, idx)=>{
   const sec=document.createElement('section');
@@ -640,7 +642,7 @@ function updateHomeLink(lang){
 }
 function setLang(lang){
   lang=validLang(lang)?lang:'en';
-  nodes.forEach(n=> n.el.innerHTML = n[lang] != null ? n[lang] : n.en);
+  nodes.forEach(n=> n.el.innerHTML = highlightBrand(n[lang] != null ? n[lang] : n.en));
   metaEl.innerHTML = M.meta[lang] || M.meta.en;
   hintText.innerHTML = M.hint[lang] || M.hint.en;
   document.documentElement.lang = (lang==='cz') ? 'cs' : lang;
