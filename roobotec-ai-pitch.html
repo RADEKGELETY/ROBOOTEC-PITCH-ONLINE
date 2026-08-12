@@ -319,6 +319,17 @@
     font-weight:400;
     line-height:1.46;
   }
+  .slide-corner-logo{
+    position:absolute;
+    right:clamp(72px,8vw,150px);
+    z-index:1;
+    width:clamp(400px,43vw,680px);
+    height:auto;
+    pointer-events:none;
+    user-select:none;
+  }
+  #s1 .slide-corner-logo{bottom:45px}
+  #s9 .slide-corner-logo{bottom:110px}
   .signature-highlight{
     background:var(--gradient-brand);
     -webkit-text-fill-color:transparent;
@@ -594,13 +605,19 @@
   #s4 .process-note{
     max-width:none;
     margin:clamp(58px,8vh,78px) 10px 0;
-    color:var(--color-text-soft);
-    font-size:clamp(1.08rem,1.35vw,1.28rem);
+    min-height:116px;
+    border:1px solid var(--gray-line);
+    border-radius:8px;
+    padding:27px 30px;
+    background:rgba(255,255,255,.54);
+    color:var(--deep-navy);
+    font-size:clamp(1.45rem,2vw,1.85rem);
     font-weight:500;
-    line-height:1.5;
-    text-align:left;
-    white-space:nowrap;
+    line-height:1.42;
+    text-align:center;
+    white-space:normal;
   }
+  #s4 .process-note .gold{font-weight:800}
 
   /* ================= SECTION 5 — VALIDATION ================= */
   #s5 .wrap{
@@ -704,29 +721,27 @@
   #s6b .HeroHeadline{max-width:1120px}
   .roadmap-timeline{
     position:relative;display:grid;
-    grid-template-columns:1.28fr 1.08fr .82fr 1.08fr 1.12fr 1.2fr .66fr;
-    margin-top:clamp(30px,4.6vh,46px);min-height:330px;
+    grid-template-columns:1.15fr 1.05fr .9fr 1.08fr 1.05fr 1.1fr .72fr;
+    margin-top:clamp(34px,4.8vh,48px);min-height:300px;
   }
   .roadmap-timeline::before{
-    content:"";position:absolute;left:2%;right:2%;top:151px;height:2px;
+    content:"";position:absolute;left:2%;right:2%;top:246px;height:2px;
     background:linear-gradient(90deg,#041534 0 27%,#7B4DFF 34% 43%,#4C63FF 48% 70%,#3FA27A 75% 87%,rgba(123,132,151,.32) 92% 100%);
   }
   .roadmap-timeline::after{
-    content:"";position:absolute;right:1.6%;top:147px;width:9px;height:9px;
+    content:"";position:absolute;right:1.6%;top:242px;width:9px;height:9px;
     border-top:2px solid rgba(123,132,151,.5);border-right:2px solid rgba(123,132,151,.5);transform:rotate(45deg);
   }
-  .road-milestone{position:relative;display:grid;grid-template-rows:134px 36px 146px;min-width:0;padding:0 10px}
+  .road-milestone{position:relative;display:grid;grid-template-rows:230px 36px;min-width:0;padding:0 10px}
   .road-content{min-width:0}
-  .road-milestone.top .road-content{grid-row:1;align-self:end;padding-bottom:18px}
-  .road-milestone.bottom .road-content{grid-row:3;align-self:start;padding-top:18px}
+  .road-milestone.top .road-content,.road-milestone.bottom .road-content{grid-row:1;align-self:start;padding:0}
   .road-node{grid-row:2;align-self:center;justify-self:start;position:relative;z-index:2;width:14px;height:14px;border:3px solid var(--white);border-radius:50%;background:var(--deep-navy);box-shadow:0 0 0 2px var(--deep-navy)}
   .road-milestone.current .road-node{width:17px;height:17px;background:#4C63FF;box-shadow:0 0 0 3px rgba(76,99,255,.22)}
-  .road-milestone.investment .road-node{width:20px;height:20px;background:#7B4DFF;box-shadow:0 0 0 5px rgba(123,77,255,.18)}
+  .road-milestone.investment .road-node{width:26px;height:26px;background:#7B4DFF;box-shadow:0 0 0 8px rgba(123,77,255,.16)}
   .road-milestone.revenue .road-node{width:18px;height:18px;background:#3FA27A;box-shadow:0 0 0 4px rgba(63,162,122,.18)}
   .road-milestone.future .road-node{background:var(--gray-line);box-shadow:0 0 0 2px rgba(123,132,151,.2)}
-  .road-milestone.investment::before{content:"";position:absolute;left:19px;top:25px;bottom:16px;width:1px;background:rgba(123,77,255,.28)}
   .road-date{font-family:var(--font-mono);font-size:.68rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:0;margin-bottom:6px;white-space:nowrap}
-  .road-status{font-family:var(--font-mono);font-size:.65rem;font-weight:700;color:var(--deep-navy);text-transform:uppercase;letter-spacing:0;margin-bottom:5px}
+  .road-status{font-family:var(--font-mono);font-size:.65rem;font-weight:700;color:var(--deep-navy);text-transform:uppercase;letter-spacing:0;margin-bottom:17px}
   .road-title{font-size:clamp(.94rem,1.18vw,1.08rem);font-weight:800;line-height:1.18;color:var(--deep-navy);margin-bottom:7px}
   .road-milestone.current .road-title{color:#4C63FF}
   .road-milestone.investment .road-status,.road-milestone.investment .road-title{color:#7B4DFF}
@@ -735,7 +750,7 @@
   .road-list{list-style:none;display:flex;flex-direction:column;gap:3px}
   .road-list li{font-size:.76rem;color:var(--ink-soft);line-height:1.28}
   .road-note{margin-top:7px;font-family:var(--font-mono);font-size:.63rem;line-height:1.3;color:#7B4DFF}
-  .road-foot{margin-top:10px;font-size:.88rem;font-weight:650;color:var(--ink-soft);letter-spacing:0}
+  .road-foot{margin-top:12px;border:1px solid var(--gray-line);border-radius:8px;background:rgba(246,248,255,.72);padding:25px 34px;text-align:center;font-size:1.12rem;font-weight:750;color:var(--deep-navy);letter-spacing:0}
 
   /* ============ PRODUCT ============ */
   #s5b .wrap{max-width:1280px;transform:none}
@@ -814,23 +829,23 @@
   #s6 .market.b2b{border-color:#7B4DFF}
   .market .tag{
     display:inline-flex;
-    align-self:flex-start;
-    margin-bottom:12px;
-    padding:6px 9px;
+    flex:0 0 auto;
+    padding:7px 11px;
     border-radius:5px;
     color:#fff!important;
     font-family:var(--font-mono);
-    font-size:.72rem;
+    font-size:1.037rem;
     font-weight:700;
     letter-spacing:0;
   }
   .market.b2c .tag{background:#4C63FF}
   .market.b2b .tag{background:#7B4DFF}
-  .market h3{margin-bottom:8px;font-size:clamp(1.7rem,2.25vw,2.08rem);font-weight:800;line-height:1.08}
+  .market-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:8px}
+  .market h3{margin-bottom:0;font-size:clamp(2.04rem,2.7vw,2.496rem);font-weight:800;line-height:1.08}
   .market.b2c h3{color:#4C63FF}
   .market.b2b h3{color:#7B4DFF}
   .market p{max-width:470px;color:var(--deep-navy);font-size:.96rem;line-height:1.4}
-  .market-audience{margin-top:12px;color:var(--gray);font-size:.92rem;font-weight:600}
+  .market-audience{margin-top:28px;color:var(--gray);font-size:.92rem;font-weight:600}
   .market ul{list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:6px}
   .market ul li{font-size:.94rem;line-height:1.25;display:flex;gap:10px;align-items:flex-start}
   .market ul li::before{content:"";width:5px;height:5px;border-radius:50%;flex:none;margin-top:6px}
@@ -856,8 +871,10 @@
   .market.b2b .rev .revenue-list{display:flex;flex-direction:column;gap:5px}
   .core{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;align-self:center;min-height:220px}
   .core-link{display:none}
+  .core-links{position:absolute;z-index:0;width:calc(100% + 52px);height:180px;left:-26px;top:50%;transform:translateY(-50%);overflow:visible;pointer-events:none}
   .core-logo{display:block;width:168px;height:auto}
   .core-name{font-family:var(--font-mono);font-size:.76rem;color:var(--deep-navy);font-weight:700;letter-spacing:0;text-align:center;text-transform:uppercase}
+  .core-logo,.core-name{position:relative;z-index:1}
 
   /* ================= SECTION 7 — TEAM + ASK ================= */
   .final-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
@@ -966,68 +983,108 @@
   #s3b .capacity-slot{fill:#4C63FF}
 
   /* ============ TEAM (standalone) ============ */
-  .founders{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:var(--content-gap) 0 36px;text-align:left}
+  #s7 .wrap{max-width:1400px}
+  #s7 .team-headline{max-width:1180px;font-size:clamp(3.25rem,4.35vw,5.55rem)}
+  .founders{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px;margin:34px 0 26px;text-align:left}
   .founder{
-    border:1px solid var(--gray-line);border-radius:20px;padding:32px 28px;background:var(--white);
-    transition:transform .4s var(--ease),border-color .4s var(--ease);
+    min-width:0;border-top:3px solid var(--gold);padding-top:14px;
+    display:grid;grid-template-columns:168px minmax(0,1fr);grid-template-rows:auto auto 1fr auto;
+    column-gap:20px;align-content:start;
   }
-  .founder:hover{transform:translateY(-6px);border-color:var(--gold-soft)}
-  .founder .av{
-    width:60px;height:60px;border-radius:50%;background:var(--gray-faint);border:1px solid var(--gray-line);
-    font-family:var(--font-mono);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);font-size:1.34rem;margin-bottom:20px;
+  .founder-photo-frame{
+    width:168px;height:168px;grid-column:1;grid-row:1/4;
+    overflow:hidden;border-radius:8px;background:var(--gray-faint);
   }
-  .founder b{font-size:1.26rem;font-weight:700;display:block;letter-spacing:0}
-  .founder .role{font-family:var(--font-mono);font-size:.86rem;color:var(--gold);font-weight:600;letter-spacing:0;margin:5px 0 14px}
-  .founder p{font-size:1rem;color:var(--gray);line-height:1.48}
-  .team-foot{font-size:1.04rem;color:var(--gray)}
+  .founder-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+  .founder-photo--david{transform:translateY(9px) scale(1.15);object-position:center}
+  .founder b{grid-column:2;font-size:1.3rem;font-weight:800;display:block;letter-spacing:0;line-height:1.15}
+  .founder .role{font-family:var(--font-mono);font-size:.8rem;color:var(--gold);font-weight:700;letter-spacing:0;margin:5px 0 10px}
+  .founder p{font-size:1rem;color:var(--gray);line-height:1.44;max-width:37ch}
+  .founder .competence{
+    grid-column:1/-1;grid-row:4;margin-top:14px;padding-top:12px;border-top:1px solid var(--gray-line);
+    color:var(--deep-navy);font-size:1.04rem;font-weight:700;line-height:1.34;white-space:nowrap;
+  }
+  .team-foot{
+    display:flex;align-items:center;justify-content:flex-start;gap:0;
+    min-height:92px;border:1px solid var(--gray-line);border-radius:8px;
+    padding:22px 34px;background:rgba(255,255,255,.54);color:var(--gray);
+  }
+  .team-foot b{
+    align-self:stretch;display:flex;align-items:center;
+    min-width:290px;padding-right:34px;margin-right:34px;border-right:1px solid var(--gray-line);
+    font-family:var(--font-mono);font-size:.78rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:0;white-space:nowrap
+  }
+  .team-foot span{font-size:1.05rem;line-height:1.4;text-align:left;color:var(--deep-navy)}
 
   /* ============ INVESTMENT (standalone) ============ */
-  #s8 .wrap{max-width:1120px}
-  .raise{font-family:var(--font-sans);font-size:var(--headline-size);color:var(--ink);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line)}
-  .bigfig{
-    width:max-content;
-    max-width:100%;
-    font-family:var(--font-sans);
-    font-size:clamp(3.7rem,11vw,7.8rem);
-    font-weight:800;
-    letter-spacing:var(--headline-track);
-    line-height:var(--headline-line);
-    color:var(--deep-navy);
-    background:var(--gradient-brand);
-    -webkit-text-fill-color:transparent;
-    -webkit-background-clip:text;
-    background-clip:text;
-    margin-top:6px;
+  #s8 .wrap{max-width:1160px;text-align:left}
+  #s8 .investment-headline{font-size:clamp(3rem,5vw,4.5rem);max-width:1050px}
+  .investment-layout{
+    display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:70px;
+    margin-top:42px;align-items:stretch;
   }
-  .round-tag{font-family:var(--font-mono);font-size:.82rem;letter-spacing:0;text-transform:uppercase;color:var(--ink);font-weight:600;margin-top:14px}
-  .invest-sub{margin-top:18px;display:flex;flex-direction:column;gap:4px;align-items:flex-start}
-  .invest-sub .lead{margin:0}
-  .funds{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:860px;margin:var(--content-gap) 0 0;text-align:left}
-  .fund{
-    border:1px solid var(--gray-line);border-radius:14px;padding:20px 22px;background:var(--white);
-    display:flex;flex-direction:column;gap:8px;transition:border-color .4s var(--ease)}
-  .fund:hover{border-color:var(--gold-soft)}
-  .fund .num{font-family:var(--font-mono);font-size:.74rem;color:var(--gold);font-weight:700;letter-spacing:0}
-  .fund .ft{font-size:1.04rem;font-weight:600;letter-spacing:0}
+  .investment-left{display:flex;flex-direction:column;min-width:0}
+  .investment-amount{
+    width:max-content;max-width:100%;padding:0 0 18px;border-bottom:1px solid var(--gray-line);
+    font-family:var(--font-sans);font-size:clamp(3.35rem,6.3vw,5.55rem);font-weight:800;
+    letter-spacing:var(--headline-track);line-height:.98;color:#4C63FF;
+  }
+  .investor-return{
+    margin-top:auto;padding:20px 24px;border:1px solid rgba(123,77,255,.12);border-radius:8px;
+    background:rgba(123,77,255,.055);
+  }
+  .investment-kicker{
+    font-family:var(--font-mono);font-size:.78rem;font-weight:700;line-height:1.2;
+    text-transform:uppercase;color:#4C63FF;letter-spacing:0;
+  }
+  .investor-return p{margin:10px 0 0;max-width:42ch;font-size:1.04rem;line-height:1.42;color:var(--deep-navy)}
+  .investment-use{padding-left:48px;border-left:1px solid var(--gray-line)}
+  .investment-use-title{
+    margin-bottom:12px;font-size:.9rem;font-weight:800;text-transform:uppercase;color:#3FA27A;letter-spacing:0;
+  }
+  .investment-use-row{
+    display:grid;grid-template-columns:38px minmax(0,1fr);align-items:center;min-height:60px;
+    border-bottom:1px solid var(--gray-line);
+  }
+  .investment-use-row:last-child{border-bottom:0}
+  .investment-use-row .dot{width:9px;height:9px;border-radius:50%;background:#3FA27A}
+  .investment-use-row .text{font-size:1.08rem;font-weight:650;line-height:1.28;color:var(--deep-navy)}
+  .investment-summary{
+    margin-top:18px;padding:16px 28px 14px;border:1px solid var(--gray-line);border-radius:8px;
+    background:linear-gradient(90deg,rgba(76,99,255,.045),rgba(63,162,122,.055));
+  }
+  .investment-summary-main{margin:0;font-size:1.23rem;font-weight:700;line-height:1.35;color:var(--deep-navy)}
+  .investment-summary-sub{margin:7px 0 0;font-size:.92rem;line-height:1.4;color:var(--gray)}
 
   /* ============ FINALE (standalone closing) ============ */
-  #s9 .wrap{max-width:1120px;text-align:left}
-  #s9 .iconic-brand{display:none}
-  .iconic{font-size:var(--headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line)}
+#s9 .wrap{max-width:1120px;text-align:left}
+#s9 .iconic-brand{display:none}
+#s9 .HeroHeadline{
+  font-family:var(--font-sans);
+  font-weight:800;
+  font-size:var(--headline-size);
+  line-height:var(--headline-line);
+  letter-spacing:var(--headline-track);
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+.iconic{font-size:var(--headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line)}
   .iconic-brand{
     margin-top:clamp(44px,9vh,104px);
     font-size:clamp(1.28rem,2.7vw,2rem);font-weight:700;letter-spacing:0;
   }
-  .closing-thanks{
-    margin-top:clamp(64px,9vh,104px);
-    font-size:clamp(1.55rem,2.2vw,2.15rem);
-    font-weight:700;
-    color:var(--ink);
-    letter-spacing:-.025em;
-  }
-  .end-contact{margin-top:44px;display:flex;flex-direction:column;gap:7px;align-items:flex-start}
-  .end-contact .ec-name{font-size:1rem;font-weight:700;color:var(--ink);letter-spacing:0}
-  .end-contact .ec-line{font-family:var(--font-mono);font-size:.9rem;color:var(--gray);display:flex;gap:11px;align-items:center;flex-wrap:wrap;justify-content:flex-start}
+.closing-thanks{
+  margin-top:clamp(64px,9vh,104px);
+  font-family:var(--font-sans);
+  font-size:clamp(1.3rem,1.8vw,1.65rem);
+  font-weight:600;
+  line-height:1.4;
+  color:var(--ink);
+  letter-spacing:0;
+}
+.end-contact{margin-top:44px;display:flex;flex-direction:column;gap:7px;align-items:flex-start}
+.end-contact .ec-name{font-family:var(--font-sans);font-size:1rem;font-weight:600;line-height:1.4;color:var(--ink);letter-spacing:0}
+.end-contact .ec-line{font-family:var(--font-sans);font-size:.96rem;font-weight:500;line-height:1.4;letter-spacing:0;color:var(--gray);display:flex;gap:11px;align-items:center;flex-wrap:wrap;justify-content:flex-start}
   .end-contact a{color:var(--gold);text-decoration:none}
   .end-contact a:hover{text-decoration:underline}
   .end-contact .ec-sep{color:var(--gray-line)}
@@ -1110,13 +1167,24 @@
     .signal-chart{border-radius:13px;padding:11px 14px}
     .signal-chart-head{font-size:.78rem}
     .signal-svg{height:124px}
-    .founder p{font-size:.9rem;line-height:1.4}
-    .team-foot{font-size:.96rem}
+    #s7 .team-headline{font-size:clamp(2.75rem,4vw,4.45rem)}
+    .founders{margin:24px 0 18px;gap:26px}
+    .founder{grid-template-columns:128px minmax(0,1fr);column-gap:16px}
+    .founder-photo-frame{width:128px;height:128px}
+    .founder b{font-size:1.16rem}
+    .founder .role{font-size:.7rem;margin-bottom:7px}
+    .founder p{font-size:.84rem;line-height:1.38}
+    .founder .competence{font-size:.93rem;margin-top:8px;padding-top:8px}
+    .team-foot{padding-top:13px}
+    .team-foot span{font-size:.9rem}
     .fund .ft{font-size:.96rem}
     .bigfig{font-size:clamp(3.2rem,9.5vw,6.6rem)}
   }
 
   @media (max-width:980px){
+    .slide-corner-logo{right:44px;width:min(44vw,430px)}
+    #s1 .slide-corner-logo{bottom:30px}
+    #s9 .slide-corner-logo{bottom:120px}
     #s5 .wrap{display:block;transform:none}
     #s5 .val-grid{display:grid;grid-template-columns:1fr!important;gap:40px}
     #s5 .web-proof-card{position:static;width:auto;transform:none;grid-column:auto;grid-row:auto}
@@ -1137,17 +1205,26 @@
     .signal-side{display:none}
     .markets{grid-template-columns:1fr;gap:30px}
     .core{flex-direction:row;order:initial;min-height:80px}
-    .core-link{display:none}
+    .core-link,.core-links{display:none}
     .market.b2b .target-list,.market.b2b .rev .revenue-list{grid-template-columns:1fr}
     #s4 .wrap{overflow-x:auto}
     #s4 .process-path{grid-template-columns:repeat(6,minmax(140px,1fr));min-width:900px}
     .uof{grid-template-columns:1fr}
-    .founders{grid-template-columns:1fr;gap:16px}
-    .funds{grid-template-columns:1fr 1fr}
+    .founders{grid-template-columns:1fr;gap:28px}
+    .founder{grid-template-columns:112px minmax(0,1fr)}
+    .founder-photo-frame{width:112px;height:112px}
+    .team-foot{align-items:flex-start;flex-direction:column;gap:8px}
+    .team-foot span{text-align:left}
+    .investment-layout{grid-template-columns:1fr;gap:28px}
+    .investment-use{padding-left:0;border-left:0}
+    .investor-return{margin-top:28px}
     nav.dots{right:14px}
   }
   @media (max-width:680px){
     section{padding:88px 22px}
+    .slide-corner-logo{right:18px;width:250px;opacity:.72}
+    #s1 .slide-corner-logo{bottom:24px}
+    #s9 .slide-corner-logo{bottom:104px}
     #s2 .HeroHeadline{font-size:clamp(2.85rem,13vw,4rem)}
     #s2 .vision-copy{margin-top:26px;gap:6px}
     #s2 .vision-copy p{font-size:1.08rem}
@@ -1167,7 +1244,9 @@
     #s3b .capacity-diagram{min-width:760px}
     #s4 .process-path{margin-top:60px}
     .kpis{grid-template-columns:1fr}
-    .funds{grid-template-columns:1fr}
+    #s8 .investment-headline{font-size:clamp(2.65rem,11.5vw,3.8rem)}
+    .investment-layout{margin-top:26px}
+    .investment-use-row{grid-template-columns:34px minmax(0,1fr)}
     .signal-address{min-width:0;width:100%;padding-left:12px;padding-right:12px}
     .signal-main{padding:24px 18px}
     .signal-kpis{grid-template-columns:1fr 1fr}
@@ -1230,6 +1309,7 @@
       <h1 class="HeroHeadline reveal d1" data-i18n="s1.h1"><span class="headline-line">Předvídáme</span><span class="headline-line signature-highlight">budoucnost.</span><span class="headline-line">Řídíme kapitál.</span></h1>
       <p class="lead sub reveal d2" data-i18n="s1.sub">Prediktivní AI trading platforma</p>
     </div>
+    <img class="slide-corner-logo" src="assets/robootecai-vector-dlouhe.svg" alt="ROBOOTEC.AI">
   </section>
 
   <!-- ===================== SECTION 2 ===================== -->
@@ -1438,7 +1518,7 @@
           <h3 class="process-title" data-i18n="s4.a6">Trade execution</h3>
         </div>
       </div>
-      <p class="process-note reveal d3" data-i18n="s4.note">Together, they create an autonomous AI system capable of turning real-time data into investment decisions.</p>
+      <p class="process-note reveal d3" data-i18n="s4.note">Together, they create an <span class="gold">autonomous AI system</span> capable of turning data <span class="gold">in real time</span><br>into investment decisions.</p>
     </div>
   </section>
 
@@ -1599,46 +1679,57 @@
   <section id="s6" data-label="Markets">
     <div class="wrap">
       <div class="eyebrow reveal" data-i18n="s6.eyebrow">Business model</div>
-      <h2 class="HeroHeadline reveal" data-i18n="s6.h2">One infrastructure.<br><span class="gold">Two markets.</span></h2>
+      <h2 class="HeroHeadline reveal" data-i18n="s6.h2">One AI platform.<br><span class="gold">Two markets.</span></h2>
       <div class="markets">
         <div class="market b2c reveal d1">
-          <span class="tag">B2C</span>
-          <h3 data-i18n="s6.b2c.h3">Vibe Trading</h3>
-          <p data-i18n="s6.b2c.p">The first commercial application built on ROBOOTEC.AI technology.</p>
-          <div class="market-audience" data-i18n="s6.b2c.audience">For retail investors and traders.</div>
+          <div class="market-head">
+            <h3 data-i18n="s6.b2c.h3">Vibe Trading</h3>
+            <span class="tag">B2C</span>
+          </div>
+          <p data-i18n="s6.b2c.p">An AI application for intelligent trading.</p>
+          <div class="market-audience" data-i18n="s6.b2c.audience">For</div>
+          <ul class="target-list">
+            <li data-i18n="s6.b2c.retail">Retail investors</li>
+            <li data-i18n="s6.b2c.traders">Active traders</li>
+          </ul>
         <div class="rev">
           <div class="rh" data-i18n="s6.revmodel">Revenue Model</div>
           <ul class="revenue-list">
-            <li data-i18n="s6.rev.saas">SaaS subscriptions</li>
-            <li data-i18n="s6.rev.premium">Premium plans</li>
-            <li data-i18n="s6.rev.marketplace">Future marketplace services</li>
+            <li data-i18n="s6.rev.monthly">Monthly subscription</li>
+            <li data-i18n="s6.rev.premiumlicenses">Premium licenses</li>
+            <li data-i18n="s6.rev.perf">Performance-based services</li>
             </ul>
           </div>
       </div>
 
       <div class="core reveal d2">
+        <svg class="core-links" viewBox="0 0 242 180" aria-hidden="true">
+          <path d="M0 48 H28 Q42 48 42 62 V65 H66" fill="none" stroke="#4C63FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="69" cy="65" r="3.5" fill="#fff" stroke="#4C63FF" stroke-width="2"/>
+          <path d="M242 48 H214 Q200 48 200 62 V65 H176" fill="none" stroke="#7B4DFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="173" cy="65" r="3.5" fill="#fff" stroke="#7B4DFF" stroke-width="2"/>
+        </svg>
         <img class="core-logo" src="assets/robootecai-vector-blue.svg" alt="ROBOOTEC.AI">
         <div class="core-name" data-i18n="s6.platform">Platform</div>
       </div>
 
         <div class="market b2b reveal d3">
-          <span class="tag">B2B</span>
-        <h3 data-i18n="s6.b2b.h3">Institutions</h3>
-        <p data-i18n="s6.b2b.p">Technology and AI infrastructure for professional financial institutions.</p>
+          <div class="market-head">
+            <h3 data-i18n="s6.b2b.h3">Asset Manager</h3>
+            <span class="tag">B2B</span>
+          </div>
+        <p data-i18n="s6.b2b.p">A comprehensive AI operating system for professional capital management.</p>
         <div class="market-audience" data-i18n="s6.b2b.audience">For</div>
         <ul class="target-list">
-          <li data-i18n="s6.b2b.hedge">Commercial banks</li>
-          <li data-i18n="s6.b2b.asset">Investment funds</li>
-          <li data-i18n="s6.b2b.prop">FinTech companies</li>
-            <li data-i18n="s6.b2b.fin">Trading companies</li>
+          <li data-i18n="s6.b2b.hedge">Banks and investment funds</li>
+          <li data-i18n="s6.b2b.prop">FinTech and trading companies</li>
         </ul>
         <div class="rev">
           <div class="rh" data-i18n="s6.revmodel">Revenue Model</div>
           <ul class="revenue-list">
-            <li data-i18n="s6.rev.saas">SaaS subscriptions</li>
-            <li data-i18n="s6.rev.tech">Technology licensing</li>
-              <li data-i18n="s6.rev.perf">Performance-based services</li>
-              <li data-i18n="s6.rev.future">Future AI-driven asset management products</li>
+            <li data-i18n="s6.rev.platform">Platform licensing</li>
+            <li data-i18n="s6.rev.perf">Performance-based services</li>
+            <li data-i18n="s6.rev.assetmanagement">Asset management</li>
             </ul>
           </div>
         </div>
@@ -1657,10 +1748,9 @@
           <div class="road-content">
             <div class="road-date" data-i18n="s6b.m1.date">Today</div>
             <div class="road-status" data-i18n="s6b.m1.status">Completed</div>
-            <div class="road-title" data-i18n="s6b.m1.title">Working foundation</div>
+            <div class="road-title" data-i18n="s6b.m1.title">Working demo</div>
             <ul class="road-list">
               <li data-i18n="s6b.m1.l1">PoC completed</li>
-              <li data-i18n="s6b.m1.l2">Working platform</li>
               <li data-i18n="s6b.m1.l3">Strategy validation</li>
               <li data-i18n="s6b.m1.l4">Team and company foundation</li>
             </ul>
@@ -1675,7 +1765,7 @@
             <div class="road-status" data-i18n="s6b.m2.status">Now</div>
             <div class="road-title" data-i18n="s6b.m2.title">External testing</div>
             <ul class="road-list">
-              <li data-i18n="s6b.m2.l1">8–10 external testers</li>
+              <li data-i18n="s6b.m2.l1">External trader testing</li>
               <li data-i18n="s6b.m2.l2">Free access</li>
               <li data-i18n="s6b.m2.l3">Real user feedback</li>
             </ul>
@@ -1686,7 +1776,7 @@
           <div class="road-content">
             <div class="road-date" data-i18n="s6b.m3.date">Unlock point</div>
             <div class="road-status" data-i18n="s6b.m3.status">Investment</div>
-            <div class="road-title" data-i18n="s6b.m3.title">Capital for development and go-to-market</div>
+            <div class="road-title" data-i18n="s6b.m3.title">Capital for<br>further development and<br>go-to-market</div>
           </div>
           <span class="road-node" aria-hidden="true"></span>
         </article>
@@ -1699,7 +1789,7 @@
             <div class="road-title" data-i18n="s6b.m4.title">Vibe Trading pre-orders</div>
             <ul class="road-list">
               <li data-i18n="s6b.m4.l1">Early access</li>
-              <li data-i18n="s6b.m4.l2">50% launch offer</li>
+              <li data-i18n="s6b.m4.l2">Discount for first users</li>
             </ul>
           </div>
         </article>
@@ -1708,7 +1798,7 @@
           <div class="road-content">
             <div class="road-date" data-i18n="s6b.m5.date">December 2026</div>
             <div class="road-status" data-i18n="s6b.m5.status">Revenue</div>
-            <div class="road-title" data-i18n="s6b.m5.title">Vibe Trading launch</div>
+            <div class="road-title" data-i18n="s6b.m5.title">Launch<br>Vibe Trading<br>to market</div>
             <ul class="road-list">
               <li data-i18n="s6b.m5.l1">First paying users</li>
               <li data-i18n="s6b.m5.l2">First revenue</li>
@@ -1741,7 +1831,7 @@
             <ul class="road-list">
               <li data-i18n="s6b.m7.l1">Institutional solution</li>
               <li data-i18n="s6b.m7.l2">New products</li>
-              <li data-i18n="s6b.m7.l3">New markets</li>
+              <li data-i18n="s6b.m7.l3">Global expansion</li>
             </ul>
           </div>
           <span class="road-node" aria-hidden="true"></span>
@@ -1755,54 +1845,67 @@
   <!-- ===================== SECTION 7 — TEAM ===================== -->
   <section id="s7" data-label="Team">
     <div class="wrap" style="text-align:left">
-      <div class="eyebrow reveal" data-i18n="s7.eyebrow">Meet the team</div>
-      <h2 class="HeroHeadline reveal d1" data-i18n="s7.h2">Building the<br><span class="gold">Future of Investing</span></h2>
-      <p class="lead reveal d2" style="margin:18px 0 0" data-i18n="s7.sub">The team behind ROBOOTEC.AI</p>
+      <div class="eyebrow reveal" data-i18n="s7.eyebrow">Team</div>
+      <h2 class="HeroHeadline team-headline reveal d1" data-i18n="s7.h2">A complete team for product delivery<br><span class="gold">and company growth.</span></h2>
 
       <div class="founders">
         <div class="founder reveal d1">
-          <div class="av">RG</div>
-          <b>Radek Gelety</b>
+          <div class="founder-photo-frame"><img class="founder-photo" src="./assets/team/radek.jpg" alt="Radek Gelety"></div>
+          <b>Radek<br>Gelety</b>
           <div class="role" data-i18n="s7.role1">Founder &amp; CEO</div>
-          <p data-i18n="s7.bio1">15+ years building and scaling businesses. Leading vision, strategy, fundraising and business development.</p>
+          <p data-i18n="s7.bio1">15+ years building and scaling businesses.</p>
+          <p class="competence" data-i18n="s7.competence1">Vision, strategy and business growth.</p>
         </div>
         <div class="founder reveal d2">
-          <div class="av">MS</div>
-          <b>Markéta Schröcková</b>
-          <div class="role" data-i18n="s7.role2">Founder &amp; CFO</div>
-          <p data-i18n="s7.bio2">15+ years of business and financial management experience. Finance, operations and reporting.</p>
+          <div class="founder-photo-frame"><img class="founder-photo" src="./assets/team/marketa.jpg" alt="Markéta Schröcková"></div>
+          <b>Markéta<br>Schröcková</b>
+          <div class="role" data-i18n="s7.role2">Founder &amp; COO</div>
+          <p data-i18n="s7.bio2">15+ years in business and financial management.</p>
+          <p class="competence" data-i18n="s7.competence2">Finance, operations and execution.</p>
         </div>
         <div class="founder reveal d3">
-          <div class="av">DF</div>
-          <b>David Fogl</b>
+          <div class="founder-photo-frame"><img class="founder-photo founder-photo--david" src="./assets/team/david.jpg" alt="David Fogl"></div>
+          <b>David<br>Fogl</b>
           <div class="role" data-i18n="s7.role3">Lead Developer &amp; CTO</div>
-          <p data-i18n="s7.bio3">10+ years building technology products and IT businesses. Technology architecture, AI infrastructure and product development.</p>
+          <p data-i18n="s7.bio3">10+ years building technology products and IT businesses.</p>
+          <p class="competence" data-i18n="s7.competence3">Platform architecture and AI development.</p>
         </div>
       </div>
 
-      <p class="team-foot reveal d4" data-i18n="s7.foot">Backed by an extended team of AI specialists, data engineers and software developers.</p>
+      <div class="team-foot reveal d4">
+        <b data-i18n="s7.extended">Extended team and specialists</b>
+        <span data-i18n="s7.foot">Data engineering · Product · Legal representation · Operations</span>
+      </div>
     </div>
   </section>
 
   <!-- ===================== SECTION 8 — INVESTMENT ===================== -->
   <section id="s8" data-label="Investment">
-    <div class="wrap" style="text-align:left">
-      <div class="eyebrow reveal" data-i18n="s8.eyebrow">Investment opportunity</div>
-      <div class="raise reveal d1" data-i18n="s8.raise">Opening investment round</div>
-      <div class="bigfig reveal d1" data-i18n="s8.fig">€500.000</div>
-      <div class="round-tag reveal d1" data-i18n="s8.round">Pre-Seed Round</div>
-      <div class="invest-sub reveal d2">
-        <p class="lead" data-i18n="s8.sub1">To complete MVP and launch the first commercial products.</p>
-        <p class="lead" data-i18n="s8.sub2">To enter the market by the end of 2026.</p>
+    <div class="wrap">
+      <div class="eyebrow reveal" data-i18n="s8.eyebrow">Investment</div>
+      <h1 class="HeroHeadline investment-headline reveal d1" data-i18n="s8.h1">Pre-seed investment for growth<br><span class="gold">and first market position.</span></h1>
+
+      <div class="investment-layout">
+        <div class="investment-left reveal d2">
+          <div class="investment-amount" data-i18n="s8.fig">CZK 9m</div>
+          <div class="investor-return">
+            <div class="investment-kicker" data-i18n="s8.return.label">What the investor gets:</div>
+            <p data-i18n="s8.return.text">The right to convert the investment into an equity stake in ROBOOTEC.AI under terms agreed before the investment.</p>
+          </div>
+        </div>
+
+        <div class="investment-use reveal d2">
+          <div class="investment-use-title" data-i18n="s8.use.title">Capital will be used for</div>
+          <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.1">Completing platform and MVP development</span></div>
+          <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.2">Vibe Trading and go-to-market</span></div>
+          <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.3">Marketing and acquiring the first paying users</span></div>
+          <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.4">Operations and technology infrastructure</span></div>
+        </div>
       </div>
 
-      <div class="funds">
-        <div class="fund reveal d1"><div class="num">01</div><div class="ft" data-i18n="s8.f1">AI Agent Development</div></div>
-        <div class="fund reveal d1"><div class="num">02</div><div class="ft" data-i18n="s8.f2">Autonomous Trading Infrastructure</div></div>
-        <div class="fund reveal d2"><div class="num">03</div><div class="ft" data-i18n="s8.f3">MVP Completion</div></div>
-        <div class="fund reveal d2"><div class="num">04</div><div class="ft" data-i18n="s8.f4">Product Launch</div></div>
-        <div class="fund reveal d3"><div class="num">05</div><div class="ft" data-i18n="s8.f5">User Acquisition</div></div>
-        <div class="fund reveal d3"><div class="num">06</div><div class="ft" data-i18n="s8.f6">Market Expansion</div></div>
+      <div class="investment-summary reveal d3">
+        <p class="investment-summary-main" data-i18n="s8.summary.main">The investment will accelerate our path to MVP, help us acquire our first paying users and <span class="gold">generate revenue</span> during this phase.</p>
+        <p class="investment-summary-sub" data-i18n="s8.summary.sub">We will complement the investment with our own resources and initial Vibe Trading revenue.</p>
       </div>
     </div>
   </section>
@@ -1822,6 +1925,7 @@
         </div>
       </div>
     </div>
+    <img class="slide-corner-logo" src="assets/robootecai-vector-dlouhe.svg" alt="ROBOOTEC.AI">
   </section>
 
 </main>
@@ -1896,7 +2000,7 @@
       "s4.intro":"ROBOOTEC.AI buduje síť specializovaných AI agentů.",
       "s4.a1":"Sběr dat","s4.a2":"Analýza trhu","s4.a3":"AI predikce",
       "s4.a4":"Výběr strategie","s4.a5":"Řízení rizik","s4.a6":"Exekuce obchodů",
-      "s4.note":"Společně vytvářejí autonomní AI systém schopný proměnit data v reálném čase na investiční rozhodnutí.",
+      "s4.note":"Společně vytvářejí <span class=\"gold\">autonomní AI systém</span> schopný proměnit data <span class=\"gold\">v reálném čase</span><br>na investiční rozhodnutí.",
 
       "s5.eyebrow":"Validace",
       "s5.h2":"Reálné výsledky,<br>ne marketingová<br><span class=\"gold\">čísla.</span>",
@@ -1931,47 +2035,50 @@
       "s5b.k1":"Strategií","s5b.k2":"Backtestů","s5b.k3":"Signálů","s5b.k4":"Sledovaných aktiv",
 
 "s6.eyebrow":"Byznys model",
-"s6.h2":"Jedna infrastruktura.<br><span class=\"gold\">Dva trhy.</span>",
+"s6.h2":"Jedna AI platforma.<br><span class=\"gold\">Dva trhy.</span>",
       "s6.platform":"Platforma",
       "s6.b2c.h3":"Vibe Trading",
-      "s6.b2c.p":"První komerční aplikace na technologii ROBOOTEC.AI.",
-      "s6.b2c.audience":"Pro retailové investory a tradery.",
+      "s6.b2c.p":"AI aplikace pro inteligentní obchodování.",
+      "s6.b2c.audience":"Pro koho",
+      "s6.b2c.retail":"Retailoví investoři",
+      "s6.b2c.traders":"Aktivní tradeři",
       "s6.revmodel":"Obchodní model",
-      "s6.rev.saas":"SaaS předplatné","s6.rev.premium":"Prémiové tarify","s6.rev.marketplace":"Budoucí marketplace služby",
-      "s6.b2b.h3":"Instituce",
-      "s6.b2b.p":"Technologie a AI infrastruktura pro profesionální finanční instituce.",
+      "s6.rev.monthly":"Měsíční předplatné",
+      "s6.rev.premiumlicenses":"Prémiové licence",
+      "s6.b2b.h3":"Asset Manager",
+      "s6.b2b.p":"Komplexní AI operační systém pro profesionální správu kapitálu.",
       "s6.b2b.audience":"Pro koho",
-      "s6.b2b.hedge":"Komerční banky","s6.b2b.asset":"Investiční fondy",
-      "s6.b2b.prop":"FinTech společnosti","s6.b2b.fin":"Trading společnosti",
-      "s6.rev.tech":"Licencování technologií","s6.rev.perf":"Výkonnostní služby",
-      "s6.rev.future":"Budoucí produkty správy aktiv řízené AI",
+      "s6.b2b.hedge":"Banky a investiční fondy",
+      "s6.b2b.prop":"FinTech a trading společnosti",
+      "s6.rev.platform":"Licence platformy",
+      "s6.rev.perf":"Výkonnostní služby",
+      "s6.rev.assetmanagement":"Správa aktiv",
 
       "s6b.eyebrow":"Roadmapa",
       "s6b.h2":"Máme funkční základ.<br><span class=\"gold\">Investice odemyká další růst.</span>",
       "s6b.m1.date":"Dnes",
       "s6b.m1.status":"Hotovo",
-      "s6b.m1.title":"Funkční základ",
+      "s6b.m1.title":"Funkční demo",
       "s6b.m1.l1":"PoC dokončeno",
-      "s6b.m1.l2":"Funkční platforma",
       "s6b.m1.l3":"Validace strategií",
       "s6b.m1.l4":"Tým a firemní zázemí",
       "s6b.m2.date":"Srpen 2026",
       "s6b.m2.status":"Teď",
       "s6b.m2.title":"Externí testování",
-      "s6b.m2.l1":"8–10 externích testerů",
+      "s6b.m2.l1":"Test externích traderů",
       "s6b.m2.l2":"Bezplatný přístup",
-      "s6b.m2.l3":"Reálná uživatelská zpětná vazba",
+      "s6b.m2.l3":"Reálná zpětná vazba",
       "s6b.m3.date":"Bod odemčení",
       "s6b.m3.status":"Investice",
-      "s6b.m3.title":"Kapitál pro další vývoj a go-to-market",
+      "s6b.m3.title":"Kapitál pro<br>další vývoj a<br>go-to-market",
       "s6b.m4.date":"Září 2026",
       "s6b.m4.status":"Komerční validace",
       "s6b.m4.title":"Předobjednávky Vibe Trading",
       "s6b.m4.l1":"Early access",
-      "s6b.m4.l2":"50% zvýhodnění pro první uživatele",
+      "s6b.m4.l2":"Sleva pro první uživatele",
       "s6b.m5.date":"Prosinec 2026",
       "s6b.m5.status":"Revenue",
-      "s6b.m5.title":"Uvedení Vibe Trading na trh",
+      "s6b.m5.title":"Uvedení<br>Vibe Trading<br>na trh",
       "s6b.m5.l1":"První platící uživatelé",
       "s6b.m5.l2":"První revenue",
       "s6b.m6.title":"Platforma ROBOOTEC.AI",
@@ -1984,29 +2091,35 @@
       "s6b.m7.title":"Další růst",
       "s6b.m7.l1":"Institucionální řešení",
       "s6b.m7.l2":"Nové produkty",
-      "s6b.m7.l3":"Další trhy",
+      "s6b.m7.l3":"Globální expanze",
       "s6b.foot":"Vibe Trading propojuje validaci platformy s prvním revenue, zatímco pokračuje vývoj hlavního MVP.",
 
-      "s7.eyebrow":"Seznamte se s týmem",
-      "s7.h2":"Stavíme budoucnost<br><span class=\"gold\">investování</span>",
-      "s7.sub":"Tým stojící za ROBOOTEC.AI",
+      "s7.eyebrow":"Tým",
+      "s7.h2":"Kompletní tým pro realizaci produktu<br><span class=\"gold\">a růst firmy.</span>",
       "s7.role1":"Zakladatel & CEO",
-      "s7.role2":"Zakladatelka & CFO",
+      "s7.role2":"Zakladatelka & COO",
       "s7.role3":"Vedoucí vývojář & CTO",
-      "s7.bio1":"15+ let budování a škálování firem. Vede vizi, strategii, fundraising a obchodní rozvoj.",
-      "s7.bio2":"15+ let zkušeností s řízením businessu a financí. Finance, provoz a reporting.",
-      "s7.bio3":"10+ let budování technologických produktů a IT firem. Technologická architektura, AI infrastruktura a vývoj produktu.",
-      "s7.foot":"Podporováni rozšířeným týmem AI specialistů, datových inženýrů a softwarových vývojářů.",
+      "s7.bio1":"15+ let budování a<br>škálování firem.",
+      "s7.bio2":"15+ let řízení businessu a financí.",
+      "s7.bio3":"10+ let budování technologických produktů a IT firem.",
+      "s7.competence1":"Vize, strategie a obchodní růst.",
+      "s7.competence2":"Finance, provoz a exekuce.",
+      "s7.competence3":"Architektura platformy a vývoj AI.",
+      "s7.extended":"Rozšířený tým a specialisté",
+      "s7.foot":"Datové inženýrství · Produkt · Právní zastoupení · Operativa",
 
       "s8.eyebrow":"Investiční příležitost",
-      "s8.raise":"Otevíráme investiční kolo",
-      "s8.fig":"12.000.000 Kč",
-      "s8.round":"Pre-Seed kolo",
-      "s8.sub1":"Na dokončení MVP a spuštění prvních komerčních produktů.",
-      "s8.sub2":"Vstup na trh do konce roku 2026.",
-      "s8.f1":"Vývoj AI agentů","s8.f2":"Infrastruktura autonomního obchodování",
-      "s8.f3":"Dokončení MVP","s8.f4":"Uvedení produktu na trh",
-      "s8.f5":"Získávání uživatelů","s8.f6":"Expanze na trh",
+      "s8.h1":"Pre-seed investice do růstu<br><span class=\"gold\">a první tržní pozice.</span>",
+      "s8.fig":"9 mil. Kč",
+      "s8.return.label":"Co investor získá:",
+      "s8.return.text":"Právo na budoucí konverzi investice do podílu v ROBOOTEC.AI za předem dohodnutých podmínek.",
+      "s8.use.title":"Kapitál využijeme na:",
+      "s8.use.1":"Dokončení vývoje platformy a MVP",
+      "s8.use.2":"Vibe Trading a go-to-market",
+      "s8.use.3":"Marketing a získání prvních platících uživatelů",
+      "s8.use.4":"Provoz a technologickou infrastrukturu",
+      "s8.summary.main":"Investice nám umožní urychlit cestu k MVP, získat první platící uživatele a <span class=\"gold\">generovat tržby</span> již během této fáze.",
+      "s8.summary.sub":"Investici doplníme vlastními zdroji a prvními příjmy z Vibe Trading.",
 
       "s9.h1":"Pojďte s námi změnit<br><span class=\"gold\">budoucnost</span><br>obchodování.",
       "s9.thanks":"Díky za pozornost.",
