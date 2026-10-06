@@ -96,6 +96,7 @@
   .btn.pitch{background:var(--blue);box-shadow:0 18px 38px rgba(76,99,255,.20)}
   .btn.qa{background:var(--purple);box-shadow:0 18px 38px rgba(123,77,255,.18)}
   .btn.poc{background:var(--green);box-shadow:0 18px 38px rgba(63,162,122,.18)}
+  .btn.onepager{background:var(--ink);box-shadow:0 18px 38px rgba(4,21,52,.18)}
 
   .foot{font-family:var(--font-mono);position:fixed;z-index:1;bottom:30px;left:var(--page-x);font-size:.78rem;color:#98a2b3;letter-spacing:0}
 
@@ -145,6 +146,10 @@
   <div class="wordmark reveal r1" id="tagline"><span class="headline-line">Predicting</span><span class="headline-line signature-highlight">the future.</span><span class="headline-line">Managing capital.</span></div>
   <p class="claim reveal r2" id="claim">AI agent infrastructure<br>for autonomous capital management.</p>
   <div class="cta reveal r3">
+    <a class="btn onepager" href="./roobotec-ai-one-pager.html">
+      <span id="btnOnePager">One Pager</span>
+      <svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
+    </a>
     <a class="btn pitch" href="./roobotec-ai-pitch.html">
       <span id="btnPitch">Pitch Deck</span>
       <svg class="arr" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"/></svg>
@@ -171,6 +176,7 @@
     btnPitch:{en:"Pitch Deck", cz:"Pitch deck"},
     btnQa:{en:"Q&A", cz:"Q&A"},
     btnPoc:{en:"Proof of Concept", cz:"Proof of Concept"},
+    btnOnePager:{en:"One Pager", cz:"One Pager"},
     foot:{en:"Radek Gelety · Founder & CEO · radek@robootec.ai", cz:"Radek Gelety · Zakladatel & CEO · radek@robootec.ai"}
   };
   const $=id=>document.getElementById(id);
@@ -187,7 +193,8 @@
   const deckLinks=[
     {el:document.querySelector('.cta a[href*="roobotec-ai-pitch"]'), path:'./roobotec-ai-pitch.html'},
     {el:document.querySelector('.cta a[href*="roobotec-ai-qa"]'), path:'./roobotec-ai-qa.html'},
-    {el:document.querySelector('.cta a[href*="roobotec-ai-poc"]'), path:'./roobotec-ai-poc.html'}
+    {el:document.querySelector('.cta a[href*="roobotec-ai-poc"]'), path:'./roobotec-ai-poc.html'},
+    {el:document.querySelector('.cta a[href*="roobotec-ai-one-pager"]'), path:'./roobotec-ai-one-pager.html'}
   ];
   const brandMark=document.querySelector('.brandbar .mark');
   function updateDeckLinks(l){
@@ -205,6 +212,7 @@
     $('claim').innerHTML=T.claim[l]; $('btnPitch').textContent=T.btnPitch[l];
     $('btnQa').textContent=T.btnQa[l];
     $('btnPoc').textContent=T.btnPoc[l];
+    $('btnOnePager').textContent=T.btnOnePager[l];
     $('foot').textContent=T.foot[l];
     document.documentElement.lang = l==='cz'?'cs':'en';
     rememberLang(l);

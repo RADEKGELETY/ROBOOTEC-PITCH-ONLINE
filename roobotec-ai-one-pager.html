@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROBOOTEC.AI — Investor One Pager</title>
+<meta name="description" content="ROBOOTEC.AI investor one pager.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-Latin.woff2?v=one-pager") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:"Manrope";font-style:normal;font-weight:400 800;font-display:swap;src:url("./assets/fonts/Manrope-Web-LatinExt.woff2?v=one-pager") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+  :root{
+    --navy:#041534;--blue:#4C63FF;--purple:#7B4DFF;--green:#3FA27A;
+    --gray:#667085;--muted:#98A2B3;--line:#E5E9F2;--paper:#FBFCFF;--soft:#F6F8FF;
+    --gradient:linear-gradient(110deg,#4C63FF 0%,#7B4DFF 33.333%,#5D8BFF 66.666%,#3FA27A 100%);
+    --sans:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%;background:#EEF1F7;color:var(--navy);font-family:var(--sans);font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+  body{display:grid;place-items:center;padding:24px}
+  .sheet{
+    position:relative;width:min(100%,1600px);aspect-ratio:16/9;overflow:hidden;background:var(--paper);
+    border:1px solid rgba(4,21,52,.08);box-shadow:0 28px 72px rgba(4,21,52,.10);
+    padding:2.7% 5.35% 2.7%;display:grid;grid-template-rows:auto 1fr auto;gap:2.1%;
+  }
+  .sheet::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,rgba(18,24,38,.032) 1px,transparent 1px),linear-gradient(to bottom,rgba(18,24,38,.032) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.5) 74%,transparent)}
+  .sheet>*{position:relative;z-index:1}
+  .topbar{display:flex;align-items:center;justify-content:space-between}
+  .logo{width:clamp(180px,15.2vw,248px);height:auto;display:block;cursor:pointer}
+  .topmeta{display:flex;align-items:center;gap:16px;font:500 clamp(9px,.72vw,12px)/1 var(--mono);color:var(--muted)}
+  .lang{display:flex;gap:8px;align-items:center}
+  .lang button{font-family:var(--mono);font-size:inherit;font-weight:600;border:0;background:none;color:var(--muted);cursor:pointer;padding:3px}
+  .lang button.active{color:var(--blue)}
+  .main{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:4.7%;min-height:0}
+  .story{display:flex;flex-direction:column;justify-content:space-between;min-width:0;min-height:0}
+  .kicker,.section-label{font:700 clamp(10px,.76vw,13px)/1.2 var(--mono);text-transform:uppercase;color:var(--blue)}
+  h1{font-size:clamp(43px,4.25vw,68px);line-height:.98;letter-spacing:-.045em;font-weight:800;max-width:760px;margin-top:1.8%}
+  .highlight{background:var(--gradient);background-clip:text;-webkit-background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+  .descriptor{font-size:clamp(14px,1.16vw,19px);line-height:1.44;color:var(--gray);max-width:660px;margin-top:1.7%}
+  .thesis{display:grid;grid-template-columns:1fr 1fr;gap:4.5%;margin-top:auto}
+  .thesis-block{border-top:2px solid var(--navy);padding-top:2.5%}
+  .thesis-block.solution{border-color:var(--blue)}
+  .thesis-block .section-label{font-size:clamp(7px,.56vw,10px);margin-bottom:3%}
+  .thesis-block h2{font-size:clamp(16px,1.38vw,23px);line-height:1.1;letter-spacing:-.025em;margin-bottom:1.5%}
+  .thesis-block p{font-size:clamp(10px,.82vw,14px);line-height:1.35;color:var(--gray);max-width:350px}
+  .solution-map{display:grid;grid-template-columns:.82fr 15px 1.22fr 15px .92fr;align-items:stretch;margin-top:5%;border:1px solid var(--line);border-radius:6px;background:rgba(246,248,255,.72);overflow:hidden}
+  .solution-stage{min-width:0;padding:8px 7px;display:flex;flex-direction:column;justify-content:center}
+  .solution-stage.ai{background:linear-gradient(135deg,rgba(76,99,255,.07),rgba(123,77,255,.08),rgba(63,162,122,.06))}
+  .solution-stage small{font:700 clamp(5px,.4vw,7px)/1.1 var(--mono);text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .solution-stage strong{font-size:clamp(8px,.63vw,11px);line-height:1.14;letter-spacing:-.01em}
+  .solution-stage.ai strong{color:var(--blue)}
+  .solution-stage span{font-size:clamp(6px,.49vw,8px);line-height:1.25;color:var(--gray);margin-top:3px}
+  .solution-arrow{display:grid;place-items:center;color:var(--blue);font:700 clamp(10px,.78vw,13px)/1 var(--mono);background:var(--paper)}
+  .proof{display:grid;grid-template-rows:auto auto auto auto 1fr;min-width:0;min-height:0}
+  .proof-head{display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid var(--line);padding-bottom:1.8%}
+  .proof-head h2{font-size:clamp(22px,2.1vw,34px);line-height:1;letter-spacing:-.035em}
+  .demo{font:600 clamp(8px,.63vw,11px)/1 var(--mono);color:var(--muted);border:1px solid var(--line);padding:7px 9px;border-radius:4px}
+  .poc-results{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+  .poc-result{padding:3.4% 4% 3.6% 0;min-width:0}
+  .poc-result+.poc-result{padding-left:7%;border-left:1px solid var(--line)}
+  .poc-result span{display:block;font-size:clamp(8px,.67vw,11px);font-weight:700;line-height:1.2;white-space:nowrap}
+  .poc-result strong{display:block;font:700 clamp(17px,1.58vw,27px)/1 var(--mono);letter-spacing:-.035em;margin-top:8%;white-space:nowrap}
+  .poc-result small{display:block;font:500 clamp(6px,.48vw,8px)/1.35 var(--mono);color:var(--muted);margin-top:7%;white-space:nowrap}
+  .poc-result.backtest strong{color:var(--blue)}.poc-result.paper strong{color:var(--purple)}.poc-result.live strong{color:var(--green)}.poc-result.benchmark strong{color:#7D8799}
+  .platform-caption{font:700 clamp(7px,.55vw,9px)/1.2 var(--mono);color:var(--muted);text-transform:uppercase;padding-top:2.2%}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
+  .kpi{padding:3.7% 7% 4.2% 0}
+  .kpi+.kpi{padding-left:8%;border-left:1px solid var(--line)}
+  .kpi strong{display:block;font:700 clamp(14px,1.28vw,22px)/1 var(--mono);letter-spacing:-.03em;white-space:nowrap}
+  .kpi:nth-child(1) strong{color:var(--blue)}.kpi:nth-child(2) strong{color:var(--purple)}.kpi:nth-child(3) strong{color:var(--green)}
+  .kpi span{display:block;margin-top:6%;font-size:clamp(7px,.59vw,10px);line-height:1.25;color:var(--gray)}
+  .market{display:grid;grid-template-columns:1fr 1fr;gap:7%;padding-top:2.2%;min-height:0}
+  .market-block{display:flex;flex-direction:column;min-width:0}
+  .market-top{display:flex;align-items:center;justify-content:space-between;border-top:2px solid var(--blue);padding-top:2.8%}
+  .market-block.b2b .market-top{border-color:var(--purple)}
+  .tag{font:700 clamp(8px,.64vw,11px)/1 var(--mono);color:#fff;background:var(--blue);border-radius:4px;padding:5px 7px}
+  .b2b .tag{background:var(--purple)}
+  .market h3{font-size:clamp(16px,1.35vw,23px);line-height:1.05;letter-spacing:-.03em;margin:3% 0 1.5%}
+  .market p{font-size:clamp(9px,.7vw,12px);line-height:1.25;color:var(--gray)}
+  .model{margin-top:3.5%;padding-top:0}
+  .model b{display:block;font:700 clamp(7px,.56vw,10px)/1.2 var(--mono);color:var(--blue);text-transform:uppercase;margin-bottom:2.5%}
+  .b2b .model b{color:var(--purple)}
+  .model span{display:block;font-size:clamp(9px,.7vw,12px);line-height:1.3;border-top:1px solid var(--line);padding-top:1.6%}
+  .bottom{display:grid;grid-template-columns:1.16fr .8fr 1.08fr;gap:3.5%;border-top:1px solid var(--line);padding-top:2.1%;align-items:start}
+  .roadline{display:grid;grid-template-columns:repeat(4,1fr);margin-top:3.5%;position:relative}
+  .roadline::before{content:"";position:absolute;left:6px;right:6px;top:5px;height:2px;background:linear-gradient(90deg,var(--navy),var(--blue),var(--green),#C8CEDA)}
+  .milestone{position:relative;padding-top:18px;padding-right:8px}
+  .milestone::before{content:"";position:absolute;top:0;left:0;width:10px;height:10px;border-radius:50%;background:var(--paper);border:3px solid var(--blue)}
+  .milestone.done::before{border-color:var(--navy)}.milestone.revenue::before{border-color:var(--green)}.milestone.horizon::before{border-color:#C8CEDA}
+  .milestone small{display:block;font:600 clamp(7px,.54vw,9px)/1.2 var(--mono);color:var(--muted);text-transform:uppercase}
+  .milestone b{display:block;font-size:clamp(9px,.72vw,12px);line-height:1.25;margin-top:5px}
+  .investment{display:grid;grid-template-columns:auto 1fr;column-gap:8%;align-items:start}
+  .ask{font-size:clamp(30px,2.75vw,46px);line-height:.95;letter-spacing:-.045em;color:var(--blue);font-weight:800;white-space:nowrap;margin-top:10px}
+  .use{display:grid;gap:7px;margin-top:10px}
+  .use span{font-size:clamp(9px,.7vw,12px);line-height:1.25;position:relative;padding-left:14px}
+  .use span::before{content:"";position:absolute;left:0;top:.45em;width:6px;height:6px;border-radius:50%;background:var(--green)}
+  .team-panel{min-width:0}
+  .founders{display:grid;grid-template-columns:repeat(3,1fr);gap:4%;margin-top:8px}
+  .founder-mini{display:grid;grid-template-columns:clamp(34px,2.8vw,46px) minmax(0,1fr);gap:8px;align-items:center;min-width:0}
+  .founder-mini img{display:block;width:clamp(34px,2.8vw,46px);height:clamp(34px,2.8vw,46px);border-radius:50%;object-fit:cover;object-position:center;filter:grayscale(100%);border:1px solid var(--line)}
+  .founder-mini img.david{object-position:center 30%}
+  .founder-mini b{display:block;font-size:clamp(8px,.63vw,11px);line-height:1.14;letter-spacing:-.015em}
+  .founder-mini span{display:block;font:500 clamp(6px,.45vw,8px)/1.2 var(--mono);color:var(--blue);margin-top:3px}
+  .team-contact{margin-top:7px;font:500 clamp(6px,.48vw,8px)/1.2 var(--mono);color:var(--gray)}
+  .confidential{position:absolute;right:5.35%;bottom:1.7%;font:500 clamp(7px,.52vw,9px)/1 var(--mono);color:#B0B7C3}
+  @media(max-width:900px){body{display:block;padding:0;background:var(--paper)}.sheet{width:100%;min-height:100svh;aspect-ratio:auto;padding:28px 24px 42px;display:block;box-shadow:none;border:0;overflow:visible}.topbar{margin-bottom:48px}.topmeta>span{display:none}.main,.bottom{grid-template-columns:1fr}.proof{margin-top:52px}.thesis{margin-top:36px}.solution-map{margin-top:24px}.poc-results,.kpis{grid-template-columns:1fr 1fr}.poc-result:nth-child(3),.kpi:nth-child(3){border-left:0}.platform-caption{padding-top:22px}.market{margin-top:34px}.bottom{margin-top:50px;gap:40px}.roadline{margin-top:22px}.founders{max-width:520px}.confidential{display:none}}
+  @media print{@page{size:landscape;margin:0}html,body{background:#fff}.sheet{width:100vw;height:100vh;aspect-ratio:auto;border:0;box-shadow:none}.topmeta{display:none}}
+</style>
+</head>
+<body>
+<article class="sheet">
+  <header class="topbar">
+    <img class="logo" src="assets/robootecai-vector-dlouhe.svg" alt="ROBOOTEC.AI" id="homeLink">
+    <div class="topmeta"><span data-t="meta">INVESTIČNÍ ONE PAGER · DŮVĚRNÉ</span><div class="lang"><button data-lang="en">EN</button><span>·</span><button data-lang="cz">CZ</button></div></div>
+  </header>
+
+  <main class="main">
+    <section class="story">
+      <div>
+        <div class="kicker" data-t="kicker">PREDIKTIVNÍ AI TRADING PLATFORMA</div>
+        <h1 data-t-html="headline">Předvídáme <span class="highlight">budoucnost.</span><br>Řídíme kapitál.</h1>
+        <p class="descriptor" data-t="descriptor">ROBOOTEC.AI vyvíjí AI platformu, která propojuje tržní data, predikci, výběr strategií, řízení rizik a obchodní exekuci.</p>
+      </div>
+      <div class="thesis">
+        <div class="thesis-block">
+          <div class="section-label" data-t="problemLabel">PROBLÉM</div>
+          <h2 data-t="problemTitle">Více informací, než člověk dokáže zpracovat.</h2>
+          <p data-t="problemText">Trhy vytvářejí nepřetržitý tok dat a signálů. Omezená lidská kapacita vede ke zpoždění a zmeškaným příležitostem.</p>
+        </div>
+        <div class="thesis-block solution">
+          <div class="section-label" data-t="solutionLabel">ŘEŠENÍ</div>
+          <h2 data-t="solutionTitle">AI agenti pro autonomní správu kapitálu.</h2>
+          <p data-t="solutionText">Platforma propojuje data, AI rozhodování a obchodní exekuci do jednoho procesu.</p>
+          <div class="solution-map">
+            <div class="solution-stage"><small data-t="stage1">VSTUP</small><strong data-t="process1">Analýza dat</strong></div>
+            <div class="solution-arrow" aria-hidden="true">→</div>
+            <div class="solution-stage ai"><small data-t="stage2">AI JÁDRO</small><strong data-t="process2">Predikce AI</strong><span data-t="aiLayers">Strategie · rozhodovací centrum</span></div>
+            <div class="solution-arrow" aria-hidden="true">→</div>
+            <div class="solution-stage"><small data-t="stage3">VÝSTUP</small><strong data-t="process5">Automatické obchodování</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="proof-head"><div><div class="section-label" data-t="proofLabel">VÝSLEDKY POC</div><h2 data-t="proofTitle">Ověřeno na reálných tržních datech.</h2></div><span class="demo" data-t="demo">06/2025–06/2026 · DEMO</span></div>
+      <div class="poc-results">
+        <div class="poc-result backtest"><span data-t="backtest">Backtest</span><strong>+139 %</strong><small data-t="backtestMeta">WR 57 % · DD −10,8 %</small></div>
+        <div class="poc-result paper"><span data-t="paper">Paper trading</span><strong>+36 %</strong><small data-t="paperMeta">WR 61 % · DD −8,6 %</small></div>
+        <div class="poc-result live"><span data-t="live">Live signály</span><strong>+65 %</strong><small data-t="liveMeta">WR 71 % · DD −6,3 %</small></div>
+        <div class="poc-result benchmark"><span data-t="benchmark">SPY benchmark</span><strong>+22 %</strong><small data-t="benchmarkMeta">INDEX TRHU</small></div>
+      </div>
+      <div class="platform-caption" data-t="platformLabel">PLATFORMA V ČÍSLECH</div>
+      <div class="kpis">
+        <div class="kpi"><strong>1 194</strong><span data-t="kpi1">strategií</span></div>
+        <div class="kpi"><strong>12 528</strong><span data-t="kpi2">backtestů</span></div>
+        <div class="kpi"><strong>1,57 mil.</strong><span data-t="kpi3">signálů</span></div>
+        <div class="kpi"><strong>86</strong><span data-t="kpi4">sledovaných aktiv</span></div>
+      </div>
+      <div class="market">
+        <div class="market-block">
+          <div class="market-top"><span class="tag">B2C</span></div>
+          <h3>Vibe Trading</h3>
+          <p data-t="b2cText">AI aplikace pro inteligentní obchodování. Pro retailové investory a aktivní tradery.</p>
+          <div class="model"><b data-t="model">Obchodní model</b><span data-t="b2cModel">Měsíční předplatné · Prémiové licence · Výkonnostní služby</span></div>
+        </div>
+        <div class="market-block b2b">
+          <div class="market-top"><span class="tag">B2B</span></div>
+          <h3>Asset Manager</h3>
+          <p data-t="b2bText">Komplexní AI platforma pro profesionální správu kapitálu bank, fondů a FinTech společností.</p>
+          <div class="model"><b data-t="model">Obchodní model</b><span data-t="b2bModel">Licence platformy · Výkonnostní služby · Správa aktiv</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bottom">
+    <section>
+      <div class="section-label" data-t="roadLabel">ROADMAPA</div>
+      <div class="roadline">
+        <div class="milestone done"><small data-t="road1s">HOTOVO</small><b data-t="road1">Funkční demo</b></div>
+        <div class="milestone"><small data-t="road2s">2026</small><b data-t="road2">Testování a předobjednávky Vibe Trading</b></div>
+        <div class="milestone revenue"><small data-t="road3s">PROSINEC 2026</small><b data-t="road3">První revenue</b></div>
+        <div class="milestone horizon"><small>2027</small><b data-t="road4">MVP ROBOOTEC.AI</b></div>
+      </div>
+    </section>
+    <section class="investment">
+      <div><div class="section-label" data-t="investment">INVESTIČNÍ PŘÍLEŽITOST</div><div class="ask" data-t="ask">9 mil. Kč</div></div>
+      <div class="use"><span data-t="use1">Dokončení platformy a MVP</span><span data-t="use2">Vibe Trading a go-to-market</span><span data-t="use3">První platící uživatelé</span></div>
+    </section>
+    <section class="team-panel">
+      <div class="section-label" data-t="team">CORE TEAM</div>
+      <div class="founders">
+        <div class="founder-mini"><img src="assets/team/radek.jpg" alt="Radek Gelety"><div><b>Radek<br>Gelety</b><span data-t="radekRole">Zakladatel &amp; CEO</span></div></div>
+        <div class="founder-mini"><img src="assets/team/marketa.jpg" alt="Markéta Schröcková"><div><b>Markéta<br>Schröcková</b><span data-t="marketaRole">Zakladatelka &amp; COO</span></div></div>
+        <div class="founder-mini"><img class="david" src="assets/team/david.jpg" alt="David Fogl"><div><b>David<br>Fogl</b><span data-t="davidRole">Vedoucí vývojář &amp; CTO</span></div></div>
+      </div>
+      <div class="team-contact">radek@robootec.ai · +420 777 150 218</div>
+    </section>
+  </footer>
+  <span class="confidential" data-t="disclaimer">Historické a demo výsledky nejsou zárukou budoucích výnosů.</span>
+</article>
+<script>
+const T={
+  cz:{meta:"INVESTIČNÍ ONE PAGER · DŮVĚRNÉ",kicker:"PREDIKTIVNÍ AI TRADING PLATFORMA",headline:'Předvídáme <span class="highlight">budoucnost.</span><br>Řídíme kapitál.',descriptor:"ROBOOTEC.AI vyvíjí AI platformu, která propojuje tržní data, predikci, výběr strategií, řízení rizik a obchodní exekuci.",problemLabel:"PROBLÉM",problemTitle:"Více informací, než člověk dokáže zpracovat.",problemText:"Trhy vytvářejí nepřetržitý tok dat a signálů. Omezená lidská kapacita vede ke zpoždění a zmeškaným příležitostem.",solutionLabel:"ŘEŠENÍ",solutionTitle:"AI agenti pro autonomní správu kapitálu.",solutionText:"Šest navazujících vrstev proměňuje data v reálném čase na konzistentní investiční rozhodnutí.",processLabel:"JAK TO FUNGUJE",process1:"Analýza dat",process2:"Predikce AI",process3:"Strategie",process4:"Rozhodovací centrum",process5:"Automatické obchodování",proofLabel:"VÝSLEDKY POC",proofTitle:"Ověřeno na reálných tržních datech.",demo:"06/2025–06/2026 · DEMO",backtest:"Backtest",backtestMeta:"WR 57 % · DD −10,8 %",paper:"Paper trading",paperMeta:"WR 61 % · DD −8,6 %",live:"Live signály",liveMeta:"WR 71 % · DD −6,3 %",benchmark:"SPY benchmark",benchmarkMeta:"INDEX TRHU",platformLabel:"PLATFORMA V ČÍSLECH",kpi1:"strategií",kpi2:"backtestů",kpi3:"signálů",kpi4:"sledovaných aktiv",b2cText:"AI aplikace pro inteligentní obchodování. Pro retailové investory a aktivní tradery.",b2bText:"Komplexní AI platforma pro profesionální správu kapitálu bank, fondů a FinTech společností.",model:"Obchodní model",b2cModel:"Měsíční předplatné · Prémiové licence · Výkonnostní služby",b2bModel:"Licence platformy · Výkonnostní služby · Správa aktiv",roadLabel:"ROADMAPA",road1s:"HOTOVO",road1:"Funkční demo",road2s:"2026",road2:"Testování a předobjednávky Vibe Trading",road3s:"PROSINEC 2026",road3:"První revenue",road4:"MVP ROBOOTEC.AI",investment:"INVESTIČNÍ PŘÍLEŽITOST",ask:"9 mil. Kč",use1:"Dokončení platformy a MVP",use2:"Vibe Trading a go-to-market",use3:"První platící uživatelé",team:"CORE TEAM",radekRole:"Zakladatel & CEO",marketaRole:"Zakladatelka & COO",davidRole:"Vedoucí vývojář & CTO",disclaimer:"Historické a demo výsledky nejsou zárukou budoucích výnosů."},
+  en:{meta:"INVESTOR ONE PAGER · CONFIDENTIAL",kicker:"PREDICTIVE AI TRADING PLATFORM",headline:'Predicting <span class="highlight">the future.</span><br>Managing capital.',descriptor:"ROBOOTEC.AI is developing an AI platform that connects market data, prediction, strategy selection, risk management and trade execution.",problemLabel:"PROBLEM",problemTitle:"More information than people can process.",problemText:"Markets generate a continuous flow of data and signals. Limited human capacity leads to delays and missed opportunities.",solutionLabel:"SOLUTION",solutionTitle:"AI agents for autonomous capital management.",solutionText:"Six connected layers turn real-time data into consistent investment decisions.",processLabel:"HOW IT WORKS",process1:"Data analysis",process2:"AI prediction",process3:"Strategies",process4:"Decision centre",process5:"Automated trading",proofLabel:"POC RESULTS",proofTitle:"Validated on real market data.",demo:"06/2025–06/2026 · DEMO",backtest:"Backtest",backtestMeta:"WR 57% · DD −10.8%",paper:"Paper trading",paperMeta:"WR 61% · DD −8.6%",live:"Live signals",liveMeta:"WR 71% · DD −6.3%",benchmark:"SPY benchmark",benchmarkMeta:"MARKET INDEX",platformLabel:"PLATFORM IN NUMBERS",kpi1:"strategies",kpi2:"backtests",kpi3:"signals",kpi4:"tracked assets",b2cText:"An AI application for intelligent trading, built for retail investors and active traders.",b2bText:"A comprehensive AI platform for professional capital management by banks, funds and FinTech companies.",model:"Business model",b2cModel:"Monthly subscription · Premium licences · Performance services",b2bModel:"Platform licences · Performance services · Asset management",roadLabel:"ROADMAP",road1s:"COMPLETED",road1:"Functional demo",road2s:"2026",road2:"Vibe Trading testing and pre-orders",road3s:"DECEMBER 2026",road3:"First revenue",road4:"ROBOOTEC.AI MVP",investment:"INVESTMENT OPPORTUNITY",ask:"€370k",use1:"Platform and MVP completion",use2:"Vibe Trading and go-to-market",use3:"First paying users",team:"CORE TEAM",radekRole:"Founder & CEO",marketaRole:"Founder & COO",davidRole:"Lead Developer & CTO",disclaimer:"Historical and demo results are not a guarantee of future returns."}
+};
+Object.assign(T.cz,{
+  solutionText:"Platforma propojuje data, AI rozhodování a obchodní exekuci do jednoho procesu.",
+  stage1:"VSTUP",stage2:"AI JÁDRO",stage3:"VÝSTUP",
+  aiLayers:"Strategie · rozhodovací centrum"
+});
+Object.assign(T.en,{
+  solutionText:"The platform connects data, AI decision-making and trade execution in one process.",
+  stage1:"INPUT",stage2:"AI CORE",stage3:"OUTPUT",
+  aiLayers:"Strategies · decision centre"
+});
+const valid=l=>l==='cz'||l==='en';
+function setLang(l){l=valid(l)?l:'cz';document.documentElement.lang=l==='cz'?'cs':'en';document.querySelectorAll('[data-t]').forEach(el=>el.textContent=T[l][el.dataset.t]);document.querySelectorAll('[data-t-html]').forEach(el=>el.innerHTML=T[l][el.dataset.tHtml]);document.querySelectorAll('[data-lang]').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));try{localStorage.setItem('roobotecLang',l)}catch(e){}history.replaceState(null,'','?lang='+l)}
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+document.getElementById('homeLink').addEventListener('click',()=>location.href='./index.html?lang='+(document.documentElement.lang==='cs'?'cz':'en'));
+let initial=new URLSearchParams(location.search).get('lang');if(!valid(initial)){try{initial=localStorage.getItem('roobotecLang')}catch(e){}}setLang(valid(initial)?initial:'cz');
+</script>
+</body>
+</html>
