@@ -107,7 +107,7 @@
   .cover{text-align:left;width:min(100%,88rem);max-width:none;min-height:var(--hero-cover-height);margin:0 auto}
   @media (min-width:901px){section.cover-section{padding:var(--nav-h) var(--slide-x) 72px}}
   .cover .eyebrow{display:none}
-  .cover h1{font-size:var(--hero-headline-size);font-weight:500;max-width:88rem}
+  .cover h1{font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:var(--hero-headline-size);font-weight:800;letter-spacing:var(--headline-track);line-height:var(--headline-line);max-width:88rem;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;text-shadow:none;-webkit-text-stroke:0;font-variation-settings:"wght" 800;font-synthesis:none}
   .cover-title-line{display:block;line-height:var(--headline-line);width:max-content;max-width:none;white-space:nowrap}
   .cover .sub{margin:56px 0 0;max-width:56ch}
   .cover .sub p{white-space:nowrap}
@@ -848,7 +848,7 @@ SLIDES.forEach((s, idx) => {
     const net = document.createElement('div'); net.className='net'; net.setAttribute('aria-hidden','true'); net.innerHTML = NETSVG;
     sec.append(net);
     const eb = el('div','eyebrow reveal', s.eyebrow);
-    const h = el('h1','reveal d1', s.title);
+    const h = el('h1','HeroHeadline reveal d1', s.title);
     const sub = document.createElement('div'); sub.className='lead sub reveal d3';
     const p1 = el('p',null,s.sub1);
     sub.append(p1);
