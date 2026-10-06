@@ -716,6 +716,45 @@
   #s5 .web-proof-table td{font-size:.76rem;padding:4px 8px}
   #s5 .mm-note{font-size:.74rem;margin-top:8px;line-height:1.32}
 
+  /* ============ MARKET SIZE ============ */
+  #s5c .wrap{max-width:1420px}
+  #s5c .HeroHeadline{max-width:1120px}
+  .market-intro{margin-top:12px;max-width:940px;font-size:.98rem;line-height:1.48;color:var(--color-muted)}
+  .market-size-grid{
+    display:grid;grid-template-columns:1fr 1fr 1.12fr;
+    margin-top:clamp(18px,2.4vh,28px);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line)
+  }
+  .market-size-item{position:relative;min-height:210px;padding:24px 30px 22px}
+  .market-size-item:first-child{padding-left:0}
+  .market-size-item+ .market-size-item{border-left:1px solid var(--gray-line)}
+  .market-size-item::before{content:"";position:absolute;left:30px;right:30px;top:-2px;height:3px;background:#4C63FF}
+  .market-size-item:first-child::before{left:0}
+  .market-size-item.ai::before{background:#7B4DFF}
+  .market-size-item.som::before{background:#3FA27A}
+  .market-size-label{font-family:var(--font-mono);font-size:1.01rem;font-weight:800;color:var(--gray);text-transform:uppercase;letter-spacing:0}
+  .market-size-explain{margin-top:6px;min-height:0;max-width:none;font-size:.92rem;font-weight:400;line-height:1.34;color:var(--color-muted);white-space:nowrap}
+  .market-size-value{margin-top:8px;font-family:var(--font-sans);font-size:clamp(3rem,4.5vw,4.75rem);font-weight:800;line-height:1;letter-spacing:-.055em;color:var(--deep-navy);font-variation-settings:"wght" 800}
+  .market-size-unit{font-size:.42em;letter-spacing:-.025em;white-space:nowrap}
+  .market-size-item.ai .market-size-value{color:#7B4DFF}
+  .market-size-item.som .market-size-value{color:#3FA27A}
+  .market-size-year{margin-top:11px;font-family:var(--font-mono);font-size:.72rem;font-weight:700;color:var(--deep-navy);text-transform:uppercase;letter-spacing:0}
+  .market-size-name{margin-top:6px;max-width:24ch;font-size:.92rem;line-height:1.34;color:var(--color-muted)}
+  .market-size-arr{margin-top:10px;font-family:var(--font-mono);font-size:.76rem;font-weight:700;color:#3FA27A;letter-spacing:0}
+  .market-scale{display:grid;grid-template-columns:1fr 1fr 1.12fr;gap:0;margin-top:24px;position:relative}
+  .market-scale::before{content:"";position:absolute;left:8px;right:8px;top:24px;height:1px;background:linear-gradient(90deg,#4C63FF 0 34%,#7B4DFF 54% 70%,#3FA27A 88% 100%)}
+  .market-scale-step{position:relative;padding:0 34px 0 22px;min-height:114px}
+  .market-scale-step:first-child{padding-left:0}
+  .market-scale-step::before{content:"";position:absolute;top:18px;left:0;width:12px;height:12px;border:3px solid var(--color-paper);border-radius:50%;background:#4C63FF;box-shadow:0 0 0 2px #4C63FF}
+  .market-scale-step:first-child::before{left:0}
+  .market-scale-step:nth-child(2)::before{background:#7B4DFF;box-shadow:0 0 0 2px #7B4DFF}
+  .market-scale-step:nth-child(3)::before{background:#3FA27A;box-shadow:0 0 0 2px #3FA27A}
+  .market-scale-year{padding-left:0;font-family:var(--font-mono);font-size:.74rem;font-weight:700;color:var(--deep-navy);text-align:center;letter-spacing:0}
+  .market-scale-step:first-child .market-scale-year{padding-left:0}
+  .market-scale-title{margin-top:23px;font-size:.82rem;font-weight:800;color:var(--deep-navy);text-align:center;text-transform:uppercase;letter-spacing:0}
+  .market-scale-copy{margin-top:5px;font-size:.75rem;line-height:1.42;color:var(--color-muted);text-align:center}
+  .market-bottom{margin-top:10px}
+  .market-source{max-width:1040px;font-family:var(--font-mono);font-size:.62rem;line-height:1.45;color:#98a2b3;text-align:left;letter-spacing:0}
+
   /* ============ ROADMAP ============ */
   #s6b .wrap{max-width:1420px}
   #s6b .HeroHeadline{max-width:1120px}
@@ -875,6 +914,155 @@
   .core-logo{display:block;width:168px;height:auto}
   .core-name{font-family:var(--font-mono);font-size:.76rem;color:var(--deep-navy);font-weight:700;letter-spacing:0;text-align:center;text-transform:uppercase}
   .core-logo,.core-name{position:relative;z-index:1}
+
+  /* ================= SECTION 6A — BUSINESS MODEL ================= */
+  #s6a .wrap{max-width:1420px}
+  #s6a .HeroHeadline{max-width:1080px}
+  .business-intro{margin-top:12px;max-width:980px;font-size:.98rem;line-height:1.48;color:var(--color-muted)}
+  .business-model-grid{display:grid;grid-template-columns:1fr 1fr;margin-top:clamp(22px,3.2vh,34px);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line)}
+  .business-lane{position:relative;padding:24px 34px 22px}
+  .business-lane:first-child{padding-left:0;padding-right:42px}
+  .business-lane+ .business-lane{border-left:1px solid var(--gray-line);padding-left:42px}
+  .business-lane::before{content:"";position:absolute;left:34px;right:34px;top:-2px;height:3px;background:#4C63FF}
+  .business-lane:first-child::before{left:0;right:42px}
+  .business-lane.b2b::before{left:42px;background:#7B4DFF}
+  .business-lane-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+  .business-lane-name{font-size:clamp(1.55rem,2vw,2rem);font-weight:800;line-height:1.08;color:#4C63FF;letter-spacing:-.03em}
+  .business-lane.b2b .business-lane-name{color:#7B4DFF}
+  .business-tag{display:inline-flex;padding:5px 10px;border-radius:999px;background:#4C63FF;color:#fff;font-family:var(--font-mono);font-size:.7rem;font-weight:700;letter-spacing:0;transform:scale(1.3);transform-origin:top right}
+  .business-lane.b2b .business-tag{background:#7B4DFF}
+  .business-price-label{margin-top:16px;font-family:var(--font-mono);font-size:.67rem;font-weight:700;text-transform:uppercase;color:var(--gray);letter-spacing:0}
+  .business-price{margin-top:5px;font-size:clamp(2.1rem,3vw,3.25rem);font-weight:800;line-height:1;color:var(--deep-navy);letter-spacing:-.045em;font-variation-settings:"wght" 800}
+  .business-price span{font-size:.42em;letter-spacing:-.01em}
+  .business-price-note{margin-top:7px;font-size:.78rem;line-height:1.4;color:var(--color-muted)}
+  .business-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:20px;padding-top:16px;border-top:1px solid var(--gray-line)}
+  .business-metric{padding-right:16px}
+  .business-metric+ .business-metric{padding-left:16px;border-left:1px solid var(--gray-line)}
+  .business-metric-value{font-family:var(--font-mono);font-size:clamp(1.25rem,1.8vw,1.7rem);font-weight:700;line-height:1.05;color:var(--deep-navy);letter-spacing:0;white-space:nowrap}
+  .business-lane.b2c .business-metric:first-child .business-metric-value{color:#4C63FF}
+  .business-lane.b2b .business-metric:first-child .business-metric-value{color:#7B4DFF}
+  .business-metric-label{margin-top:6px;font-size:.68rem;line-height:1.32;color:var(--color-muted)}
+  .business-summary{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:20px;border:1px solid var(--gray-line);border-radius:8px;background:rgba(255,255,255,.62)}
+  .business-summary-item{padding:16px 24px}
+  .business-summary-item+ .business-summary-item{border-left:1px solid var(--gray-line)}
+  .business-summary-label{font-family:var(--font-mono);font-size:.65rem;font-weight:700;text-transform:uppercase;color:var(--gray);letter-spacing:0}
+  .business-summary-value{margin-top:4px;font-size:clamp(1.38rem,2vw,1.9rem);font-weight:800;line-height:1.05;color:var(--deep-navy);letter-spacing:-.035em;white-space:nowrap}
+  .business-summary-item:nth-child(2) .business-summary-value{color:#7B4DFF}
+  .business-summary-item:nth-child(3) .business-summary-value{color:#3FA27A}
+  .business-upside{margin-top:14px}
+  .business-upside-main{max-width:none;padding:25px 34px;border:1px solid var(--gray-line);border-radius:8px;background:rgba(255,255,255,.62);text-align:center;font-size:1.12rem;font-weight:750;line-height:1.28;color:var(--deep-navy)}
+
+  /* ================= SECTION 6C — COMPETITION ================= */
+  #s6c .wrap{max-width:1420px}
+  #s6c .HeroHeadline{max-width:980px}
+  .competition-intro{margin-top:12px;max-width:940px;font-size:.98rem;line-height:1.48;color:var(--color-muted)}
+  .competition-landscape{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(22px,3.2vh,34px);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line)}
+  .competition-group{position:relative;min-height:148px;padding:22px 34px 20px}
+  .competition-group:first-child{padding-left:0}
+  .competition-group+ .competition-group{border-left:1px solid var(--gray-line)}
+  .competition-index{font-family:var(--font-mono);font-size:.58rem;font-weight:700;color:#4C63FF;letter-spacing:0}
+  .competition-kicker{margin-top:5px;font-family:var(--font-mono);font-size:.65rem;font-weight:700;text-transform:uppercase;color:var(--gray);letter-spacing:0}
+  .competition-names{margin-top:7px;font-size:clamp(.98rem,1.25vw,1.22rem);font-weight:800;line-height:1.18;color:var(--deep-navy);letter-spacing:-.02em}
+  .competition-name-unit{white-space:nowrap}
+  .competition-focus{margin-top:6px;max-width:30ch;font-size:.68rem;line-height:1.38;color:var(--color-muted)}
+  .competition-badge{display:inline-flex;margin-left:7px;padding:3px 6px;border-radius:999px;background:#4C63FF;color:#fff;font-family:var(--font-mono);font-size:.48rem;font-weight:700;line-height:1;text-transform:uppercase;vertical-align:2px}
+  .competition-position{position:relative;margin-top:24px;padding:22px 26px 0;border:1px solid var(--gray-line);border-radius:8px;background:rgba(255,255,255,.62);overflow:hidden}
+  .competition-position::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,#4C63FF,#7B4DFF 52%,#3FA27A)}
+  .competition-position-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px}
+  .competition-brand{font-size:clamp(1.38rem,1.85vw,1.72rem);font-weight:850;color:var(--deep-navy);letter-spacing:-.035em}
+  .competition-brand-note{font-family:var(--font-mono);font-size:.61rem;font-weight:700;color:#7B4DFF;text-transform:uppercase}
+  .competition-workflow{display:grid;grid-template-columns:repeat(7,1fr);margin-top:18px;border-top:1px solid var(--gray-line)}
+  .competition-step{position:relative;min-width:0;padding:14px 15px 16px}
+  .competition-step:first-child{padding-left:0}
+  .competition-step+ .competition-step{border-left:1px solid var(--gray-line)}
+  .competition-step-num{font-family:var(--font-mono);font-size:.55rem;font-weight:700;color:#4C63FF;letter-spacing:0}
+  .competition-step:nth-child(3) .competition-step-num,.competition-step:nth-child(4) .competition-step-num,.competition-step:nth-child(5) .competition-step-num{color:#7B4DFF}
+  .competition-step:nth-child(6) .competition-step-num,.competition-step:nth-child(7) .competition-step-num{color:#3FA27A}
+  .competition-step-label{margin-top:6px;font-size:.7rem;font-weight:700;line-height:1.28;color:var(--deep-navy)}
+  .competition-claim{margin-top:14px;padding:25px 34px;border:1px solid var(--gray-line);border-radius:8px;background:rgba(255,255,255,.62);text-align:center;font-size:1.12rem;font-weight:750;line-height:1.28;color:var(--deep-navy)}
+  .competition-claim .accent{color:#4C63FF}
+  .competition-table-view{display:none;margin-top:clamp(22px,3.2vh,34px);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line)}
+  .competition-table{width:100%;border-collapse:collapse;table-layout:fixed}
+  .competition-table th{padding:12px 20px 11px;text-align:left;font-family:var(--font-mono);font-size:.62rem;font-weight:700;text-transform:uppercase;color:var(--gray);letter-spacing:0}
+  .competition-table td{padding:14px 20px;border-top:1px solid var(--gray-line);vertical-align:top;font-size:.78rem;line-height:1.35;color:var(--color-muted)}
+  .competition-table th:first-child,.competition-table td:first-child{padding-left:0;width:28%;color:var(--deep-navy);font-weight:750}
+  .competition-table td:nth-child(2){width:28%;color:var(--deep-navy);font-weight:700}
+  .competition-table td:last-child{width:44%}
+  .competition-table-note{margin:11px 0 0;font-size:.66rem;line-height:1.35;color:var(--gray)}
+  .competition-matrix-intro{display:none;margin-top:12px;max-width:980px;font-size:.98rem;line-height:1.48;color:var(--color-muted)}
+  .competition-binary-intro{display:none;margin-top:12px;max-width:980px;font-size:.98rem;line-height:1.48;color:var(--color-muted)}
+  .competition-binary-live-intro{display:none;margin-top:12px;max-width:980px;font-size:.98rem;line-height:1.48;color:var(--color-muted)}
+  .competition-matrix-view{display:none;margin-top:clamp(18px,2.6vh,28px);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line);height:auto!important;min-height:0!important}
+  .competition-matrix{width:100%;height:auto!important;border-collapse:collapse;table-layout:fixed}
+  .competition-matrix th{padding:10px 8px 9px;border-bottom:1px solid var(--gray-line);font-family:var(--font-mono);font-size:.54rem;font-weight:700;line-height:1.15;text-align:center;text-transform:uppercase;color:var(--gray);letter-spacing:0}
+  .competition-matrix th:first-child{width:25%;padding-left:0;text-align:left}
+  .competition-matrix tbody tr{height:39px!important}
+  .competition-matrix td{height:39px!important;padding:8px;border-bottom:1px solid rgba(4,21,52,.08);font-size:.66rem;line-height:1.2;text-align:center;color:var(--color-muted)}
+  .competition-matrix thead,.competition-matrix tbody{display:block}
+  .competition-matrix tr{display:grid;grid-template-columns:25% repeat(7,minmax(0,1fr));height:39px!important}
+  .competition-matrix th,.competition-matrix td{display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+  .competition-matrix th:first-child,.competition-matrix td:first-child{width:auto}
+  .competition-matrix tr.matrix-robootec{height:42px!important}
+  .competition-matrix td:first-child{padding-left:0;text-align:left;font-size:.72rem;font-weight:750;color:var(--deep-navy)}
+  .competition-matrix tr:last-child td{border-bottom:0}
+  .competition-matrix tr.matrix-robootec td{background:rgba(76,99,255,.04);border-top:2px solid transparent;border-image:linear-gradient(90deg,#4C63FF,#7B4DFF 52%,#3FA27A) 1}
+  .competition-matrix tr.matrix-robootec td:first-child{color:#4C63FF}
+  .matrix-symbol{font-family:var(--font-mono);font-size:1rem;line-height:1;font-weight:700}
+  .matrix-symbol.core{display:inline-block!important;min-height:0!important;height:auto!important;align-self:auto;flex-direction:row;gap:0;color:#4C63FF}
+  .matrix-symbol.partial{color:#7B4DFF}
+  .matrix-symbol.roadmap{color:#3FA27A}
+  .matrix-symbol.none{color:#A8B0BF;font-weight:500}
+  .matrix-badge{display:inline-flex;margin-left:6px;padding:3px 6px;border-radius:999px;background:#4C63FF;color:#fff;font-family:var(--font-mono);font-size:.46rem;font-weight:700;line-height:1;text-transform:uppercase;vertical-align:2px}
+  .competition-matrix-legend{display:block!important;position:static!important;min-height:0!important;height:auto!important;margin:10px 0 0;font-family:var(--font-mono);font-size:.55rem;line-height:1.2;color:var(--gray);text-transform:uppercase;white-space:nowrap!important}
+  .competition-matrix-legend span{white-space:nowrap}
+  .competition-matrix-legend .legend-symbol{font-size:.72rem;vertical-align:middle;margin-right:3px}
+  .competition-matrix-legend .legend-core{color:#4C63FF}
+  .competition-matrix-legend .legend-partial{color:#7B4DFF}
+  .competition-matrix-legend .legend-none{color:#A8B0BF}
+  .competition-matrix-legend .legend-roadmap{color:#3FA27A}
+  .competition-matrix-legend .matrix-symbol{margin-right:3px;font-size:.72rem}
+  .competition-matrix-note{margin-top:5px;font-family:var(--font-mono);font-size:.48rem;line-height:1.2;letter-spacing:.02em;text-transform:uppercase;color:var(--gray)}
+  .competition-binary-view{display:none;margin-top:clamp(18px,2.6vh,28px);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line);height:auto!important;min-height:0!important}
+  .competition-binary{width:100%;height:auto!important;border-collapse:collapse;table-layout:fixed}
+  .competition-binary thead,.competition-binary tbody{display:block}
+  .competition-binary tr{display:grid;grid-template-columns:23% 8% 7% repeat(5,minmax(0,1fr)) 14%;height:46px!important}
+  .competition-binary th,.competition-binary td{display:flex;align-items:center;justify-content:center;box-sizing:border-box}
+  .competition-binary th{padding:11px 1px 10px;border-bottom:1px solid var(--gray-line);font-family:var(--font-mono);font-size:.75rem;font-weight:700;line-height:1.12;text-align:center;text-transform:uppercase;color:var(--gray);letter-spacing:0}
+  .competition-binary td{height:46px!important;padding:8px 0;border-bottom:1px solid rgba(4,21,52,.08);font-size:1.54rem;line-height:1;text-align:center;color:var(--color-muted)}
+  .competition-binary td:first-child{justify-content:flex-start;padding-left:0;padding-right:2px;text-align:left;font-size:1.05rem;font-weight:750;white-space:nowrap;color:var(--deep-navy)}
+  .competition-binary td:nth-child(2){font-family:var(--font-mono);font-size:.77rem;font-weight:700;line-height:1.05;white-space:nowrap;color:var(--deep-navy)}
+  .competition-binary th:last-child{font-size:.67rem}
+  .competition-binary td:last-child{font-family:var(--font-mono);font-size:.77rem;font-weight:700;line-height:1.12;white-space:normal;color:var(--deep-navy)}
+  .competition-binary td:last-child span{display:block}
+  .competition-binary tr:last-child td{border-bottom:0}
+  .competition-binary tr.binary-robootec td{height:49px!important;background:rgba(76,99,255,.04);border-top:2px solid transparent;border-image:linear-gradient(90deg,#4C63FF,#7B4DFF 52%,#3FA27A) 1}
+  .competition-binary tr.binary-robootec td:first-child{color:#4C63FF}
+  .binary-yes{color:#4C63FF!important;font-weight:800}
+  .binary-no{color:#C96A78!important;font-weight:600}
+  .binary-roadmap{color:#3FA27A!important;font-weight:800}
+  .binary-legend{margin:10px 0 0;font-family:var(--font-mono);font-size:.58rem;line-height:1.2;color:var(--gray);text-transform:uppercase;white-space:nowrap}
+  .binary-note{margin-top:5px;font-family:var(--font-mono);font-size:.44rem;line-height:1.2;letter-spacing:.02em;text-transform:uppercase;color:var(--gray)}
+  .planned-badge{display:none;margin-left:6px;padding:2px 5px;border-radius:999px;background:rgba(63,162,122,.12);color:#3FA27A;font-family:var(--font-mono);font-size:.42rem;font-weight:700;line-height:1;text-transform:uppercase;vertical-align:2px}
+  #s6c.table-variant .competition-landscape{display:none}
+  #s6c.table-variant .competition-table-view{display:block}
+  #s6c.matrix-variant .competition-intro{display:none}
+  #s6c.matrix-variant .competition-matrix-intro{display:block}
+  #s6c.matrix-variant .competition-landscape,#s6c.matrix-variant .competition-table-view{display:none}
+  #s6c.matrix-variant .competition-matrix-view{display:block}
+  #s6c.binary-variant .competition-intro{display:none}
+  #s6c.binary-variant .competition-matrix-intro{display:none!important}
+  #s6c.binary-variant .competition-binary-intro{display:block!important}
+  #s6c.binary-variant .competition-binary-live-intro{display:block!important}
+  #s6c.binary-variant .competition-landscape,#s6c.binary-variant .competition-table-view,#s6c.binary-variant .competition-matrix-view{display:none}
+  #s6c.binary-variant .competition-binary-view{display:block}
+  #s6c.binary-variant .planned-badge{display:inline-flex}
+  #s6c.binary-variant .competition-position{margin-top:16px;padding:14px 20px 0}
+  #s6c.binary-variant .competition-brand{font-size:clamp(1.08rem,1.45vw,1.38rem)}
+  #s6c.binary-variant .competition-brand-note{display:none}
+  #s6c.binary-variant .competition-workflow{margin-top:10px}
+  #s6c.binary-variant .competition-step{padding:9px 10px 10px}
+  #s6c.binary-variant .competition-step-label{font-size:.62rem}
+  #s6c.binary-variant .competition-claim{margin-top:28px}
 
   /* ================= SECTION 7 — TEAM + ASK ================= */
   .final-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
@@ -1675,6 +1863,60 @@
     </div>
   </section>
 
+  <!-- ===================== SECTION 5C — MARKET ===================== -->
+  <section id="s5c" data-label="Market">
+    <div class="wrap">
+      <div class="eyebrow reveal" data-i18n="s5c.eyebrow">Market</div>
+      <h2 class="HeroHeadline reveal d1" data-i18n="s5c.h2">A large global market.<br><span class="gold">A systematic start.</span></h2>
+      <p class="market-intro reveal d1" data-i18n="s5c.intro">ROBOOTEC.AI operates at the intersection of algorithmic trading and the fast-growing AI trading platform market.</p>
+
+      <div class="market-size-grid reveal d2" aria-label="TAM, SAM and SOM market opportunity">
+        <div class="market-size-item">
+          <div class="market-size-label">TAM</div>
+          <div class="market-size-explain" data-i18n="s5c.tam.explain">The total global algorithmic trading market</div>
+          <div class="market-size-value" data-i18n="s5c.tam.value">$43.0<span class="market-size-unit">B</span></div>
+          <div class="market-size-year" data-i18n="s5c.tam.year">TAM 2030</div>
+        </div>
+        <div class="market-size-item ai">
+          <div class="market-size-label">SAM</div>
+          <div class="market-size-explain" data-i18n="s5c.sam.explain">The AI trading platform segment we address</div>
+          <div class="market-size-value" data-i18n="s5c.sam.value">$33.5<span class="market-size-unit">B</span></div>
+          <div class="market-size-year" data-i18n="s5c.sam.year">SAM 2030</div>
+        </div>
+        <div class="market-size-item som">
+          <div class="market-size-label">SOM</div>
+          <div class="market-size-explain" data-i18n="s5c.som.explain">ROBOOTEC.AI's attainable target by 2027</div>
+          <div class="market-size-value" data-i18n="s5c.som.value">1,000 + 25</div>
+          <div class="market-size-year" data-i18n="s5c.som.year">SOM 2027</div>
+          <div class="market-size-name" data-i18n="s5c.som.name">1,000 paying B2C users<br>25 paying B2B clients</div>
+          <div class="market-size-arr" data-i18n="s5c.som.arr">≈ CZK 45M ARR run-rate</div>
+        </div>
+      </div>
+
+      <div class="market-scale reveal d3" aria-label="Go-to-market trajectory">
+        <div class="market-scale-step">
+          <div class="market-scale-year">2026</div>
+          <div class="market-scale-title" data-i18n="s5c.scale.2026.title">Czech Republic / Validation</div>
+          <div class="market-scale-copy" data-i18n="s5c.scale.2026.copy">100 B2C traders → 50 paying<br>10 B2B partners → 3 paying</div>
+        </div>
+        <div class="market-scale-step">
+          <div class="market-scale-year">2027</div>
+          <div class="market-scale-title" data-i18n="s5c.scale.2027.title">Scale</div>
+          <div class="market-scale-copy" data-i18n="s5c.scale.2027.copy">1,000 paying B2C<br>25 paying B2B</div>
+        </div>
+        <div class="market-scale-step">
+          <div class="market-scale-year">2028+</div>
+          <div class="market-scale-title" data-i18n="s5c.scale.2028.title">Europe → Global</div>
+          <div class="market-scale-copy" data-i18n="s5c.scale.2028.copy">Validated model, international expansion</div>
+        </div>
+      </div>
+
+      <div class="market-bottom reveal d3">
+        <p class="market-source" data-i18n="s5c.source">Source: Grand View Research — Algorithmic Trading Market ($42.99B / 2030); AI Trading Platform Market ($33.5B / 2030).</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== SECTION 6 ===================== -->
   <section id="s6" data-label="Markets">
     <div class="wrap">
@@ -1734,6 +1976,230 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 6A — BUSINESS MODEL ===================== -->
+  <section id="s6a" data-label="Business model">
+    <div class="wrap">
+      <div class="eyebrow reveal" data-i18n="s6a.eyebrow">Business model</div>
+      <h2 class="HeroHeadline reveal d1" data-i18n="s6a.h2">Two products.<br><span class="gold">Recurring revenue.</span></h2>
+      <p class="business-intro reveal d1" data-i18n="s6a.intro">B2C subscriptions and B2B platform licenses create a scalable model with additional revenue from data, integrations and services.</p>
+
+      <div class="business-model-grid reveal d2">
+        <article class="business-lane b2c">
+          <div class="business-lane-head">
+            <div class="business-lane-name">Vibe Trading</div>
+            <span class="business-tag">B2C</span>
+          </div>
+          <div class="business-price-label" data-i18n="s6a.b2c.price.label">2027 average subscription</div>
+          <div class="business-price" data-i18n="s6a.b2c.price">CZK 3,000 <span>/ month</span></div>
+          <div class="business-price-note" data-i18n="s6a.b2c.note">Three subscription tiers between CZK 2–5k.</div>
+          <div class="business-metrics">
+            <div class="business-metric">
+              <div class="business-metric-value" data-i18n="s6a.b2c.m1.value">1,000</div>
+              <div class="business-metric-label" data-i18n="s6a.b2c.m1">paying traders by the end of 2027</div>
+            </div>
+            <div class="business-metric">
+              <div class="business-metric-value" data-i18n="s6a.b2c.m2.value">CZK 15M</div>
+              <div class="business-metric-label" data-i18n="s6a.b2c.m2">planned 2027 revenue</div>
+            </div>
+            <div class="business-metric">
+              <div class="business-metric-value" data-i18n="s6a.b2c.m3.value">CZK 3M</div>
+              <div class="business-metric-label" data-i18n="s6a.b2c.m3">MRR at the end of 2027</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="business-lane b2b">
+          <div class="business-lane-head">
+            <div class="business-lane-name">Asset Manager</div>
+            <span class="business-tag">B2B</span>
+          </div>
+          <div class="business-price-label" data-i18n="s6a.b2b.price.label">2027 average license</div>
+          <div class="business-price" data-i18n="s6a.b2b.price">CZK 30,000 <span>/ month</span></div>
+          <div class="business-price-note" data-i18n="s6a.b2b.note">Platform license, data, integrations and custom solutions.</div>
+          <div class="business-metrics">
+            <div class="business-metric">
+              <div class="business-metric-value">25</div>
+              <div class="business-metric-label" data-i18n="s6a.b2b.m1">paying clients by the end of 2027</div>
+            </div>
+            <div class="business-metric">
+              <div class="business-metric-value" data-i18n="s6a.b2b.m2.value">≈ CZK 4M</div>
+              <div class="business-metric-label" data-i18n="s6a.b2b.m2">planned 2027 revenue</div>
+            </div>
+            <div class="business-metric">
+              <div class="business-metric-value" data-i18n="s6a.b2b.m3.value">CZK 750k</div>
+              <div class="business-metric-label" data-i18n="s6a.b2b.m3">MRR at the end of 2027</div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="business-summary reveal d3">
+        <div class="business-summary-item">
+          <div class="business-summary-label" data-i18n="s6a.sum.revenue.label">2027 planned revenue</div>
+          <div class="business-summary-value" data-i18n="s6a.sum.revenue.value">≈ CZK 19.3M</div>
+        </div>
+        <div class="business-summary-item">
+          <div class="business-summary-label" data-i18n="s6a.sum.mrr.label">MRR at year end</div>
+          <div class="business-summary-value" data-i18n="s6a.sum.mrr.value">CZK 3.75M</div>
+        </div>
+        <div class="business-summary-item">
+          <div class="business-summary-label" data-i18n="s6a.sum.arr.label">ARR run-rate</div>
+          <div class="business-summary-value" data-i18n="s6a.sum.arr.value">≈ CZK 45M</div>
+        </div>
+      </div>
+
+      <div class="business-upside reveal d3">
+        <p class="business-upside-main" data-i18n="s6a.upside">Additional potential: paid features, data and integrations; after regulatory clearance, automated trading, capital management and performance fees.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION 6C — COMPETITION ===================== -->
+  <section id="s6c" data-label="Competition">
+    <div class="wrap">
+      <div class="eyebrow reveal" data-i18n="s6c.eyebrow">Competition</div>
+      <h2 class="HeroHeadline reveal d1" data-i18n="s6c.h2">The market offers powerful tools.<br><span class="gold">We connect the entire workflow.</span></h2>
+      <p class="competition-intro reveal d1" data-i18n="s6c.intro">Existing platforms address different parts of the trading process. ROBOOTEC.AI connects them into one AI-driven workflow.</p>
+      <p class="competition-matrix-intro reveal d1" data-i18n="s6c.matrixIntro">ROBOOTEC.AI connects predictive AI, strategy creation, testing, validation and trading-process management into one workflow.</p>
+      <p class="competition-binary-intro reveal d1" data-i18n="s6c.binary.intro">Today’s platforms automate trading. We are building ROBOOTEC.AI around predictive AI that can progressively take over the process from investment goal to execution.</p>
+
+      <div class="competition-landscape reveal d2">
+        <article class="competition-group">
+          <div class="competition-index">01</div>
+          <div class="competition-kicker" data-i18n="s6c.g1.kicker">AI analysis &amp; signals</div>
+          <div class="competition-names">Tickeron · Trade Ideas · Danelfin</div>
+          <div class="competition-focus" data-i18n="s6c.g1.focus">AI analysis · Scoring · Signals · Predictions</div>
+        </article>
+        <article class="competition-group">
+          <div class="competition-index">02</div>
+          <div class="competition-kicker" data-i18n="s6c.g2.kicker">Strategy &amp; automation</div>
+          <div class="competition-names"><span class="competition-name-unit">TrendSpider <span class="competition-badge" data-i18n="s6c.closest">Closest competitor</span></span> <span class="competition-name-unit">· Composer / SoFi</span></div>
+          <div class="competition-focus" data-i18n="s6c.g2.focus">AI strategies · Backtesting · Optimization · Automation</div>
+        </article>
+        <article class="competition-group">
+          <div class="competition-index">03</div>
+          <div class="competition-kicker" data-i18n="s6c.g3.kicker">Quant infrastructure</div>
+          <div class="competition-names">QuantConnect · Qraft</div>
+          <div class="competition-focus" data-i18n="s6c.g3.focus">Data · Research · Models · Paper / live infrastructure</div>
+        </article>
+      </div>
+
+      <div class="competition-table-view reveal d2">
+        <table class="competition-table" aria-label="Competition categories">
+          <thead>
+            <tr>
+              <th data-i18n="s6c.table.category">Category</th>
+              <th data-i18n="s6c.table.platforms">Platforms</th>
+              <th data-i18n="s6c.table.focus">Primary positioning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-i18n="s6c.g1.kicker">AI analysis &amp; signals</td>
+              <td>Tickeron · Trade Ideas · Danelfin</td>
+              <td data-i18n="s6c.g1.focus">AI analysis · Scoring · Signals · Predictions</td>
+            </tr>
+            <tr>
+              <td data-i18n="s6c.g2.kicker">Strategy &amp; automation</td>
+              <td>TrendSpider · Composer / SoFi <span class="competition-badge" data-i18n="s6c.closest">Closest competitor</span></td>
+              <td data-i18n="s6c.g2.focus">AI strategies · Backtesting · Optimization · Automation</td>
+            </tr>
+            <tr>
+              <td data-i18n="s6c.g3.kicker">Quant infrastructure</td>
+              <td>QuantConnect · Qraft</td>
+              <td data-i18n="s6c.g3.focus">Data · Research · Models · Paper / live infrastructure</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="competition-table-note" data-i18n="s6c.table.note">Categories describe primary positioning, not a complete feature comparison.</p>
+      </div>
+
+      <div class="competition-matrix-view reveal d2">
+        <table class="competition-matrix" aria-label="Competitive capability matrix">
+          <thead>
+            <tr>
+              <th data-i18n="s6c.matrix.platform">Platform</th>
+              <th>AI<br>analysis</th>
+              <th>AI<br>strategy</th>
+              <th>Backtest</th>
+              <th>Validation</th>
+              <th>Paper /<br>risk</th>
+              <th>Broker /<br>execution</th>
+              <th>Goal-driven<br>workflow</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Danelfin / InvestingPro / Kavout</td>
+              <td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol none">—</span></td><td><span class="matrix-symbol none">—</span></td><td><span class="matrix-symbol none">—</span></td><td><span class="matrix-symbol none">—</span></td><td><span class="matrix-symbol none">—</span></td>
+            </tr>
+            <tr>
+              <td>Trade Ideas / Tickeron</td>
+              <td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol none">—</span></td>
+            </tr>
+            <tr>
+              <td>Composer</td>
+              <td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol none">—</span></td>
+            </tr>
+            <tr>
+              <td>QuantConnect</td>
+              <td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol none">—</span></td>
+            </tr>
+            <tr>
+              <td>TrendSpider <span class="matrix-badge" data-i18n="s6c.closest">Closest competitor</span></td>
+              <td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td><td><span class="matrix-symbol partial">◐</span></td>
+            </tr>
+            <tr class="matrix-robootec">
+              <td>ROBOOTEC.AI</td>
+              <td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol core">●</span></td><td><span class="matrix-symbol roadmap">→</span></td><td><span class="matrix-symbol roadmap">→</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="competition-matrix-legend">● CORE&nbsp;&nbsp;&nbsp; ◐ PARTIAL&nbsp;&nbsp;&nbsp; — NOT CORE&nbsp;&nbsp;&nbsp; → ROADMAP</div>
+        <div class="competition-matrix-note" data-i18n="s6c.matrixNote">Positioning snapshot — not an exhaustive feature comparison.</div>
+      </div>
+
+      <div class="competition-binary-view reveal d2">
+        <table class="competition-binary" aria-label="Competitive capability matrix">
+          <thead>
+            <tr>
+              <th data-i18n="s6c.matrix.platform">Platforma</th>
+              <th data-i18n="s6c.binary.marketHeader">Trh</th><th data-i18n="s6c.binary.aiChatHeader">AI<br>chat</th><th data-i18n="s6c.binary.strategyHeader">Tvorba<br>strategie</th><th data-i18n="s6c.binary.testingHeader">Testování<br>strategie</th><th data-i18n="s6c.binary.forwardHeader">Forward<br>test</th><th data-i18n="s6c.binary.paperRiskHeader">Paper trading<br>/ riziko</th><th data-i18n="s6c.binary.executionHeader">Exekuce</th><th data-i18n="s6c.binary.priceHeader">Cena<br>měsíčně</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Danelfin / InvestingPro / Kavout</td>
+              <td>B2C</td><td class="binary-no">✕</td><td class="binary-no">✕</td><td class="binary-no">✕</td><td class="binary-no">✕</td><td class="binary-no">✕</td><td class="binary-no">✕</td><td><span data-price-cz="350 – 2 950 Kč" data-price-en="350 – 2 950 CZK">350 – 2 950 Kč</span></td>
+            </tr>
+            <tr>
+              <td>Trade Ideas / Tickeron</td>
+              <td>B2C</td><td class="binary-no">✕</td><td class="binary-no">✕</td><td class="binary-yes">✓</td><td class="binary-no">✕</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td><span data-price-cz="1 950 – 3 900 Kč" data-price-en="1 950 – 3 900 CZK">1 950 – 3 900 Kč</span></td>
+            </tr>
+            <tr>
+              <td>Composer</td>
+              <td>B2C + B2B</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-no">✕</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td><span data-price-cz="B2C 220 – 880 Kč<br>B2B na dotaz" data-price-en="B2C 220 – 880 CZK<br>B2B on request">B2C 220 – 880 Kč<br>B2B na dotaz</span></td>
+            </tr>
+            <tr>
+              <td>QuantConnect</td>
+              <td>B2C + B2B</td><td class="binary-no">✕</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td><span data-price-cz="1 850 – 28 000 Kč" data-price-en="1 850 – 28 000 CZK">1 850 – 28 000 Kč</span></td>
+            </tr>
+            <tr>
+              <td>TrendSpider <span class="matrix-badge" data-i18n="s6c.closest">Nejbližší konkurent</span></td>
+              <td>B2C + B2B</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td><span data-price-cz="1 300 – 7 700 Kč" data-price-en="1 300 – 7 700 CZK">1 300 – 7 700 Kč</span></td>
+            </tr>
+            <tr class="binary-robootec">
+              <td>ROBOOTEC.AI</td>
+              <td>B2C + B2B</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-yes">✓</td><td class="binary-roadmap">→</td><td><span data-price-cz="B2C 2 – 5 tis. Kč<br>B2B od 30 tis. Kč" data-price-en="B2C 2 – 5k CZK<br>B2B from 30k CZK">B2C 2 – 5 tis. Kč<br>B2B od 30 tis. Kč</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="competition-claim reveal d3" data-i18n="s6c.claim">NE další tradingový nástroj, ale JEDEN autonomní AI systém pro celý investiční proces.</p>
     </div>
   </section>
 
@@ -1937,6 +2403,56 @@
   const dotsNav = document.getElementById('dots');
   const hint = document.getElementById('hint');
 
+  const competitionVariant = new URLSearchParams(location.search).get('v');
+  if(competitionVariant === 'competition-table1'){
+    document.getElementById('s6c')?.classList.add('table-variant');
+  }
+  if(competitionVariant === 'competition-matrix1'){
+    document.getElementById('s6c')?.classList.add('matrix-variant');
+  }
+  if(competitionVariant === 'competition-binary1'){
+    const competitionSlide = document.getElementById('s6c');
+    competitionSlide?.classList.add('binary-variant');
+    competitionSlide?.querySelector('.HeroHeadline')?.setAttribute('data-i18n','s6c.binary.h2');
+    competitionSlide?.querySelector('.competition-intro')?.setAttribute('data-i18n','s6c.binary.intro');
+    competitionSlide?.querySelector('.competition-matrix-intro')?.setAttribute('data-i18n','s6c.binary.intro');
+    const binaryLang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'cz';
+    const binaryIntroText = binaryLang === 'en'
+      ? 'Competitors offer advanced tools for analysis, strategy and automation.<br>ROBOOTEC.AI connects them into a single AI system — from investment goal through strategy validation to execution.'
+      : 'Konkurence nabízí pokročilé nástroje pro analýzu, strategie a automatizaci.<br>ROBOOTEC.AI je propojuje do jednoho AI systému – od investičního cíle přes validaci strategie až po exekuci.';
+    const binaryIntro = competitionSlide?.querySelector('.competition-intro');
+    if(binaryIntro){ binaryIntro.innerHTML = binaryIntroText; binaryIntro.style.display = 'block'; }
+    competitionSlide?.querySelector('.competition-matrix-intro')?.style.setProperty('display','none','important');
+    competitionSlide?.querySelector('.competition-binary-intro')?.style.setProperty('display','none','important');
+    competitionSlide?.querySelector('.competition-intro')?.remove();
+    competitionSlide?.querySelector('.competition-matrix-intro')?.remove();
+    competitionSlide?.querySelector('.competition-binary-intro')?.remove();
+    const liveIntro = document.createElement('p');
+    liveIntro.className = 'competition-binary-live-intro reveal in';
+    liveIntro.innerHTML = binaryIntroText;
+    competitionSlide?.querySelector('.HeroHeadline')?.after(liveIntro);
+    competitionSlide?.querySelectorAll('.competition-step-label').forEach((el,i)=>el.setAttribute('data-i18n','s6c.binary.step' + (i + 1)));
+  }
+  if(competitionVariant === 'competition-binary-price1'){
+    const competitionSlide = document.getElementById('s6c');
+    competitionSlide?.classList.add('binary-variant','binary-price-variant');
+    competitionSlide?.querySelector('.HeroHeadline')?.setAttribute('data-i18n','s6c.binary.h2');
+    const binaryLang = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'cz';
+    const binaryIntroText = binaryLang === 'en'
+      ? 'Competitors offer advanced tools for analysis, strategy and automation.<br>ROBOOTEC.AI connects them into a single AI system — from investment goal through strategy validation to execution.'
+      : 'Konkurence nabízí pokročilé nástroje pro analýzu, strategie a automatizaci.<br>ROBOOTEC.AI je propojuje do jednoho AI systému – od investičního cíle přes validaci strategie až po exekuci.';
+    const binaryIntro = competitionSlide?.querySelector('.competition-intro');
+    if(binaryIntro){ binaryIntro.innerHTML = binaryIntroText; binaryIntro.style.display = 'block'; }
+    competitionSlide?.querySelector('.competition-matrix-intro')?.remove();
+    competitionSlide?.querySelector('.competition-binary-intro')?.remove();
+    competitionSlide?.querySelector('.competition-intro')?.remove();
+    const liveIntro = document.createElement('p');
+    liveIntro.className = 'competition-binary-live-intro reveal in';
+    liveIntro.innerHTML = binaryIntroText;
+    competitionSlide?.querySelector('.HeroHeadline')?.after(liveIntro);
+    competitionSlide?.querySelector('.competition-brand-note')?.setAttribute('data-i18n','s6c.binary.workflowLabel');
+  }
+
   const officialBrandMark = document.querySelector('.nav-logo-icon')?.src;
   if(officialBrandMark){
     const maskValue = 'url("' + officialBrandMark + '")';
@@ -1951,7 +2467,25 @@
     en: {
       "s1.kicker":"Predictive AI for capital management",
       "s1.h1":"<span class=\"headline-line\">Predicting</span><span class=\"headline-line signature-highlight\">the future.</span><span class=\"headline-line\">Managing capital.</span>",
-      "s1.sub":"Predictive AI trading platform"
+      "s1.sub":"Predictive AI trading platform",
+      "s6c.binary.h2":"From tools<br><span class=\"gold\">to an autonomous system.</span>",
+      "s6c.binary.intro":"Competitors offer advanced tools for analysis, strategy and automation.<br>ROBOOTEC.AI connects them into a single AI system — from investment goal through strategy validation to execution.",
+      "s6c.binary.workflowLabel":"From goal to execution",
+      "s6c.binary.workflowTitle":"ROBOOTEC.AI — FROM GOAL TO EXECUTION",
+      "s6c.binary.step1":"Goal &amp; data","s6c.binary.step2":"Predictive AI","s6c.binary.step3":"Strategy creation","s6c.binary.step4":"Backtest &amp; optimization","s6c.binary.step5":"Forward test","s6c.binary.step6":"Paper trading &amp; risk management","s6c.binary.step7":"Execution <span class=\"planned-badge\">Planned</span>",
+      "s6c.binary.legend":"✓ YES&nbsp;&nbsp;&nbsp; ✕ NO&nbsp;&nbsp;&nbsp; → PLANNED",
+      "s6c.binary.note":"AI chat = conversational work with analysis and strategy. &nbsp; * Public competitor entry prices, approximately converted to CZK.",
+      "s6c.binary.priceHeader":"Price<br>monthly",
+      "s6c.matrix.platform":"Platform",
+      "s6c.binary.marketHeader":"Market",
+      "s6c.binary.aiChatHeader":"AI<br>chat",
+      "s6c.binary.strategyHeader":"Strategy<br>creation",
+      "s6c.binary.testingHeader":"Strategy<br>testing",
+      "s6c.binary.forwardHeader":"Forward<br>test",
+      "s6c.binary.paperRiskHeader":"Paper trading<br>/ risk",
+      "s6c.binary.executionHeader":"Execution",
+      "s6c.closest":"Closest competitor",
+      "s6c.claim":"Not another trading tool, but ONE autonomous AI system for the entire investment process."
     },
     cz: {
       "nav.meta":"Investiční prezentace · Důvěrné",
@@ -2034,6 +2568,28 @@
       "s5b.v1":"1 194","s5b.v2":"12 528","s5b.v3":"1,57 mil.","s5b.v4":"86",
       "s5b.k1":"Strategií","s5b.k2":"Backtestů","s5b.k3":"Signálů","s5b.k4":"Sledovaných aktiv",
 
+      "s5c.eyebrow":"Market",
+      "s5c.h2":"Velký globální trh.<br><span class=\"gold\">Začínáme systematicky.</span>",
+      "s5c.intro":"Působíme na průsečíku algoritmického obchodování a rychle rostoucího trhu AI trading platforem.",
+      "s5c.tam.year":"TAM 2030",
+      "s5c.tam.value":"43 <span class=\"market-size-unit\">mld. USD</span>",
+      "s5c.tam.explain":"Celkový globální trh algoritmického obchodování",
+      "s5c.sam.year":"SAM 2030",
+      "s5c.sam.value":"33,5 <span class=\"market-size-unit\">mld. USD</span>",
+      "s5c.sam.explain":"Část trhu zaměřená na AI trading platformy",
+      "s5c.som.year":"SOM 2027",
+      "s5c.som.value":"1 000 + 25",
+      "s5c.som.explain":"Dosažitelný cíl ROBOOTEC.AI do roku 2027",
+      "s5c.som.name":"1 000 platících B2C<br>25 platících B2B",
+      "s5c.som.arr":"≈ 45 mil. Kč ARR run-rate",
+      "s5c.scale.2026.title":"Česká republika / Validace",
+      "s5c.scale.2026.copy":"100 B2C traderů → 50 platících<br>10 B2B partnerů → 3 platící",
+      "s5c.scale.2027.title":"Škálování",
+      "s5c.scale.2027.copy":"1 000 B2C platících<br>25 B2B platících",
+      "s5c.scale.2028.title":"Evropa → Globálně",
+      "s5c.scale.2028.copy":"Ověřený model, mezinárodní expanze",
+      "s5c.source":"Zdroj: Grand View Research — Algorithmic Trading Market ($42,99 mld. / 2030); AI Trading Platform Market ($33,5 mld. / 2030).",
+
 "s6.eyebrow":"Byznys model",
 "s6.h2":"Jedna AI platforma.<br><span class=\"gold\">Dva trhy.</span>",
       "s6.platform":"Platforma",
@@ -2053,6 +2609,76 @@
       "s6.rev.platform":"Licence platformy",
       "s6.rev.perf":"Výkonnostní služby",
       "s6.rev.assetmanagement":"Správa aktiv",
+
+      "s6a.eyebrow":"Byznys model",
+      "s6a.h2":"Dva produkty.<br><span class=\"gold\">Opakované příjmy.</span>",
+      "s6a.intro":"B2C předplatné a B2B licence vytvářejí škálovatelný model s dalšími příjmy z dat, integrací a služeb.",
+      "s6a.b2c.price.label":"Průměrné předplatné 2027",
+      "s6a.b2c.price":"3 000 Kč <span>/ měsíc</span>",
+      "s6a.b2c.note":"3 úrovně předplatného v rozmezí 2–5 tis. Kč.",
+      "s6a.b2c.m1.value":"1 000",
+      "s6a.b2c.m1":"platících traderů do konce roku 2027",
+      "s6a.b2c.m2.value":"15 mil. Kč",
+      "s6a.b2c.m2":"plánované tržby 2027",
+      "s6a.b2c.m3.value":"3 mil. Kč",
+      "s6a.b2c.m3":"MRR na konci roku 2027",
+      "s6a.b2b.price.label":"Průměrná licence 2027",
+      "s6a.b2b.price":"30 000 Kč <span>/ měsíc</span>",
+      "s6a.b2b.note":"Licence platformy, data, integrace a individuální řešení.",
+      "s6a.b2b.m1":"platících klientů do konce roku 2027",
+      "s6a.b2b.m2.value":"≈ 4 mil. Kč",
+      "s6a.b2b.m2":"plánované tržby 2027",
+      "s6a.b2b.m3.value":"750 tis. Kč",
+      "s6a.b2b.m3":"MRR na konci roku 2027",
+      "s6a.sum.revenue.label":"Plánované tržby 2027",
+      "s6a.sum.revenue.value":"≈ 19,3 mil. Kč",
+      "s6a.sum.mrr.label":"MRR na konci roku",
+      "s6a.sum.mrr.value":"3,75 mil. Kč",
+      "s6a.sum.arr.label":"ARR run-rate",
+      "s6a.sum.arr.value":"≈ 45 mil. Kč",
+      "s6a.upside":"Další potenciál: placené funkce, data a integrace; po vyřešení regulace automatické obchodování, správa kapitálu a performance fee.",
+
+      "s6c.eyebrow":"Konkurence",
+      "s6c.h2":"Trh nabízí silné nástroje.<br><span class=\"gold\">My propojujeme celý workflow.</span>",
+      "s6c.intro":"Existující platformy řeší různé části tradingového procesu. ROBOOTEC.AI je propojuje do jednoho AI řízeného workflow.",
+      "s6c.matrixIntro":"ROBOOTEC.AI propojuje prediktivní AI, tvorbu strategií, testování, validaci a řízení tradingového procesu do jednoho workflow.",
+      "s6c.g1.kicker":"AI analýza a signály",
+      "s6c.g1.focus":"AI analýza · scoring · signály · predikce",
+      "s6c.g2.kicker":"Strategie a automatizace",
+      "s6c.g2.focus":"AI strategie · backtesting · optimalizace · automatizace",
+      "s6c.g3.kicker":"Quant infrastruktura",
+      "s6c.g3.focus":"Data · research · modely · paper / live infrastructure",
+      "s6c.closest":"Nejbližší konkurent",
+      "s6c.workflowLabel":"Goal-driven AI workflow",
+      "s6c.step1":"Cíl a data",
+      "s6c.step2":"Prediktivní AI",
+      "s6c.step3":"Tvorba strategie",
+      "s6c.step4":"Backtest a optimalizace",
+      "s6c.step5":"Forward validace",
+      "s6c.step6":"Paper trading a risk",
+      "s6c.step7":"Broker a exekuce",
+      "s6c.claim":"NE další tradingový nástroj, ale JEDEN autonomní AI systém pro celý investiční proces.",
+      "s6c.matrix.platform":"Platforma",
+      "s6c.matrixNote":"Přehled positioningu — nejde o úplné srovnání funkcí.",
+      "s6c.binary.h2":"Od nástrojů<br><span class=\"gold\">k autonomnímu systému.</span>",
+      "s6c.binary.intro":"Konkurence nabízí pokročilé nástroje pro analýzu, strategie a automatizaci. ROBOOTEC.AI je propojuje do jednoho AI systému – od investičního cíle přes validaci strategie až po exekuci.",
+      "s6c.binary.workflowLabel":"Od cíle k exekuci",
+      "s6c.binary.workflowTitle":"ROBOOTEC.AI — OD CÍLE K EXEKUCI",
+      "s6c.binary.step1":"Cíl a data","s6c.binary.step2":"Prediktivní AI","s6c.binary.step3":"Tvorba strategie","s6c.binary.step4":"Backtest a optimalizace","s6c.binary.step5":"Forward test","s6c.binary.step6":"Paper trading a řízení rizika","s6c.binary.step7":"Exekuce <span class=\"planned-badge\">Plánováno</span>",
+      "s6c.binary.legend":"✓ ANO&nbsp;&nbsp;&nbsp; ✕ NE&nbsp;&nbsp;&nbsp; → PLÁNOVÁNO",
+      "s6c.binary.note":"AI chat = konverzační práce s analýzou a strategií. &nbsp; * Veřejné vstupní ceny konkurence, orientačně přepočtené do Kč.",
+      "s6c.binary.priceHeader":"Cena<br>měsíčně",
+      "s6c.binary.marketHeader":"Trh",
+      "s6c.binary.aiChatHeader":"AI<br>chat",
+      "s6c.binary.strategyHeader":"Tvorba<br>strategie",
+      "s6c.binary.testingHeader":"Testování<br>strategie",
+      "s6c.binary.forwardHeader":"Forward<br>test",
+      "s6c.binary.paperRiskHeader":"Paper trading<br>/ riziko",
+      "s6c.binary.executionHeader":"Exekuce",
+      "s6c.table.category":"Kategorie",
+      "s6c.table.platforms":"Platformy",
+      "s6c.table.focus":"Hlavní positioning",
+      "s6c.table.note":"Kategorie popisují hlavní positioning, nikoliv kompletní porovnání funkcí.",
 
       "s6b.eyebrow":"Roadmapa",
       "s6b.h2":"Máme funkční základ.<br><span class=\"gold\">Investice odemyká další růst.</span>",
@@ -2158,6 +2784,15 @@
       const key = el.getAttribute('data-i18n');
       el.innerHTML = (dict && dict[key] != null) ? dict[key] : el._en;
     });
+    document.querySelectorAll('[data-price-cz]').forEach(el=>{
+      el.innerHTML = lang === 'en' ? el.dataset.priceEn : el.dataset.priceCz;
+    });
+    if(competitionVariant === 'competition-binary1'){
+      const binaryIntro = document.querySelector('#s6c .competition-matrix-intro');
+      if(binaryIntro) binaryIntro.innerHTML = lang === 'cz'
+        ? 'Konkurence nabízí pokročilé nástroje pro analýzu, strategie a automatizaci. ROBOOTEC.AI je propojuje do jednoho AI systému – od investičního cíle přes validaci strategie až po exekuci.'
+        : 'Today’s platforms automate trading. We are building ROBOOTEC.AI around predictive AI that can progressively take over the process from investment goal to execution.';
+    }
     document.documentElement.lang = (lang === 'cz') ? 'cs' : lang;
     rememberLang(lang);
     updateHomeLink(lang);
