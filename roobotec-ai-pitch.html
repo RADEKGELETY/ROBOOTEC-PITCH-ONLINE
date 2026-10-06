@@ -2403,7 +2403,7 @@
   const dotsNav = document.getElementById('dots');
   const hint = document.getElementById('hint');
 
-  const competitionVariant = new URLSearchParams(location.search).get('v');
+  const competitionVariant = new URLSearchParams(location.search).get('v') || 'competition-binary-price1';
   if(competitionVariant === 'competition-table1'){
     document.getElementById('s6c')?.classList.add('table-variant');
   }
