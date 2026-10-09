@@ -292,7 +292,7 @@
     display:block;
     gap:0;
     margin:0;
-    width:100%;
+    width:auto;
     max-width:88rem;
     color:var(--deep-navy);
     font-family:"Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -711,13 +711,13 @@
   .platform-stat span{font-family:var(--font-mono);display:block;font-size:.68rem;color:var(--gray);text-transform:uppercase;letter-spacing:0;margin-top:6px}
   #s5 .web-proof-card{
     grid-column:2;
-    grid-row:1 / span 3;
+    grid-row:2 / span 2;
     position:static;
-    align-self:center;
+    align-self:start;
     width:100%;
     max-width:560px;
     transform:none;
-    margin-top:0;
+    margin-top:48px;
     padding:14px 20px;
   }
   #s5 .web-proof-head{margin-bottom:8px}
@@ -728,6 +728,14 @@
   #s5 .web-proof-table th{padding:0 8px 5px}
   #s5 .web-proof-table td{font-size:.76rem;padding:4px 8px}
   #s5 .mm-note{font-size:.74rem;margin-top:8px;line-height:1.32}
+  #s5 .validation-claim{
+    grid-column:1 / -1;
+    width:100%;
+    max-width:none;
+    justify-self:stretch;
+    margin:clamp(58px,8vh,78px) 0 0;
+  }
+  #s5 .validation-count{color:#4c63ff;font-weight:800}
 
   /* ============ MARKET SIZE ============ */
   #s5c .wrap{max-width:1420px}
@@ -803,6 +811,7 @@
   .road-list li{font-size:.76rem;color:var(--ink-soft);line-height:1.28}
   .road-note{margin-top:7px;font-family:var(--font-mono);font-size:.63rem;line-height:1.3;color:#7B4DFF}
   .road-foot{margin-top:12px;border:1px solid var(--gray-line);border-radius:8px;background:rgba(246,248,255,.72);padding:25px 34px;text-align:center;font-size:1.12rem;font-weight:750;color:var(--deep-navy);letter-spacing:0}
+  .road-foot .road-accent{color:#4C63FF;font-weight:800}
 
   /* ============ PRODUCT ============ */
   #s5b .wrap{max-width:1280px;transform:none}
@@ -994,6 +1003,21 @@
   .competition-step-label{margin-top:6px;font-size:.7rem;font-weight:700;line-height:1.28;color:var(--deep-navy)}
   .competition-claim{margin-top:14px;padding:25px 34px;border:1px solid var(--gray-line);border-radius:8px;background:rgba(255,255,255,.62);text-align:center;font-size:1.12rem;font-weight:750;line-height:1.28;color:var(--deep-navy)}
   .competition-claim .accent{color:#4C63FF}
+  /* Shared closing statement treatment across all slides. */
+  .slide-claim{
+    min-height:116px;
+    padding:27px 30px;
+    border:1px solid var(--gray-line);
+    border-radius:8px;
+    background:rgba(255,255,255,.54);
+    color:var(--deep-navy);
+    text-align:center;
+    font-family:var(--font-sans);
+    font-size:clamp(1.45rem,2vw,1.85rem);
+    font-weight:500;
+    line-height:1.42;
+    letter-spacing:0;
+  }
   .competition-table-view{display:none;margin-top:clamp(22px,3.2vh,34px);border-top:1px solid var(--gray-line);border-bottom:1px solid var(--gray-line)}
   .competition-table{width:100%;border-collapse:collapse;table-layout:fixed}
   .competition-table th{padding:12px 20px 11px;text-align:left;font-family:var(--font-mono);font-size:.62rem;font-weight:700;text-transform:uppercase;color:var(--gray);letter-spacing:0}
@@ -1182,6 +1206,109 @@
   #s3b .flow-line.lost{stroke:#7B4DFF;stroke-width:2.2;stroke-dasharray:7 8}
   #s3b .capacity-wall{stroke:var(--deep-navy);stroke-width:9;stroke-linecap:round}
   #s3b .capacity-slot{fill:#4C63FF}
+  #s3b{
+    padding:clamp(112px,12vh,148px) clamp(54px,5.6vw,92px) clamp(42px,5vh,66px);
+    background:var(--color-paper);
+    overflow:hidden;
+  }
+  #s3b .problem-final{width:min(100%,1420px);margin:auto}
+  #s3b .problem-final .eyebrow{margin-bottom:26px}
+  #s3b .problem-final .HeroHeadline{
+    max-width:1370px;
+    margin:0;
+    font-size:clamp(3.35rem,5.05vw,6.35rem);
+    line-height:.98;
+    letter-spacing:-.052em;
+  }
+  #s3b .problem-accent{
+    color:#5b63ff;
+    background:linear-gradient(96deg,#4c63ff 0%,#714dff 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  #s3b .problem-accent~.problem-accent{
+    background:linear-gradient(96deg,#714dff 0%,#5d8bff 48%,#35a47f 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  #s3b .problem-pillars{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    margin-top:clamp(48px,5.2vh,68px);
+  }
+  #s3b .problem-pillar{min-width:0;padding:0 clamp(28px,3.2vw,52px)}
+  #s3b .problem-pillar:first-child{padding-left:0}
+  #s3b .problem-pillar+ .problem-pillar{border-left:1px solid rgba(12,30,61,.14)}
+  #s3b .problem-pillar h3{
+    max-width:340px;
+    color:var(--deep-navy);
+    font-size:clamp(1.38rem,1.65vw,1.78rem);
+    font-weight:800;
+    line-height:1.18;
+    letter-spacing:-.025em;
+  }
+  #s3b .problem-pillar p{
+    max-width:360px;
+    margin-top:14px;
+    color:#768095;
+    font-size:clamp(1.02rem,1.22vw,1.28rem);
+    font-weight:450;
+    line-height:1.42;
+  }
+  #s3b .problem-system{
+    position:relative;
+    margin-top:clamp(40px,4.7vh,58px);
+    border:1px solid rgba(76,99,255,.18);
+    border-radius:24px;
+    background:rgba(255,255,255,.3);
+    overflow:hidden;
+  }
+  #s3b .problem-flow{
+    position:relative;
+    min-height:260px;
+    display:grid;
+    grid-template-columns:32% 45% 23%;
+    align-items:center;
+    padding:26px 32px 20px;
+  }
+  #s3b .problem-flow-lines{position:absolute;inset:18px 28px 8px;width:calc(100% - 56px);height:calc(100% - 26px);z-index:0;overflow:visible}
+  #s3b .problem-inputs{position:relative;z-index:2;display:grid;gap:22px}
+  #s3b .problem-input{display:grid;grid-template-columns:46px 1fr;align-items:center;gap:18px}
+  #s3b .problem-input-dot{
+    width:22px;height:22px;border-radius:50%;
+    background:var(--dot);
+    box-shadow:0 0 0 10px color-mix(in srgb,var(--dot) 12%,transparent),0 0 22px color-mix(in srgb,var(--dot) 25%,transparent);
+  }
+  #s3b .problem-input b{display:block;color:var(--deep-navy);font-size:1.05rem;line-height:1.12}
+  #s3b .problem-input span{display:block;margin-top:6px;color:#7b8598;font-size:.91rem;line-height:1.2}
+  #s3b .problem-bottleneck{position:relative;z-index:2;align-self:stretch;display:flex;align-items:center;justify-content:center}
+  #s3b .problem-bottleneck-label{
+    position:absolute;top:0;left:50%;transform:translateX(-50%);width:240px;text-align:center;
+    color:#7a8497;font-family:var(--font-mono);font-size:.7rem;font-weight:650;line-height:1.25;text-transform:uppercase;
+  }
+  #s3b .problem-bottleneck-core{position:relative;width:150px;height:150px;display:flex;align-items:center;justify-content:center}
+  #s3b .problem-bottleneck-core::before,
+  #s3b .problem-bottleneck-core::after{content:"";position:absolute;border-radius:50%;background:rgba(99,92,255,.07)}
+  #s3b .problem-bottleneck-core::before{width:150px;height:150px}
+  #s3b .problem-bottleneck-core::after{width:96px;height:96px;background:rgba(99,92,255,.1)}
+  #s3b .problem-neck-line{position:absolute;width:2px;height:176px;background:#4c63ff;border-radius:2px}
+  #s3b .problem-neck-slot{position:relative;z-index:2;width:24px;height:52px;border-radius:12px;background:linear-gradient(180deg,#4c63ff,#714dff);box-shadow:0 10px 24px rgba(76,99,255,.24)}
+  #s3b .problem-outcome{
+    position:relative;z-index:2;justify-self:end;width:min(100%,265px);min-height:120px;
+    display:grid;grid-template-columns:48px 1fr;align-items:center;gap:16px;padding:24px;
+    border:1px solid rgba(255,90,103,.26);border-radius:58px;background:rgba(255,247,248,.82);box-shadow:0 18px 36px rgba(255,90,103,.10);
+  }
+  #s3b .problem-outcome svg{width:44px;height:44px}
+  #s3b .problem-outcome b{display:block;color:var(--deep-navy);font-size:1.12rem;line-height:1.1}
+  #s3b .problem-outcome span{display:block;margin-top:8px;color:#7b8598;font-size:.88rem;line-height:1.2}
+  #s3b .problem-stat{
+    border-top:1px solid rgba(12,30,61,.12);
+    padding:22px 28px 24px;text-align:center;color:var(--deep-navy);
+    font-size:clamp(1.3rem,1.85vw,2rem);font-weight:650;line-height:1.15;
+  }
+  #s3b .problem-stat strong{color:#5b5fff;font-size:1.32em;font-weight:850}
 
   /* ============ TEAM (standalone) ============ */
   #s7 .wrap{max-width:1400px}
@@ -1218,7 +1345,7 @@
   .team-foot span{font-size:1.05rem;line-height:1.4;text-align:left;color:var(--deep-navy)}
 
   /* ============ INVESTMENT (standalone) ============ */
-  #s8 .wrap{max-width:1160px;text-align:left}
+  #s8 .wrap{max-width:1420px;text-align:left}
   #s8 .investment-headline{font-size:clamp(3rem,5vw,4.5rem);max-width:1050px}
   .investment-layout{
     display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:70px;
@@ -1258,7 +1385,7 @@
   .investment-summary-sub{margin:7px 0 0;font-size:.92rem;line-height:1.4;color:var(--gray)}
 
   /* ============ FINALE (standalone closing) ============ */
-#s9 .wrap{max-width:1120px;text-align:left}
+#s9 .wrap{max-width:1420px;text-align:left}
 #s9 .iconic-brand{display:none}
 #s9 .HeroHeadline{
   font-family:var(--font-sans);
@@ -1388,7 +1515,7 @@
     #s9 .slide-corner-logo{bottom:120px}
     #s5 .wrap{display:block;transform:none}
     #s5 .val-grid{display:grid;grid-template-columns:1fr!important;gap:40px}
-    #s5 .web-proof-card{position:static;width:auto;transform:none;grid-column:auto;grid-row:auto}
+    #s5 .web-proof-card{position:static;width:auto;transform:none;grid-column:auto;grid-row:auto;margin-top:0}
     #s3 .convergence-grid{grid-template-columns:1fr;gap:34px;max-width:760px}
     #s3 .convergence-copy{max-width:680px}
     #s3 .convergence-symbol{max-width:520px}
@@ -1493,7 +1620,14 @@
 
 <main class="deck" id="deck">
 
-  <!-- ===================== SECTION 1 ===================== -->
+  <!-- ===================== SECTION 1 — FOUNDERS ===================== -->
+  <section id="s2f" data-label="Founders">
+    <figure class="founders-letter">
+      <img src="assets/founders-letter-cz-final.png?v=860a537" data-src-cz="assets/founders-letter-cz-final.png?v=860a537" data-src-en="assets/founders-letter-en-final.png" alt="Zakladatelský dopis Radka a Markéty">
+    </figure>
+  </section>
+
+  <!-- ===================== SECTION 2 — INTRO ===================== -->
   <section id="s1" data-label="Intro">
     <div class="net" aria-hidden="true">
       <svg viewBox="0 0 1100 560" fill="none">
@@ -1511,39 +1645,6 @@
       <h1 class="HeroHeadline reveal d1" data-i18n="s1.h1"><span class="headline-line signature-highlight">Prediktivní AI trading</span><span class="headline-line">platforma pro <span class="signature-highlight">autonomní obchodování</span></span><span class="headline-line">na finančních trzích</span></h1>
     </div>
     <img class="slide-corner-logo" src="assets/robootecai-vector-dlouhe.svg" alt="ROBOOTEC.AI">
-  </section>
-
-  <!-- ===================== SECTION 2 — FOUNDERS ===================== -->
-  <section id="s2f" data-label="Founders">
-    <figure class="founders-letter">
-      <img src="assets/founders-letter-cz-final.png?v=860a537" data-src-cz="assets/founders-letter-cz-final.png?v=860a537" data-src-en="assets/founders-letter-en-final.png" alt="Zakladatelský dopis Radka a Markéty">
-    </figure>
-  </section>
-
-  <!-- ===================== SECTION 2 ===================== -->
-  <section id="s2" data-label="Vision">
-    <div class="wrap">
-      <h2 class="HeroHeadline reveal" data-i18n="s2.h2">The future of investing<br>will be <span class="gold">autonomous.</span></h2>
-      <div class="vision-copy reveal d1">
-        <p class="body" data-i18n="s2.l1">For centuries, capital was managed by humans.</p>
-        <p class="body" data-i18n="s2.l2">Tomorrow, it will be managed by intelligent AI agents.</p>
-        <p class="body" data-i18n="s2.l3">ROBOOTEC.AI is building the infrastructure that makes this possible.</p>
-      </div>
-
-      <div class="timeline reveal d2">
-        <div class="stage">
-          <h3 data-i18n="s2.stage1.t">Human Investors</h3><span data-i18n="s2.stage1.s">Intuition &amp; experience</span>
-        </div>
-        <div class="arrow" aria-hidden="true">→</div>
-        <div class="stage">
-          <h3 data-i18n="s2.stage2.t">Algorithms</h3><span data-i18n="s2.stage2.s">Rules &amp; automation</span>
-        </div>
-        <div class="arrow" aria-hidden="true">→</div>
-        <div class="stage now">
-          <h3 data-i18n="s2.stage3.t">AI Agents</h3><span data-i18n="s2.stage3.s">Autonomous decisions</span>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- ===================== SECTION 3 ===================== -->
@@ -1625,65 +1726,57 @@
 
   <!-- ===================== SECTION 3B — PROBLEM ===================== -->
   <section id="s3b" data-label="Problem">
-    <div class="wrap">
-      <div class="problem-head">
-        <div>
-          <div class="eyebrow reveal" data-i18n="s3b.eyebrow">The problem</div>
-          <h2 class="HeroHeadline reveal d1" data-i18n="s3b.h2">More information than<br>humans can <span class="gold">process.</span></h2>
-        </div>
+    <div class="problem-final">
+      <div class="eyebrow reveal" data-i18n="s3b.eyebrow">Problem</div>
+      <h2 class="HeroHeadline reveal d1" data-i18n="s3b.h2">Investors decide <span class="problem-accent">based on emotions,</span><br>not on <span class="problem-accent">data and strategy.</span></h2>
 
-        <ol class="problem-points reveal d2">
-          <li><span class="point-num">01</span><span data-i18n="s3b.p1">Markets create a continuous stream of data and signals.</span></li>
-          <li><span class="point-num">02</span><span data-i18n="s3b.p2">Human processing capacity is inherently limited.</span></li>
-          <li><span class="point-num">03</span><span data-i18n="s3b.p3">Delay turns valuable signals into missed opportunities.</span></li>
-        </ol>
+      <div class="problem-pillars reveal d2">
+        <article class="problem-pillar">
+          <h3 data-i18n="s3b.pillar1.t">Emotions drive decisions.</h3>
+          <p data-i18n="s3b.pillar1.p">Fear, greed and impulsive trades lead to losses.</p>
+        </article>
+        <article class="problem-pillar">
+          <h3 data-i18n="s3b.pillar2.t">Professional tools are fragmented.</h3>
+          <p data-i18n="s3b.pillar2.p">Analysis, strategy, testing and execution live in separate systems.</p>
+        </article>
+        <article class="problem-pillar">
+          <h3 data-i18n="s3b.pillar3.t">The market produces more information than a person can handle.</h3>
+          <p data-i18n="s3b.pillar3.p">Investment opportunities appear and disappear faster than humans can evaluate them.</p>
+        </article>
       </div>
 
-      <div class="capacity-visual reveal d3">
-        <svg class="capacity-diagram" viewBox="0 0 1220 280" role="img" aria-label="Information streams exceeding human processing capacity">
-          <rect class="capacity-frame" x="1" y="1" width="1218" height="278" rx="28"/>
-          <line class="capacity-divider" x1="414" y1="18" x2="414" y2="262"/>
-          <line class="capacity-divider" x1="820" y1="18" x2="820" y2="262"/>
+      <div class="problem-system reveal d3">
+        <div class="problem-flow">
+          <svg class="problem-flow-lines" viewBox="0 0 1320 220" aria-hidden="true">
+            <defs>
+              <linearGradient id="problemFlowTop" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#4C63FF"/><stop offset="1" stop-color="#6B55FF"/></linearGradient>
+              <linearGradient id="problemFlowBottom" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#35B99C"/><stop offset="1" stop-color="#4C63FF"/></linearGradient>
+            </defs>
+            <path d="M330 42 C470 42 490 106 650 106" fill="none" stroke="url(#problemFlowTop)" stroke-width="2.2"/>
+            <path d="M330 108 C470 108 505 108 650 108" fill="none" stroke="#8755FF" stroke-width="2" stroke-dasharray="9 8"/>
+            <path d="M330 174 C470 174 490 110 650 110" fill="none" stroke="url(#problemFlowBottom)" stroke-width="2.2"/>
+            <circle cx="330" cy="42" r="5" fill="#4C63FF"/><circle cx="330" cy="108" r="5" fill="#8755FF"/><circle cx="330" cy="174" r="5" fill="#35B99C"/>
+            <path d="M670 108 C810 108 845 108 1045 108" fill="none" stroke="#FF727B" stroke-width="2" stroke-dasharray="9 8"/>
+            <circle cx="1045" cy="108" r="5" fill="#FF727B"/>
+          </svg>
 
-          <text class="flow-kicker" x="48" y="42" data-i18n="s3b.flow.inputs">LARGE VOLUME OF INFORMATION</text>
-          <text class="flow-kicker" x="617" y="42" text-anchor="middle" data-i18n="s3b.flow.capacity">LIMITED HUMAN CAPACITY</text>
-          <text class="flow-kicker" x="1019" y="42" text-anchor="middle" data-i18n="s3b.flow.outcome">DECISION OUTCOME</text>
+          <div class="problem-inputs">
+            <div class="problem-input"><i class="problem-input-dot" style="--dot:#4C63FF"></i><div><b data-i18n="s3b.input1.t">Data</b><span data-i18n="s3b.input1.p">Market data, news, sentiment</span></div></div>
+            <div class="problem-input"><i class="problem-input-dot" style="--dot:#8755FF"></i><div><b data-i18n="s3b.input2.t">Emotions</b><span data-i18n="s3b.input2.p">Fear, greed, impulsivity</span></div></div>
+            <div class="problem-input"><i class="problem-input-dot" style="--dot:#35B99C"></i><div><b data-i18n="s3b.input3.t">Fragmented tools</b><span data-i18n="s3b.input3.p">Analysis, strategy, testing, execution</span></div></div>
+          </div>
 
-          <g>
-            <text class="flow-label" x="48" y="84" data-i18n="s3b.in.market">Market Data</text>
-            <text class="flow-label" x="48" y="120" data-i18n="s3b.in.news">News</text>
-            <text class="flow-label" x="48" y="156" data-i18n="s3b.in.macro">Macroeconomics</text>
-            <text class="flow-label" x="48" y="192" data-i18n="s3b.in.social">Sentiment</text>
-          </g>
+          <div class="problem-bottleneck">
+            <div class="problem-bottleneck-label" data-i18n="s3b.bottleneck">Too much information<br>and no unified system</div>
+            <div class="problem-bottleneck-core"><i class="problem-neck-line"></i><i class="problem-neck-slot"></i></div>
+          </div>
 
-          <g>
-            <path class="flow-line secondary" d="M218 79 C380 79 483 103 588 130"/>
-            <path class="flow-line secondary" d="M218 115 C390 115 493 120 588 137"/>
-            <path class="flow-line secondary" d="M218 151 C390 151 493 150 588 147"/>
-            <path class="flow-line secondary" d="M218 187 C380 187 483 170 588 154"/>
-            <circle cx="218" cy="79" r="4.5" fill="#4C63FF"/>
-            <circle cx="218" cy="115" r="4.5" fill="#4C63FF"/>
-            <circle cx="218" cy="151" r="4.5" fill="#4C63FF"/>
-            <circle cx="218" cy="187" r="4.5" fill="#4C63FF"/>
-          </g>
-
-          <g>
-            <line class="capacity-wall" x1="617" y1="62" x2="617" y2="121"/>
-            <line class="capacity-wall" x1="617" y1="171" x2="617" y2="230"/>
-            <rect class="capacity-slot" x="611" y="134" width="12" height="24" rx="6"/>
-            <path class="flow-line" d="M617 146 C728 146 791 100 952 100"/>
-            <path class="flow-line lost" d="M617 146 C666 174 702 198 771 199 H952"/>
-            <text class="flow-kicker" x="617" y="258" text-anchor="middle" data-i18n="s3b.neck">HUMAN BOTTLENECK</text>
-          </g>
-
-          <g>
-            <circle cx="952" cy="100" r="5.5" fill="#4C63FF"/>
-            <text class="flow-result" x="976" y="107" data-i18n="s3b.out.time">Information processed in time</text>
-
-            <circle cx="952" cy="199" r="5.5" fill="#7B4DFF"/>
-            <text class="flow-result missed" x="976" y="206" data-i18n="s3b.out.missed">Missed opportunities</text>
-          </g>
-        </svg>
+          <div class="problem-outcome">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 10l12 12 8-8 16 17" fill="none" stroke="#FF5A67" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M33 31h9v-9" fill="none" stroke="#FF5A67" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div><b data-i18n="s3b.outcome.t">Inconsistent<br>decisions</b><span data-i18n="s3b.outcome.p">Losses and lower returns</span></div>
+          </div>
+        </div>
+        <div class="problem-stat" data-i18n="s3b.stat"><strong>Up to 95%</strong> of retail traders lose money.</div>
       </div>
     </div>
   </section>
@@ -1726,7 +1819,7 @@
           <h3 class="process-title" data-i18n="s4.a6">Trade execution</h3>
         </div>
       </div>
-      <p class="process-note reveal d3" data-i18n="s4.note">Together, they create an <span class="gold">autonomous AI system</span> capable of turning data <span class="gold">in real time</span><br>into investment decisions.</p>
+      <p class="process-note slide-claim reveal d3" data-i18n="s4.note">Together, they create an <span class="gold">autonomous AI system</span> capable of turning data <span class="gold">in real time</span><br>into investment decisions.</p>
     </div>
   </section>
 
@@ -1734,7 +1827,7 @@
   <section id="s5" data-label="Validation">
     <div class="wrap">
       <div class="eyebrow reveal" data-i18n="s5.eyebrow">Validation</div>
-      <h2 class="HeroHeadline reveal d1" data-i18n="s5.h2">Real results,<br>not marketing<br><span class="gold">numbers.</span></h2>
+      <h2 class="HeroHeadline reveal d1" data-i18n="s5.h2">Real results<br><span class="gold">beta version.</span></h2>
       <div class="val-grid" style="margin-top:22px">
         <div class="val-copy">
           <ul class="checks reveal d2">
@@ -1758,7 +1851,6 @@
             <span class="purple">Paper trading</span>
             <span class="green" data-i18n="s5.signals">Signals</span>
           </div>
-          <div class="web-proof-value">+139 %</div>
           <svg class="web-chart" viewBox="0 0 720 330" role="img" aria-label="Backtest, paper trading and live signals compared with SPY">
             <defs>
               <linearGradient id="blueArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#4C63FF" stop-opacity=".24"/><stop offset="100%" stop-color="#4C63FF" stop-opacity="0"/></linearGradient>
@@ -1791,6 +1883,7 @@
           <p class="mm-note" data-i18n="s5.note">Average demo results of top 10 strategies.</p>
         </div>
       </div>
+      <p class="validation-claim slide-claim reveal d3" data-i18n="s5.claim"><span class="validation-count">40 traders</span> involved in beta testing.</p>
     </div>
   </section>
 
@@ -1940,7 +2033,7 @@
   <!-- ===================== SECTION 6 ===================== -->
   <section id="s6" data-label="Markets">
     <div class="wrap">
-      <div class="eyebrow reveal" data-i18n="s6.eyebrow">Business model</div>
+      <div class="eyebrow reveal" data-i18n="s6.eyebrow">Products</div>
       <h2 class="HeroHeadline reveal" data-i18n="s6.h2">One AI platform.<br><span class="gold">Two markets.</span></h2>
       <div class="markets">
         <div class="market b2c reveal d1">
@@ -2072,7 +2165,7 @@
       </div>
 
       <div class="business-upside reveal d3">
-        <p class="business-upside-main" data-i18n="s6a.upside">Additional potential: paid features, data and integrations; after regulatory clearance, automated trading, capital management and performance fees.</p>
+        <p class="business-upside-main slide-claim" data-i18n="s6a.upside">Additional potential: paid features, data and integrations; after regulatory clearance, automated trading, capital management and performance fees.</p>
       </div>
     </div>
   </section>
@@ -2219,7 +2312,7 @@
         </table>
       </div>
 
-      <p class="competition-claim reveal d3" data-i18n="s6c.claim">NE další tradingový nástroj, ale JEDEN autonomní AI systém pro celý investiční proces.</p>
+      <p class="competition-claim slide-claim reveal d3" data-i18n="s6c.claim">NE další tradingový nástroj, ale JEDEN autonomní AI systém pro celý investiční proces.</p>
     </div>
   </section>
 
@@ -2324,7 +2417,7 @@
         </article>
       </div>
 
-      <p class="road-foot reveal d3" data-i18n="s6b.foot">Vibe Trading connects platform validation with first revenue while development of the main MVP continues.</p>
+      <p class="road-foot slide-claim reveal d3" data-i18n="s6b.foot"><span class="road-accent">Vibe Trading</span> connects platform validation with first revenue<br>while development of the main MVP continues.</p>
     </div>
   </section>
 
@@ -2384,7 +2477,7 @@
           <div class="investment-use-title" data-i18n="s8.use.title">Capital will be used for</div>
           <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.1">Completing platform and MVP development</span></div>
           <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.2">Vibe Trading and go-to-market</span></div>
-          <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.3">Marketing and acquiring the first paying users</span></div>
+          <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.3">Sales and acquiring the first paying users</span></div>
           <div class="investment-use-row"><span class="dot" aria-hidden="true"></span><span class="text" data-i18n="s8.use.4">Operations and technology infrastructure</span></div>
         </div>
       </div>
@@ -2418,6 +2511,15 @@
 
 <script>
   const deck = document.getElementById('deck');
+  // Remove the retired standalone "Future of investing" slide.
+  document.getElementById('s2')?.remove();
+  // Final investor-deck order. Sections keep their own markup and styling;
+  // only their presentation order is changed here.
+  const finalSlideOrder = ['s2f','s1','s3b','s4','s5','s5b','s3','s5c','s6','s6a','s6c','s6b','s7','s8','s9'];
+  finalSlideOrder.forEach(id => {
+    const section = document.getElementById(id);
+    if(section) deck.appendChild(section);
+  });
   const sections = Array.from(deck.querySelectorAll('section'));
   const progress = document.getElementById('progress');
   const dotsNav = document.getElementById('dots');
@@ -2488,6 +2590,19 @@
       "s1.kicker":"Predictive AI for capital management",
       "s1.h1":"<span class=\"headline-line signature-highlight\">Predictive AI trading</span><span class=\"headline-line\">platform for <span class=\"signature-highlight\">autonomous investing</span></span><span class=\"headline-line\">in financial markets</span>",
       "s2f.p1":"It bothered us that professional technology and higher returns were available mainly to large hedge funds and a handful of top traders.","s2f.p2":"Everyone else pieces together several tools, makes decisions under emotional and time pressure — and too often ends up with small returns or losses.","s2f.p3":"That is why we are building <strong>ROBOOTEC.AI</strong>. One accessible autonomous system designed to give retail traders and smaller investment firms the same opportunity.","s2f.signoff":"Radek &amp; Markéta","s2f.role":"founders of ROBOOTEC.AI",
+      "s3b.eyebrow":"Problem",
+      "s3b.h2":"Investors decide <span class=\"problem-accent\">based on emotions,</span><br>not on <span class=\"problem-accent\">data and strategy.</span>",
+      "s3b.pillar1.t":"Emotions drive decisions.","s3b.pillar1.p":"Fear, greed and impulsive trades lead to losses.",
+      "s3b.pillar2.t":"Professional tools are fragmented.","s3b.pillar2.p":"Analysis, strategy, testing and execution live in separate systems.",
+      "s3b.pillar3.t":"The market produces more information than a person can handle.","s3b.pillar3.p":"Investment opportunities appear and disappear faster than humans can evaluate them.",
+      "s3b.input1.t":"Data","s3b.input1.p":"Market data, news, sentiment",
+      "s3b.input2.t":"Emotions","s3b.input2.p":"Fear, greed, impulsivity",
+      "s3b.input3.t":"Fragmented tools","s3b.input3.p":"Analysis, strategy, testing, execution",
+      "s3b.bottleneck":"Too much information<br>and no unified system",
+      "s3b.outcome.t":"Inconsistent<br>decisions","s3b.outcome.p":"Losses and lower returns",
+      "s3b.stat":"<strong>Up to 95%</strong> of retail traders lose money.",
+      "s5.h2":"Real results<br><span class=\"gold\">beta version.</span>",
+      "s5.claim":"<span class=\"validation-count\">40 traders</span> involved in beta testing.",
       "s6c.binary.h2":"From tools<br><span class=\"gold\">to an autonomous system.</span>",
       "s6c.binary.intro":"Competitors offer advanced tools for analysis, strategy and automation.<br>ROBOOTEC.AI connects them into a single AI system — from investment goal through strategy validation to execution.",
       "s6c.binary.workflowLabel":"From goal to execution",
@@ -2548,6 +2663,16 @@
       "s3b.neck":"ÚZKÉ HRDLO",
       "s3b.out.time":"Informace zpracované včas","s3b.out.late":"NEZPRACOVÁNO VČAS",
       "s3b.out.missed":"Zmeškané příležitosti",
+      "s3b.pillar1.t":"Emoce ovlivňují rozhodování.","s3b.pillar1.p":"Strach, chamtivost a impulzivní obchody vedou ke ztrátám.",
+      "s3b.pillar2.t":"Profesionální nástroje jsou roztříštěné.","s3b.pillar2.p":"Analýza, strategie, testování a exekuce fungují v oddělených systémech.",
+      "s3b.pillar3.t":"Trh generuje více informací, než člověk zvládne.","s3b.pillar3.p":"Investiční příležitosti vznikají a mizí rychleji, než je člověk dokáže vyhodnotit.",
+      "s3b.input1.t":"Data","s3b.input1.p":"Tržní data, zprávy, sentiment",
+      "s3b.input2.t":"Emoce","s3b.input2.p":"Strach, chamtivost, impulzivita",
+      "s3b.input3.t":"Roztříštěné nástroje","s3b.input3.p":"Analýza, strategie, testování, exekuce",
+      "s3b.bottleneck":"Příliš mnoho informací<br>a žádný jednotný systém",
+      "s3b.outcome.t":"Nekonzistentní<br>rozhodování","s3b.outcome.p":"Ztráty a nižší výnosy",
+      "s3b.stat":"<strong>Až 95 %</strong> retailových obchodníků končí ve ztrátě.",
+      "s3b.h2":"Investoři rozhodují <span class=\"problem-accent\">na základě emocí,</span><br>ne na základě <span class=\"problem-accent\">dat a strategie.</span>",
 
       "s4.eyebrow":"Řešení",
       "s4.h2":"AI agenti pro autonomní<br><span class=\"gold\">správu kapitálu.</span>",
@@ -2557,7 +2682,8 @@
       "s4.note":"Společně vytvářejí <span class=\"gold\">autonomní AI systém</span> schopný proměnit data <span class=\"gold\">v reálném čase</span><br>na investiční rozhodnutí.",
 
       "s5.eyebrow":"Validace",
-      "s5.h2":"Reálné výsledky,<br>ne marketingová<br><span class=\"gold\">čísla.</span>",
+      "s5.h2":"Reálné výsledky<br><span class=\"gold\">beta verze.</span>",
+      "s5.claim":"<span class=\"validation-count\">40 traderů</span> zapojeno do testování beta verze.",
       "s5.c1":"PoC / demo",
       "s5.c3":"Přímá spolupráce s naším týmem","s5.c4":"Vlastní AI architektura","s5.c5":"Testování na reálných trzích",
       "s5.mmlabel":"Validační pipeline",
@@ -2610,7 +2736,7 @@
       "s5c.scale.2028.copy":"Ověřený model, mezinárodní expanze",
       "s5c.source":"Zdroj: Grand View Research — Algorithmic Trading Market ($42,99 mld. / 2030); AI Trading Platform Market ($33,5 mld. / 2030).",
 
-"s6.eyebrow":"Byznys model",
+"s6.eyebrow":"Produkty",
 "s6.h2":"Jedna AI platforma.<br><span class=\"gold\">Dva trhy.</span>",
       "s6.platform":"Platforma",
       "s6.b2c.h3":"Vibe Trading",
@@ -2738,7 +2864,7 @@
       "s6b.m7.l1":"Institucionální řešení",
       "s6b.m7.l2":"Nové produkty",
       "s6b.m7.l3":"Globální expanze",
-      "s6b.foot":"Vibe Trading propojuje validaci platformy s prvním revenue, zatímco pokračuje vývoj hlavního MVP.",
+      "s6b.foot":"<span class=\"road-accent\">Vibe Trading</span> propojuje validaci platformy s prvním revenue,<br>zatímco pokračuje vývoj hlavního MVP.",
 
       "s7.eyebrow":"Tým",
       "s7.h2":"Kompletní tým pro realizaci produktu<br><span class=\"gold\">a růst firmy.</span>",
@@ -2762,7 +2888,7 @@
       "s8.use.title":"Kapitál využijeme na:",
       "s8.use.1":"Dokončení vývoje platformy a MVP",
       "s8.use.2":"Vibe Trading a go-to-market",
-      "s8.use.3":"Marketing a získání prvních platících uživatelů",
+      "s8.use.3":"Sales a získání prvních platících uživatelů",
       "s8.use.4":"Provoz a technologickou infrastrukturu",
       "s8.summary.main":"Investice nám umožní urychlit cestu k MVP, získat první platící uživatele a <span class=\"gold\">generovat tržby</span> již během této fáze.",
       "s8.summary.sub":"Investici doplníme vlastními zdroji a prvními příjmy z Vibe Trading.",
@@ -2860,6 +2986,7 @@
     entries.forEach(e=>{
       if(e.isIntersecting){
         document.body.classList.toggle('founders-active',e.target.id==='s2f');
+        document.body.classList.toggle('problem-slide-active',e.target.id==='s3b');
         e.target.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
         const idx=sections.indexOf(e.target);
         if(idx>-1){
