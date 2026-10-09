@@ -346,6 +346,15 @@
   .hero-geometry{stroke:var(--light-bg);stroke-width:1;fill:none}
   #s1 .reveal{opacity:1;transform:none;transition:none}
 
+  /* ================= SECTION 2 — FOUNDERS ================= */
+  #s2f{padding:0;background:#fff;overflow:hidden}
+  #s2f .founders-letter{position:absolute;inset:0;margin:0;display:flex;align-items:center;justify-content:center;background:#fff}
+  #s2f .founders-letter img{display:block;width:100%;height:100%;object-fit:contain}
+  body.founders-active .brandbar,
+  body.founders-active nav.dots,
+  body.founders-active .hint,
+  body.founders-active .progress{opacity:0;pointer-events:none}
+
   /* ================= SECTION 2 — EVOLUTION ================= */
   #s2 .HeroHeadline{
     max-width:1080px;
@@ -1413,6 +1422,7 @@
     nav.dots{right:14px}
   }
   @media (max-width:680px){
+
     section{padding:88px 22px}
     .slide-corner-logo{right:18px;width:250px;opacity:.72}
     #s1 .slide-corner-logo{bottom:24px}
@@ -1501,6 +1511,13 @@
       <h1 class="HeroHeadline reveal d1" data-i18n="s1.h1"><span class="headline-line signature-highlight">Prediktivní AI trading</span><span class="headline-line">platforma pro <span class="signature-highlight">autonomní obchodování</span></span><span class="headline-line">na finančních trzích</span></h1>
     </div>
     <img class="slide-corner-logo" src="assets/robootecai-vector-dlouhe.svg" alt="ROBOOTEC.AI">
+  </section>
+
+  <!-- ===================== SECTION 2 — FOUNDERS ===================== -->
+  <section id="s2f" data-label="Founders">
+    <figure class="founders-letter">
+      <img src="assets/founders-letter-cz-final.png" data-src-cz="assets/founders-letter-cz-final.png" data-src-en="assets/founders-letter-en-final.png" alt="Zakladatelský dopis Radka a Markéty">
+    </figure>
   </section>
 
   <!-- ===================== SECTION 2 ===================== -->
@@ -2470,6 +2487,7 @@
     en: {
       "s1.kicker":"Predictive AI for capital management",
       "s1.h1":"<span class=\"headline-line signature-highlight\">Predictive AI trading</span><span class=\"headline-line\">platform for <span class=\"signature-highlight\">autonomous investing</span></span><span class=\"headline-line\">in financial markets</span>",
+      "s2f.p1":"It bothered us that professional technology and higher returns were available mainly to large hedge funds and a handful of top traders.","s2f.p2":"Everyone else pieces together several tools, makes decisions under emotional and time pressure — and too often ends up with small returns or losses.","s2f.p3":"That is why we are building <strong>ROBOOTEC.AI</strong>. One accessible autonomous system designed to give retail traders and smaller investment firms the same opportunity.","s2f.signoff":"Radek &amp; Markéta","s2f.role":"founders of ROBOOTEC.AI",
       "s6c.binary.h2":"From tools<br><span class=\"gold\">to an autonomous system.</span>",
       "s6c.binary.intro":"Competitors offer advanced tools for analysis, strategy and automation.<br>ROBOOTEC.AI connects them into a single AI system — from investment goal through strategy validation to execution.",
       "s6c.binary.workflowLabel":"From goal to execution",
@@ -2495,6 +2513,7 @@
 
       "s1.kicker":"Prediktivní AI pro správu kapitálu",
       "s1.h1":"<span class=\"headline-line signature-highlight\">Prediktivní AI trading</span><span class=\"headline-line\">platforma pro <span class=\"signature-highlight\">autonomní obchodování</span></span><span class=\"headline-line\">na finančních trzích</span>",
+      "s2f.p1":"Vadilo nám, že profesionální technologie a vyšší zhodnocení jsou dostupné hlavně velkým hedgeovým fondům a několika nejlepším traderům.","s2f.p2":"Většina ostatních skládá několik nástrojů, rozhoduje pod tlakem emocí a času — a často končí u drobného zhodnocení nebo ve ztrátě.","s2f.p3":"Proto stavíme <strong>ROBOOTEC.AI</strong>. Jeden dostupný autonomní systém, který má dát stejné možnosti retailovým traderům a menším investičním společnostem.","s2f.signoff":"Radek &amp; Markéta","s2f.role":"zakladatelé ROBOOTEC.AI",
 
       "s2.h2":"Budoucnost investování<br>bude <span class=\"gold\">autonomní.</span>",
       "s2.l1":"Po staletí byl kapitál řízen lidmi.",
@@ -2788,6 +2807,11 @@
     document.querySelectorAll('[data-price-cz]').forEach(el=>{
       el.innerHTML = lang === 'en' ? el.dataset.priceEn : el.dataset.priceCz;
     });
+    const foundersLetter = document.querySelector('#s2f .founders-letter img');
+    if(foundersLetter){
+      foundersLetter.src = lang === 'en' ? foundersLetter.dataset.srcEn : foundersLetter.dataset.srcCz;
+      foundersLetter.alt = lang === 'en' ? 'Founders letter from Radek and Markéta' : 'Zakladatelský dopis Radka a Markéty';
+    }
     if(competitionVariant === 'competition-binary1'){
       const binaryIntro = document.querySelector('#s6c .competition-matrix-intro');
       if(binaryIntro) binaryIntro.innerHTML = lang === 'cz'
@@ -2835,6 +2859,7 @@
   const io=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
+        document.body.classList.toggle('founders-active',e.target.id==='s2f');
         e.target.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
         const idx=sections.indexOf(e.target);
         if(idx>-1){
