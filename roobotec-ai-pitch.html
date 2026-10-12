@@ -2528,7 +2528,7 @@
   document.getElementById('s2')?.remove();
   // Final investor-deck order. Sections keep their own markup and styling;
   // only their presentation order is changed here.
-  const finalSlideOrder = ['s2f','s1','s3b','s4','s5','s5b','s3','s5c','s6','s6a','s6c','s6b','s7','s8','s9'];
+  const finalSlideOrder = ['s1','s2f','s5b','s5','s3b','s4','s3','s5c','s6','s6a','s6c','s6b','s7','s8','s9'];
   finalSlideOrder.forEach(id => {
     const section = document.getElementById(id);
     if(section) deck.appendChild(section);
